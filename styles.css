@@ -254,3 +254,37 @@ footer {
 .opciones-nom input[type="radio"] {
   accent-color: #0b3c5d;
 }
+/* SELECTOR DE GUÍA NOM-035 */
+.selector-guia-box {
+  background-color: #f1f5f9;
+  border-left: 5px solid #0b3c5d;
+  padding: 18px 20px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.selector-guia-box label {
+  color: #0b3c5d;
+  font-size: 15px;
+}
+
+.form-select {
+  padding: 12px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1e293b;
+  background-color: #ffffff;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-select:focus {
+  border-color: #0b3c5d;
+}
+

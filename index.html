@@ -42,15 +42,24 @@
     </div>
   </section>
 
-  <!-- MÓDULO NOM-035 GUÍA II COMPLETA -->
+  <!-- MÓDULO NOM-035 GUÍAS II & III -->
   <section id="nom035" class="section bg-light">
     <div class="container">
       <h2 class="section-title">Consultoría Corporativa NOM-035-STPS</h2>
-      <p class="section-sub">Cuestionario oficial: Identificación y análisis de los factores de riesgo psicosocial (Guía de Referencia II - 46 reactivos).</p>
+      <p class="section-sub">Cuestionario oficial: Identificación y análisis de los factores de riesgo psicosocial y evaluación del entorno organizacional.</p>
 
       <div class="form-container">
         <h3>Evaluación Oficial de Factores de Riesgo Psicosocial</h3>
-        <p class="instrucciones">Lea con atención cada afirmación y seleccione la opción que mejor describa las condiciones de su trabajo durante los últimos meses. Toda respuesta es estrictamente confidencial.</p>
+        <p class="instrucciones">Seleccione el tamaño de su centro de trabajo para desplegar el instrumento normativo correspondiente según la NOM-035-STPS-2018.</p>
+
+        <!-- SELECTOR DE GUÍA NORMATIVA -->
+        <div class="selector-guia-box">
+          <label for="selectorGuia"><strong>Tamaño del Centro de Trabajo / Instrumento:</strong></label>
+          <select id="selectorGuia" class="form-select">
+            <option value="II">Guía de Referencia II (16 a 50 colaboradores — 46 reactivos)</option>
+            <option value="III">Guía de Referencia III (Más de 50 colaboradores — 72 reactivos)</option>
+          </select>
+        </div>
 
         <form id="formulario-nom035">
           <!-- DATOS GENERALES -->
@@ -63,7 +72,7 @@
             <input type="text" id="puesto" placeholder="Puesto o Área de trabajo *" required>
           </div>
 
-          <!-- CONTENEDOR DINÁMICO DE LAS 46 PREGUNTAS -->
+          <!-- CONTENEDOR DINÁMICO DE PREGUNTAS -->
           <div id="contenedor-preguntas"></div>
 
           <!-- BOTÓN DE ENVÍO -->
