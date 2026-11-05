@@ -203,3 +203,54 @@ footer {
     gap: 10px;
   }
 }
+/* ESTILOS PARA LA GUÍA II NOM-035 */
+.categoria-header {
+  background-color: #0b3c5d; /* Azul Helénico */
+  color: white;
+  padding: 12px 18px;
+  border-radius: 8px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.categoria-header h4 {
+  color: white;
+  margin: 0;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.pregunta-texto {
+  font-size: 15px;
+  color: #1e293b;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.opciones-nom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.opciones-nom label {
+  background: white;
+  border: 1px solid #cbd5e1;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.opciones-nom label:hover {
+  border-color: #7a9a82;
+  background-color: #f1f5f9;
+}
+
+.opciones-nom input[type="radio"] {
+  accent-color: #0b3c5d;
+}
