@@ -231,22 +231,49 @@ function calcularNivelRiesgo(puntajeTotal, tipoGuia) {
 // RE-RENDERIZAR SI CAMBIA EL SELECTOR
 document.getElementById("selectorGuia").addEventListener("change", renderizarPreguntas);
 
-// GESTIÓN DEL ENVÍO
+// GESTIÓN DEL ENVÍO CON DESGLOSE MULTIDIMENSIONAL
 document.getElementById("formulario-nom035").addEventListener("submit", async function(e) {
   e.preventDefault();
 
   const boton = document.getElementById("btn-enviar");
-  boton.innerText = "Calculando puntajes y enviando a la base...";
+  boton.innerText = "Calculando dimensiones y enviando a la base...";
   boton.disabled = true;
 
   const tipoGuia = document.getElementById("selectorGuia").value;
   const listaReactivos = obtenerBateriaActiva();
 
   let sumaPuntaje = 0;
+  // Acumuladores por dimensión normativa
+  let dimAmbiente = 0;
+  let dimCargaControl = 0;
+  let dimTiempo = 0;
+  let dimLiderazgoRelaciones = 0;
+  let dimViolencia = 0;
+  let dimEntorno = 0;
+
   for (let i = 1; i <= listaReactivos.length; i++) {
     const radioSeleccionado = document.querySelector(`input[name="p_${i}"]:checked`);
     if (radioSeleccionado) {
-      sumaPuntaje += parseInt(radioSeleccionado.value, 10);
+      const valor = parseInt(radioSeleccionado.value, 10);
+      sumaPuntaje += valor;
+
+      const reactivo = listaReactivos.find(r => r.id === i);
+      if (reactivo) {
+        const cat = reactivo.cat.toLowerCase();
+        if (cat.includes("ambiente") || cat.includes("condiciones")) {
+          dimAmbiente += valor;
+        } else if (cat.includes("carga") || cat.includes("control") || cat.includes("actividad")) {
+          dimCargaControl += valor;
+        } else if (cat.includes("jornada") || cat.includes("tiempo") || cat.includes("familiar")) {
+          dimTiempo += valor;
+        } else if (cat.includes("liderazgo") || cat.includes("relaciones") || cat.includes("cargo")) {
+          dimLiderazgoRelaciones += valor;
+        } else if (cat.includes("violencia")) {
+          dimViolencia += valor;
+        } else if (cat.includes("entorno") || cat.includes("reconocimiento") || cat.includes("permanencia")) {
+          dimEntorno += valor;
+        }
+      }
     }
   }
 
@@ -260,7 +287,15 @@ document.getElementById("formulario-nom035").addEventListener("submit", async fu
     puesto: document.getElementById("puesto").value.trim(),
     guia: nombreGuia,
     puntajeTotal: sumaPuntaje,
-    nivelRiesgo: nivelRiesgo
+    nivelRiesgo: nivelRiesgo,
+    dimensiones: {
+      ambiente: dimAmbiente,
+      cargaControl: dimCargaControl,
+      tiempo: dimTiempo,
+      liderazgoRelaciones: dimLiderazgoRelaciones,
+      violencia: dimViolencia,
+      entorno: dimEntorno
+    }
   };
 
   try {
@@ -277,8 +312,8 @@ document.getElementById("formulario-nom035").addEventListener("submit", async fu
             `Empresa: ${payload.empresa}\n` +
             `Instrumento: ${nombreGuia}\n` +
             `Puntaje Total: ${sumaPuntaje} pts\n` +
-            `Nivel de Riesgo Normativo: ${nivelRiesgo}\n\n` +
-            `La información ha quedado archivada en la base diagnóstica.`);
+            `Nivel de Riesgo Global: ${nivelRiesgo}\n\n` +
+            `Desglose capturado correctamente para el informe técnico.`);
       document.getElementById("formulario-nom035").reset();
       renderizarPreguntas();
       window.scrollTo({ top: document.getElementById("nom035").offsetTop, behavior: "smooth" });
@@ -293,6 +328,3 @@ document.getElementById("formulario-nom035").addEventListener("submit", async fu
     boton.disabled = false;
   }
 });
-
-// Inicializar el cuestionario al cargar
-renderizarPreguntas();
