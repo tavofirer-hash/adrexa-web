@@ -328,3 +328,121 @@ document.getElementById("formulario-nom035").addEventListener("submit", async fu
     boton.disabled = false;
   }
 });
+// ==========================================
+// MÓDULO GUÍA I: ACONTECIMIENTOS TRAUMÁTICOS
+// ==========================================
+
+// Alternar entre pestañas
+function cambiarModulo(modulo) {
+  const modATS = document.getElementById("modulo-ats");
+  const modFactores = document.getElementById("modulo-factores");
+  const tabATS = document.getElementById("tab-ats");
+  const tabFactores = document.getElementById("tab-factores");
+
+  if (modulo === "ATS") {
+    modATS.style.display = "block";
+    modFactores.style.display = "none";
+    tabATS.classList.add("active");
+    tabFactores.classList.remove("active");
+  } else {
+    modATS.style.display = "none";
+    modFactores.style.display = "block";
+    tabATS.classList.remove("active");
+    tabFactores.classList.add("active");
+  }
+}
+
+// Mostrar secciones II, III y IV solo si respondió "Sí" a algún reactivo de la Sección I
+function verificarSeccionI() {
+  const r1 = document.querySelector('input[name="ats_1"]:checked')?.value === 'si';
+  const r2 = document.querySelector('input[name="ats_2"]:checked')?.value === 'si';
+  const r3 = document.querySelector('input[name="ats_3"]:checked')?.value === 'si';
+  const r4 = document.querySelector('input[name="ats_4"]:checked')?.value === 'si';
+
+  const bloqueSintomas = document.getElementById("bloque-sintomas-ats");
+  if (r1 || r2 || r3 || r4) {
+    bloqueSintomas.style.display = "block";
+  } else {
+    bloqueSintomas.style.display = "none";
+  }
+}
+
+// Envío del cuestionario Guía I (ATS)
+document.getElementById("formulario-ats").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const boton = document.getElementById("btn-enviar-ats");
+  boton.innerText = "Evaluando tamizaje...";
+  boton.disabled = true;
+
+  const r1 = document.querySelector('input[name="ats_1"]:checked')?.value === 'si';
+  const r2 = document.querySelector('input[name="ats_2"]:checked')?.value === 'si';
+  const r3 = document.querySelector('input[name="ats_3"]:checked')?.value === 'si';
+  const r4 = document.querySelector('input[name="ats_4"]:checked')?.value === 'si';
+  const vivioEvento = (r1 || r2 || r3 || r4);
+
+  let requiereValoracion = false;
+  let dictamenATS = "No requiere valoración clínica por Acontecimientos Traumáticos Severos.";
+
+  if (vivioEvento) {
+    // Conteo por secciones clínicas según NOM-035:
+    // Sección II (Recuerdos persistentes): reactivos 5 y 6
+    const secII = [5, 6].filter(id => document.querySelector(`input[name="ats_${id}"]:checked`)?.value === 'si').length;
+    // Sección III (Esfuerzo por evitar circunstancias): reactivos 7 a 11
+    const secIII = [7, 8, 9, 10, 11].filter(id => document.querySelector(`input[name="ats_${id}"]:checked`)?.value === 'si').length;
+    // Sección IV (Afectación): reactivos 12 a 16
+    const secIV = [12, 13, 14, 15, 16].filter(id => document.querySelector(`input[name="ats_${id}"]:checked`)?.value === 'si').length;
+
+    // Criterio normativo STPS:
+    // Si tiene: 1 o más en Sección II, O 3 o más en Sección III, O 2 o más en Sección IV -> Requiere valoración
+    if (secII >= 1 || secIII >= 3 || secIV >= 2) {
+      requiereValoracion = true;
+      dictamenATS = "REQUIERE VALORACIÓN CLÍNICA INMEDIATA por afectación postraumática.";
+    }
+  }
+
+  const payload = {
+    empresa: document.getElementById("empresa-ats").value.trim(),
+    idEmpleado: document.getElementById("idEmpleado-ats").value.trim(),
+    nombre: document.getElementById("nombre-ats").value.trim() || "Confidencial",
+    puesto: document.getElementById("puesto-ats").value.trim(),
+    guia: "Guía I Oficial (Acontecimientos Traumáticos - ATS)",
+    puntajeTotal: vivioEvento ? 1 : 0,
+    nivelRiesgo: requiereValoracion ? "Alto (Canalización Urgente)" : "Nulo / Sin afectación",
+    dictamenATS: dictamenATS
+  };
+
+  try {
+    const respuesta = await fetch(WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload)
+    });
+
+    const data = await respuesta.json();
+
+    if (data.status === "success") {
+      if (requiereValoracion) {
+        alert(`⚠️ RESULTADO DEL TAMIZAJE (GUÍA I)\n\n` +
+              `Colaborador: ${payload.idEmpleado}\n` +
+              `Dictamen: ${dictamenATS}\n\n` +
+              `Conforme a la NOM-035-STPS-2018, este colaborador debe ser canalizado a consulta de evaluación psicológica clínica en Clínica Psicológica Adrexa.`);
+      } else {
+        alert(`✅ Cuestionario registrado exitosamente.\n\n` +
+              `Colaborador: ${payload.idEmpleado}\n` +
+              `Dictamen: ${dictamenATS}`);
+      }
+      document.getElementById("formulario-ats").reset();
+      verificarSeccionI();
+      window.scrollTo({ top: document.getElementById("nom035").offsetTop, behavior: "smooth" });
+    } else {
+      alert("Error al registrar: " + data.message);
+    }
+  } catch (err) {
+    console.error(err);
+    alert("Error de conexión al enviar el tamizaje.");
+  } finally {
+    boton.innerText = "Registrar Tamizaje ATS";
+    boton.disabled = false;
+  }
+});

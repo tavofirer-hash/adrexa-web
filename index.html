@@ -42,42 +42,213 @@
     </div>
   </section>
 
-  <!-- MÓDULO NOM-035 GUÍAS II & III -->
+  <!-- MÓDULO NOM-035 INTEGRAL -->
   <section id="nom035" class="section bg-light">
     <div class="container">
       <h2 class="section-title">Consultoría Corporativa NOM-035-STPS</h2>
-      <p class="section-sub">Cuestionario oficial: Identificación y análisis de los factores de riesgo psicosocial y evaluación del entorno organizacional.</p>
+      <p class="section-sub">Plataforma oficial de evaluación psicológica y cumplimiento normativo.</p>
 
       <div class="form-container">
-        <h3>Evaluación Oficial de Factores de Riesgo Psicosocial</h3>
-        <p class="instrucciones">Seleccione el tamaño de su centro de trabajo para desplegar el instrumento normativo correspondiente según la NOM-035-STPS-2018.</p>
-
-        <!-- SELECTOR DE GUÍA NORMATIVA -->
-        <div class="selector-guia-box">
-          <label for="selectorGuia"><strong>Tamaño del Centro de Trabajo / Instrumento:</strong></label>
-          <select id="selectorGuia" class="form-select">
-            <option value="II">Guía de Referencia II (16 a 50 colaboradores — 46 reactivos)</option>
-            <option value="III">Guía de Referencia III (Más de 50 colaboradores — 72 reactivos)</option>
-          </select>
+        <!-- PESTAÑAS SELECTORAS DEL TIPO DE EVALUACIÓN -->
+        <div class="tabs-evaluacion">
+          <button type="button" id="tab-ats" class="btn-tab active" onclick="cambiarModulo('ATS')">
+            ⚠️ Guía I: Acontecimientos Traumáticos (ATS)
+          </button>
+          <button type="button" id="tab-factores" class="btn-tab" onclick="cambiarModulo('FACTORES')">
+            📊 Guía II / III: Factores de Riesgo Psicosocial
+          </button>
         </div>
 
-        <form id="formulario-nom035">
-          <!-- DATOS GENERALES -->
-          <div class="form-row">
-            <input type="text" id="empresa" placeholder="Nombre de la Empresa *" required>
-            <input type="text" id="idEmpleado" placeholder="ID / Folio de Colaborador *" required>
-          </div>
-          <div class="form-row">
-            <input type="text" id="nombre" placeholder="Nombre completo (Opcional)">
-            <input type="text" id="puesto" placeholder="Puesto o Área de trabajo *" required>
+        <!-- MÓDULO 1: GUÍA I - ATS -->
+        <div id="modulo-ats">
+          <h3>Guía de Referencia I: Tamizaje de Acontecimientos Traumáticos Severos</h3>
+          <p class="instrucciones">
+            Este cuestionario permite identificar a trabajadores expuestos a acontecimientos traumáticos severos durante o con motivo del trabajo, y canalizarlos para su debida atención clínica confidencial.
+          </p>
+
+          <form id="formulario-ats">
+            <div class="form-row">
+              <input type="text" id="empresa-ats" placeholder="Nombre de la Empresa *" required>
+              <input type="text" id="idEmpleado-ats" placeholder="ID / Folio de Colaborador *" required>
+            </div>
+            <div class="form-row">
+              <input type="text" id="nombre-ats" placeholder="Nombre completo (Opcional)">
+              <input type="text" id="puesto-ats" placeholder="Puesto o Área de trabajo *" required>
+            </div>
+
+            <!-- SECCIÓN I: ACONTECIMIENTO -->
+            <div class="categoria-header">
+              <h4>Sección I: Acontecimientos Traumáticos Durante o con Motivo del Trabajo</h4>
+            </div>
+            <p class="instrucciones-sec">¿Ha presenciado o sufrido alguna vez, durante o con motivo del trabajo, alguno de los siguientes eventos?</p>
+
+            <div class="pregunta-box">
+              <p class="pregunta-texto"><strong>1.</strong> Accidente de trabajo grave que tenga como consecuencia la muerte, la pérdida de un miembro o una lesión grave.</p>
+              <div class="opciones-ats">
+                <label><input type="radio" name="ats_1" value="si" onchange="verificarSeccionI()" required> Sí</label>
+                <label><input type="radio" name="ats_1" value="no" onchange="verificarSeccionI()"> No</label>
+              </div>
+            </div>
+
+            <div class="pregunta-box">
+              <p class="pregunta-texto"><strong>2.</strong> Asalto con violencia, secuestro o amenaza grave a su integridad física o a la de sus compañeros.</p>
+              <div class="opciones-ats">
+                <label><input type="radio" name="ats_2" value="si" onchange="verificarSeccionI()" required> Sí</label>
+                <label><input type="radio" name="ats_2" value="no" onchange="verificarSeccionI()"> No</label>
+              </div>
+            </div>
+
+            <div class="pregunta-box">
+              <p class="pregunta-texto"><strong>3.</strong> Actos violentos que causaron lesiones graves o pusieron en peligro la vida de usted o de terceros.</p>
+              <div class="opciones-ats">
+                <label><input type="radio" name="ats_3" value="si" onchange="verificarSeccionI()" required> Sí</label>
+                <label><input type="radio" name="ats_3" value="no" onchange="verificarSeccionI()"> No</label>
+              </div>
+            </div>
+
+            <div class="pregunta-box">
+              <p class="pregunta-texto"><strong>4.</strong> Explosiones, derrumbes, incendios u otros siniestros de consecuencias graves.</p>
+              <div class="opciones-ats">
+                <label><input type="radio" name="ats_4" value="si" onchange="verificarSeccionI()" required> Sí</label>
+                <label><input type="radio" name="ats_4" value="no" onchange="verificarSeccionI()"> No</label>
+              </div>
+            </div>
+
+            <!-- CONTENEDOR DE SÍNTOMAS (Se activa si respondió "Sí" a alguna de las anteriores) -->
+            <div id="bloque-sintomas-ats" style="display: none;">
+              <div class="alerta-normativa">
+                <p>Ha seleccionado al menos un evento traumático severo. Por disposición oficial, responda las siguientes preguntas sobre los síntomas experimentados durante el último mes.</p>
+              </div>
+
+              <div class="categoria-header">
+                <h4>Sección II: Recuerdos Persistentes sobre el Acontecimiento</h4>
+              </div>
+              <div class="pregunta-box">
+                <p class="pregunta-texto"><strong>5.</strong> ¿Ha tenido recuerdos recurrentes e involuntarios que le provocan malestar sobre el evento?</p>
+                <div class="opciones-ats">
+                  <label><input type="radio" name="ats_5" value="si"> Sí</label>
+                  <label><input type="radio" name="ats_5" value="no"> No</label>
+                </div>
+              </div>
+              <div class="pregunta-box">
+                <p class="pregunta-texto"><strong>6.</strong> ¿Ha tenido sueños de carácter recurrente sobre el acontecimiento que le producen angustia?</p>
+                <div class="opciones-ats">
+                  <label><input type="radio" name="ats_6" value="si"> Sí</label>
+                  <label><input type="radio" name="ats_6" value="no"> No</label>
+                </div>
+              </div>
+
+              <div class="categoria-header">
+                <h4>Sección III: Esfuerzo por Evitar Circunstancias Parecidas</h4>
+              </div>
+              <div class="pregunta-box">
+                <p class="pregunta-texto"><strong>7.</strong> ¿Se esfuerza por evitar pensamientos, sentimientos o conversaciones sobre el acontecimiento?</p>
+                <div class="opciones-ats">
+                  <label><input type="radio" name="ats_7" value="si"> Sí</label>
+                  <label><input type="radio" name="ats_7" value="no"> No</label>
+                </div>
+              </div>
+              <div class="pregunta-box">
+                <p class="pregunta-texto"><strong>8.</strong> ¿Se esfuerza por evitar actividades, lugares o personas que le recuerdan el evento?</p>
+                <div class="opciones-ats">
+                  <label><input type="radio" name="ats_8" value="si"> Sí</label>
+                  <label><input type="radio" name="ats_8" value="no"> No</label>
+                </div>
+              </div>
+              <div class="pregunta-box">
+                <p class="pregunta-texto"><strong>9.</strong> ¿Ha tenido dificultad para recordar algún aspecto importante del acontecimiento?</p>
+                <div class="opciones-ats">
+                  <label><input type="radio" name="ats_9" value="si"> Sí</label>
+                  <label><input type="radio" name="ats_9" value="no"> No</label>
+                </div>
+              </div>
+              <div class="pregunta-box">
+                <p class="pregunta-texto"><strong>10.</strong> ¿Ha disminuido notablemente su interés en actividades que antes disfrutaba?</p>
+                <div class="opciones-ats">
+                  <label><input type="radio" name="ats_10" value="si"> Sí</label>
+                  <label><input type="radio" name="ats_10" value="no"> No</label>
+                </div>
+              </div>
+              <div class="pregunta-box">
+                <p class="pregunta-texto"><strong>11.</strong> ¿Se ha sentido distanciado o distante de los demás?</p>
+                <div class="opciones-ats">
+                  <label><input type="radio" name="ats_11" value="si"> Sí</label>
+                  <label><input type="radio" name="ats_11" value="no"> No</label>
+                </div>
+              </div>
+
+              <div class="categoria-header">
+                <h4>Sección IV: Afectación y Sobresalto</h4>
+              </div>
+              <div class="pregunta-box">
+                <p class="pregunta-texto"><strong>12.</strong> ¿Ha tenido dificultades para conciliar o mantener el sueño?</p>
+                <div class="opciones-ats">
+                  <label><input type="radio" name="ats_12" value="si"> Sí</label>
+                  <label><input type="radio" name="ats_12" value="no"> No</label>
+                </div>
+              </div>
+              <div class="pregunta-box">
+                <p class="pregunta-texto"><strong>13.</strong> ¿Ha estado particularmente irritable o con ataques de enojo?</p>
+                <div class="opciones-ats">
+                  <label><input type="radio" name="ats_13" value="si"> Sí</label>
+                  <label><input type="radio" name="ats_13" value="no"> No</label>
+                </div>
+              </div>
+              <div class="pregunta-box">
+                <p class="pregunta-texto"><strong>14.</strong> ¿Ha tenido dificultad para concentrarse?</p>
+                <div class="opciones-ats">
+                  <label><input type="radio" name="ats_14" value="si"> Sí</label>
+                  <label><input type="radio" name="ats_14" value="no"> No</label>
+                </div>
+              </div>
+              <div class="pregunta-box">
+                <p class="pregunta-texto"><strong>15.</strong> ¿Ha estado a la defensiva o hiperalerta sin motivo justificado?</p>
+                <div class="opciones-ats">
+                  <label><input type="radio" name="ats_15" value="si"> Sí</label>
+                  <label><input type="radio" name="ats_15" value="no"> No</label>
+                </div>
+              </div>
+              <div class="pregunta-box">
+                <p class="pregunta-texto"><strong>16.</strong> ¿Se sobresalta o asusta con facilidad?</p>
+                <div class="opciones-ats">
+                  <label><input type="radio" name="ats_16" value="si"> Sí</label>
+                  <label><input type="radio" name="ats_16" value="no"> No</label>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" id="btn-enviar-ats" class="btn-submit">Registrar Tamizaje ATS</button>
+          </form>
+        </div>
+
+        <!-- MÓDULO 2: GUÍA II Y GUÍA III (Oculto inicialmente si se abre Guía I) -->
+        <div id="modulo-factores" style="display: none;">
+          <h3>Evaluación de Factores de Riesgo Psicosocial</h3>
+          
+          <div class="selector-guia-box">
+            <label for="selectorGuia"><strong>Tamaño del Centro de Trabajo / Instrumento:</strong></label>
+            <select id="selectorGuia" class="form-select">
+              <option value="II">Guía de Referencia II (16 a 50 colaboradores — 46 reactivos)</option>
+              <option value="III">Guía de Referencia III (Más de 50 colaboradores — 72 reactivos)</option>
+            </select>
           </div>
 
-          <!-- CONTENEDOR DINÁMICO DE PREGUNTAS -->
-          <div id="contenedor-preguntas"></div>
+          <form id="formulario-nom035">
+            <div class="form-row">
+              <input type="text" id="empresa" placeholder="Nombre de la Empresa *" required>
+              <input type="text" id="idEmpleado" placeholder="ID / Folio de Colaborador *" required>
+            </div>
+            <div class="form-row">
+              <input type="text" id="nombre" placeholder="Nombre completo (Opcional)">
+              <input type="text" id="puesto" placeholder="Puesto o Área de trabajo *" required>
+            </div>
 
-          <!-- BOTÓN DE ENVÍO -->
-          <button type="submit" id="btn-enviar" class="btn-submit">Enviar Evaluación y Registrar Diagnóstico</button>
-        </form>
+            <div id="contenedor-preguntas"></div>
+
+            <button type="submit" id="btn-enviar" class="btn-submit">Enviar Evaluación y Registrar Diagnóstico</button>
+          </form>
+        </div>
+
       </div>
     </div>
   </section>
