@@ -1,0 +1,205 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background-color: #fafbfc;
+  color: #2c3e50;
+}
+
+/* PORTADA EXACTA DE LA IMAGEN */
+.hero-wrapper {
+  width: 100%;
+  background-color: #f7f5f2;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image-container {
+  position: relative;
+  width: 100%;
+  max-width: 1920px;
+  line-height: 0;
+}
+
+.hero-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ZONAS DONDE SE PUEDE HACER CLIC EN LOS BOTONES DE LA IMAGEN */
+.hotspot {
+  position: absolute;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 20px;
+}
+
+/* Ubicación del botón verde "Agendar una cita" */
+.btn-cita {
+  top: 72.5%;
+  left: 7.2%;
+  width: 16%;
+  height: 6.8%;
+}
+
+/* Ubicación del botón de texto "Conócenos" */
+.btn-conocenos {
+  top: 72.5%;
+  left: 24.8%;
+  width: 10%;
+  height: 6.8%;
+}
+
+/* Enlaces del menú superior */
+.nav-servicios {
+  top: 6%;
+  left: 79%;
+  width: 7%;
+  height: 4%;
+}
+
+.nav-contacto {
+  top: 6%;
+  left: 87.5%;
+  width: 7%;
+  height: 4%;
+}
+
+/* SECCIONES INFERIORES */
+.section {
+  padding: 60px 20px;
+}
+
+.bg-light {
+  background-color: #f0f4f8;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-title {
+  color: #0b3c5d; /* Azul Helénico */
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.section-sub {
+  text-align: center;
+  color: #64748b;
+  margin-bottom: 40px;
+  font-size: 16px;
+}
+
+.grid-services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+  border-top: 4px solid #7a9a82; /* Verde Adrexa */
+}
+
+.card h3 {
+  color: #0b3c5d;
+  margin-bottom: 12px;
+}
+
+.card p {
+  line-height: 1.5;
+  color: #475569;
+}
+
+/* FORMULARIO NOM-035 */
+.form-container {
+  background: white;
+  padding: 35px;
+  border-radius: 12px;
+  max-width: 750px;
+  margin: 0 auto;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.form-container h3 {
+  color: #0b3c5d;
+  margin-bottom: 8px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.form-row input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.pregunta-box {
+  background: #f8fafc;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.pregunta-box p {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.pregunta-box label {
+  display: inline-block;
+  margin-right: 15px;
+  font-size: 14px;
+}
+
+.btn-submit {
+  width: 100%;
+  background-color: #7a9a82; /* Verde Adrexa */
+  color: white;
+  border: none;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 25px;
+  transition: background-color 0.2s;
+}
+
+.btn-submit:hover {
+  background-color: #6a8671;
+}
+
+/* PIE DE PÁGINA */
+footer {
+  background-color: #0b3c5d; /* Azul Helénico */
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

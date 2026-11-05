@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clínica Psicológica Adrexa</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- PORTADA EXACTA (HERO) -->
+  <header class="hero-wrapper">
+    <div class="hero-image-container">
+      <img src="hero.jpg" alt="Clínica Psicológica Adrexa - Consultorio y Bienestar Emocional" class="hero-img">
+      
+      <!-- ZONAS INTERACTIVAS (CLIC EN LOS BOTONES DE LA IMAGEN) -->
+      <a href="https://wa.me/5215500000000" target="_blank" class="hotspot btn-cita" title="Agendar una cita por WhatsApp"></a>
+      <a href="#servicios" class="hotspot btn-conocenos" title="Conoce nuestros servicios"></a>
+      
+      <!-- ENLACES DE LA BARRA SUPERIOR -->
+      <a href="#servicios" class="hotspot nav-servicios"></a>
+      <a href="#nom035" class="hotspot nav-contacto"></a>
+    </div>
+  </header>
+
+  <!-- SERVICIOS CLÍNICOS -->
+  <section id="servicios" class="section">
+    <div class="container">
+      <h2 class="section-title">Servicios Clínicos Especializados</h2>
+      <p class="section-sub">Atención integral y psicoterapia con enfoque cognitivo-conductual basada en evidencia.</p>
+      
+      <div class="grid-services">
+        <div class="card">
+          <h3>Infantil & Adolescentes</h3>
+          <p>Manejo de emociones, problemas de conducta, autoestima y apoyo en crisis del desarrollo.</p>
+        </div>
+        <div class="card">
+          <h3>Adultos & Pareja</h3>
+          <p>Terapia individual para superación de depresión, ansiedad, duelo y resolución de conflictos interpersonales.</p>
+        </div>
+        <div class="card">
+          <h3>Trastornos del Ánimo</h3>
+          <p>Intervención clínica especializada en distimia, ansiedad generalizada, crisis de pánico y secuelas de estrés agudo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÓDULO NOM-035 -->
+  <section id="nom035" class="section bg-light">
+    <div class="container">
+      <h2 class="section-title">Consultoría Corporativa NOM-035-STPS</h2>
+      <p class="section-sub">Alineamos tu centro de trabajo a la normativa oficial mexicana para la prevención de riesgos psicosociales.</p>
+
+      <div class="form-container">
+        <h3>Evaluación de Riesgo Psicosocial (Cuestionario)</h3>
+        <p>Completa tus datos laborales. Las respuestas se envían de forma segura y confidencial a la clínica.</p>
+
+        <form id="formulario-nom035">
+          <div class="form-row">
+            <input type="text" id="empresa" placeholder="Nombre de la Empresa" required>
+            <input type="text" id="idEmpleado" placeholder="ID de Colaborador / Folio" required>
+          </div>
+          <div class="form-row">
+            <input type="text" id="nombre" placeholder="Nombre completo (opcional)">
+            <input type="text" id="puesto" placeholder="Puesto o Área de trabajo" required>
+          </div>
+
+          <div class="pregunta-box">
+            <p>1. ¿El tiempo que tiene para realizar su trabajo es suficiente?</p>
+            <label><input type="radio" name="p1" value="0" required> Siempre (0)</label>
+            <label><input type="radio" name="p1" value="1"> Casi siempre (1)</label>
+            <label><input type="radio" name="p1" value="2"> Algunas veces (2)</label>
+            <label><input type="radio" name="p1" value="3"> Casi nunca (3)</label>
+            <label><input type="radio" name="p1" value="4"> Nunca (4)</label>
+          </div>
+
+          <div class="pregunta-box">
+            <p>2. ¿Su trabajo le exige laborar en días de descanso o fines de semana?</p>
+            <label><input type="radio" name="p2" value="4" required> Siempre (4)</label>
+            <label><input type="radio" name="p2" value="3"> Casi siempre (3)</label>
+            <label><input type="radio" name="p2" value="2"> Algunas veces (2)</label>
+            <label><input type="radio" name="p2" value="1"> Casi nunca (1)</label>
+            <label><input type="radio" name="p2" value="0"> Nunca (0)</label>
+          </div>
+
+          <button type="submit" id="btn-enviar" class="btn-submit">Enviar Evaluación al Sistema</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <p><strong>Clínica Psicológica Adrexa</strong> &bull; Chalco, Estado de México</p>
+    <p>Cumplimiento normativo NOM-035-STPS-2018 | Confidencialidad y Secreto Profesional</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
