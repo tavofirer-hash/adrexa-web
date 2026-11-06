@@ -347,19 +347,30 @@ function togglePolitica() {
 function cambiarModulo(modulo) {
   const modATS = document.getElementById("modulo-ats");
   const modFactores = document.getElementById("modulo-factores");
+  const modBuzon = document.getElementById("modulo-buzon");
+
   const tabATS = document.getElementById("tab-ats");
   const tabFactores = document.getElementById("tab-factores");
+  const tabBuzon = document.getElementById("tab-buzon");
 
-  if (modulo === "ATS") {
-    modATS.style.display = "block";
-    modFactores.style.display = "none";
-    tabATS.classList.add("active");
-    tabFactores.classList.remove("active");
+  modATS.style.display = modulo === "ATS" ? "block" : "none";
+  modFactores.style.display = modulo === "FACTORES" ? "block" : "none";
+  modBuzon.style.display = modulo === "BUZON" ? "block" : "none";
+
+  tabATS.classList.toggle("active", modulo === "ATS");
+  tabFactores.classList.toggle("active", modulo === "FACTORES");
+  tabBuzon.classList.toggle("active", modulo === "BUZON");
+}
+
+function alternarAnonimatoBuzon() {
+  const modo = document.getElementById("buzon-modalidad").value;
+  const bloque = document.getElementById("bloque-datos-promovente");
+  if (modo === "Anonima") {
+    bloque.style.display = "none";
+    document.getElementById("buzon-nombre").value = "";
+    document.getElementById("buzon-contacto").value = "";
   } else {
-    modATS.style.display = "none";
-    modFactores.style.display = "block";
-    tabATS.classList.remove("active");
-    tabFactores.classList.add("active");
+    bloque.style.display = "flex";
   }
 }
 
@@ -454,6 +465,52 @@ document.getElementById("formulario-ats").addEventListener("submit", async funct
     alert("Error de conexión al enviar el tamizaje.");
   } finally {
     boton.innerText = "Registrar Tamizaje ATS";
+    boton.disabled = false;
+  }
+});
+// Envío del Buzón de Denuncias
+document.getElementById("formulario-buzon").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const boton = document.getElementById("btn-enviar-buzon");
+  boton.innerText = "Registrando denuncia confidencial...";
+  boton.disabled = true;
+
+  const modalidad = document.getElementById("buzon-modalidad").value;
+  const payload = {
+    tipoEnvio: "BUZON",
+    empresa: document.getElementById("buzon-empresa").value.trim(),
+    modalidad: modalidad === "Anonima" ? "Anónima" : "Identificada",
+    nombre: modalidad === "Anonima" ? "Anónimo (Protegido)" : (document.getElementById("buzon-nombre").value.trim() || "No especificado"),
+    contacto: modalidad === "Anonima" ? "Anónimo" : (document.getElementById("buzon-contacto").value.trim() || "No especificado"),
+    personaSenalada: document.getElementById("buzon-senalado").value.trim(),
+    conducta: document.getElementById("buzon-conducta").value,
+    hechos: document.getElementById("buzon-hechos").value.trim()
+  };
+
+  try {
+    const respuesta = await fetch(WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload)
+    });
+
+    const data = await respuesta.json();
+    if (data.status === "success") {
+      alert("🛡️ DENUNCIA REGISTRADA CON ÉXITO\n\n" +
+            "Se ha generado su folio confidencial en el sistema.\n" +
+            "El Comité y Clínica Psicológica Adrexa procederán a la revisión técnica bajo garantía estricta de no represalias.");
+      document.getElementById("formulario-buzon").reset();
+      alternarAnonimatoBuzon();
+      window.scrollTo({ top: document.getElementById("nom035").offsetTop, behavior: "smooth" });
+    } else {
+      alert("Error al registrar: " + data.message);
+    }
+  } catch (err) {
+    console.error(err);
+    alert("Error de conexión al enviar el reporte del buzón.");
+  } finally {
+    boton.innerText = "Enviar Denuncia Confidencial";
     boton.disabled = false;
   }
 });

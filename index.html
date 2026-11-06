@@ -51,13 +51,16 @@
       <div class="form-container">
         <!-- PESTAÑAS SELECTORAS DEL TIPO DE EVALUACIÓN -->
         <div class="tabs-evaluacion">
-          <button type="button" id="tab-ats" class="btn-tab active" onclick="cambiarModulo('ATS')">
-            ⚠️ Guía I: Acontecimientos Traumáticos (ATS)
-          </button>
-          <button type="button" id="tab-factores" class="btn-tab" onclick="cambiarModulo('FACTORES')">
-            📊 Guía II / III: Factores de Riesgo Psicosocial
-          </button>
-        </div>
+  <button type="button" id="tab-ats" class="btn-tab active" onclick="cambiarModulo('ATS')">
+    ⚠️ Guía I: Acontecimientos Traumáticos (ATS)
+  </button>
+  <button type="button" id="tab-factores" class="btn-tab" onclick="cambiarModulo('FACTORES')">
+    📊 Guía II / III: Factores de Riesgo Psicosocial
+  </button>
+  <button type="button" id="tab-buzon" class="btn-tab" onclick="cambiarModulo('BUZON')">
+    🛡️ Buzón Confidencial de Denuncias
+  </button>
+</div>
         <!-- DESPLEGABLE INSTITUCIONAL: POLÍTICA DE PREVENCIÓN NOM-035 -->
         <div class="politica-acordeon-box">
           <button type="button" class="btn-acordeon-politica" onclick="togglePolitica()">
@@ -251,7 +254,48 @@
               <option value="III">Guía de Referencia III (Más de 50 colaboradores — 72 reactivos)</option>
             </select>
           </div>
+<!-- MÓDULO 3: BUZÓN CONFIDENCIAL DE QUEJAS Y DENUNCIAS -->
+        <div id="modulo-buzon" style="display: none;">
+          <h3>Buzón Seguro y Confidencial de Denuncias NOM-035</h3>
+          <p class="instrucciones">
+            Mecanismo protegido para señalar actos de violencia laboral, hostigamiento, acoso o condiciones contrarias al entorno organizacional favorable. Garantía de no represalias y atención confidencial por Clínica Psicológica Adrexa.
+          </p>
 
+          <form id="formulario-buzon">
+            <div class="form-row">
+              <input type="text" id="buzon-empresa" placeholder="Nombre de la Empresa *" required>
+              <select id="buzon-modalidad" class="form-select" onchange="alternarAnonimatoBuzon()" required>
+                <option value="Identificada">Presentar Denuncia Identificada</option>
+                <option value="Anonima">Presentar Denuncia Anónima</option>
+              </select>
+            </div>
+
+            <div id="bloque-datos-promovente" class="form-row">
+              <input type="text" id="buzon-nombre" placeholder="Nombre completo de quien promueve">
+              <input type="text" id="buzon-contacto" placeholder="Puesto y Teléfono/Correo de contacto">
+            </div>
+
+            <div class="form-row">
+              <input type="text" id="buzon-senalado" placeholder="Nombre(s) y puesto de la persona señalada *" required>
+              <select id="buzon-conducta" class="form-select" required>
+                <option value="" disabled selected>Tipo de conducta o situación *</option>
+                <option value="Acoso psicológico o marginación laboral">Acoso psicológico o marginación laboral</option>
+                <option value="Descalificación y trato denigrante">Descalificación y trato denigrante (burlas, gritos)</option>
+                <option value="Sobrecarga desproporcionada hostil">Sobrecarga de trabajo u órdenes hostiles</option>
+                <option value="Amenazas o intimidación">Amenazas o intimidación de despido/sanción</option>
+                <option value="Agresión física o violencia directa">Agresión física o violencia directa</option>
+                <option value="Otra práctica contraria a la NOM-035">Otra práctica contraria a la NOM-035</option>
+              </select>
+            </div>
+
+            <div class="pregunta-box">
+              <p class="pregunta-texto"><strong>Narración de los hechos:</strong> Describa fechas, lugar, sucesos concretos y testigos si los hubiera.</p>
+              <textarea id="buzon-hechos" rows="5" class="form-textarea" placeholder="Escriba aquí los detalles de la situación..." required></textarea>
+            </div>
+
+            <button type="submit" id="btn-enviar-buzon" class="btn-submit">Enviar Denuncia Confidencial</button>
+          </form>
+        </div>
           <form id="formulario-nom035">
             <div class="form-row">
               <input type="text" id="empresa" placeholder="Nombre de la Empresa *" required>
