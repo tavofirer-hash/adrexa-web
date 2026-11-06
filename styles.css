@@ -10,7 +10,6 @@ body {
   color: #2c3e50;
 }
 
-/* UTILIDADES */
 .hidden {
   display: none !important;
 }
@@ -71,7 +70,56 @@ body {
   height: 4%;
 }
 
-/* SECCIONES */
+/* BARRA LOGÍSTICA */
+.logistica-bar {
+  background-color: #0b3c5d; /* Azul Helénico */
+  color: white;
+  padding: 18px 20px;
+}
+
+.logistica-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.logistica-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 240px;
+}
+
+.logistica-icon {
+  font-size: 26px;
+}
+
+.logistica-item strong {
+  display: block;
+  font-size: 14.5px;
+  color: #ffffff;
+}
+
+.logistica-item p {
+  font-size: 13px;
+  color: #cbd5e1;
+  margin: 0;
+}
+
+.link-wa {
+  color: #4ade80;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.link-wa:hover {
+  text-decoration: underline;
+}
+
+/* SECCIONES GENERALES */
 .section {
   padding: 60px 20px;
 }
@@ -99,6 +147,104 @@ body {
   font-size: 16px;
 }
 
+/* SECCIÓN NOSOTROS / PBE */
+.nosotros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-bottom: 35px;
+}
+
+.nosotros-card {
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+  border-top: 4px solid #556b2f; /* Verde Oliva */
+}
+
+.card-icon {
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.nosotros-card h3 {
+  color: #0b3c5d;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.nosotros-card p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #475569;
+  margin-bottom: 12px;
+}
+
+.lista-modelos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lista-modelos li {
+  font-size: 13.5px;
+  color: #334155;
+  padding: 5px 0;
+  border-bottom: 1px dashed #e2e8f0;
+}
+
+.lista-modelos li:last-child {
+  border-bottom: none;
+}
+
+/* FILOSOFÍA INSTITUCIONAL */
+.filosofia-box {
+  background: white;
+  border-radius: 12px;
+  padding: 28px 32px;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+  border-left: 5px solid #0b3c5d;
+}
+
+.filosofia-item {
+  flex: 1;
+}
+
+.filosofia-item h4 {
+  color: #0b3c5d;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.filosofia-item p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #475569;
+  margin: 0;
+}
+
+.filosofia-divider {
+  width: 1px;
+  height: 60px;
+  background-color: #cbd5e1;
+}
+
+@media (max-width: 768px) {
+  .filosofia-box {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .filosofia-divider {
+    display: none;
+  }
+}
+
+/* SERVICIOS CLÍNICOS */
 .grid-services {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -651,9 +797,15 @@ footer {
   background-color: #0b3c5d;
   color: white;
   text-align: center;
-  padding: 30px 20px;
+  padding: 35px 20px;
   font-size: 14px;
   line-height: 1.6;
+}
+
+.footer-sub {
+  font-size: 12.5px;
+  color: #94a3b8;
+  margin-top: 6px;
 }
 
 @media (max-width: 768px) {
