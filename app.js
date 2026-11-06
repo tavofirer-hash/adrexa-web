@@ -257,11 +257,33 @@ function verificarSeccionI() {
 // ==========================================
 document.addEventListener("DOMContentLoaded", () => {
 
+  // CONTROL BANNER DE COOKIES
+  const cookieBanner = document.getElementById('cookie-banner');
+  const btnAceptarCookies = document.getElementById('btn-aceptar-cookies');
+
+  if (!localStorage.getItem('adrexa_cookies_accepted')) {
+    if (cookieBanner) {
+      cookieBanner.classList.remove('hidden');
+      cookieBanner.style.display = 'flex';
+    }
+  }
+
+  if (btnAceptarCookies && cookieBanner) {
+    btnAceptarCookies.addEventListener('click', () => {
+      localStorage.setItem('adrexa_cookies_accepted', 'true');
+      cookieBanner.classList.add('hidden');
+      cookieBanner.style.display = 'none';
+    });
+  }
+
   // MODALES LEGALES
   const modalPrivacidad = document.getElementById('modal-privacidad');
   const modalConsentimiento = document.getElementById('modal-consentimiento');
+  const modalTerminos = document.getElementById('modal-terminos');
+
   const btnCerrarPrivacidad = document.getElementById('btn-cerrar-privacidad');
   const btnCerrarConsentimiento = document.getElementById('btn-cerrar-consentimiento');
+  const btnCerrarTerminos = document.getElementById('btn-cerrar-terminos');
 
   document.querySelectorAll('.link-abrir-privacidad').forEach(enlace => {
     enlace.addEventListener('click', (e) => {
@@ -283,6 +305,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  document.querySelectorAll('.link-abrir-terminos').forEach(enlace => {
+    enlace.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (modalTerminos) {
+        modalTerminos.classList.remove('hidden');
+        modalTerminos.style.display = 'flex';
+      }
+    });
+  });
+
   if (btnCerrarPrivacidad && modalPrivacidad) {
     btnCerrarPrivacidad.addEventListener('click', () => {
       modalPrivacidad.classList.add('hidden');
@@ -293,6 +325,12 @@ document.addEventListener("DOMContentLoaded", () => {
     btnCerrarConsentimiento.addEventListener('click', () => {
       modalConsentimiento.classList.add('hidden');
       modalConsentimiento.style.display = 'none';
+    });
+  }
+  if (btnCerrarTerminos && modalTerminos) {
+    btnCerrarTerminos.addEventListener('click', () => {
+      modalTerminos.classList.add('hidden');
+      modalTerminos.style.display = 'none';
     });
   }
 
@@ -349,7 +387,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Cerrar al cliquear afuera
+  // Cerrar al cliquear afuera del recuadro
   window.addEventListener('click', (e) => {
     if (e.target === modalInfo) {
       modalInfo.classList.add('hidden');
@@ -366,6 +404,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target === modalConsentimiento) {
       modalConsentimiento.classList.add('hidden');
       modalConsentimiento.style.display = 'none';
+    }
+    if (e.target === modalTerminos) {
+      modalTerminos.classList.add('hidden');
+      modalTerminos.style.display = 'none';
     }
   });
 

@@ -50,6 +50,13 @@
     </div>
   </section>
 
+  <!-- AVISO PREVENTIVO DE EMERGENCIAS (COFEPRIS / BIOÉTICA) -->
+  <aside class="alerta-emergencias-bar">
+    <div class="container alerta-emergencias-flex">
+      <span>🛡️ <strong>Atención en Crisis:</strong> Este portal no atiende emergencias agudas. Si te encuentras ante un riesgo inminente, llama al <strong>911</strong> o a la Línea de la Vida al <strong>800 911 2000</strong>.</span>
+    </div>
+  </aside>
+
   <!-- SECCIÓN NOSOTROS Y ENFOQUE BASADO EN EVIDENCIA -->
   <section id="nosotros" class="section">
     <div class="container">
@@ -275,6 +282,27 @@
 
             <h4>3. Participación en Evaluaciones Laborales NOM-035</h4>
             <p>Entiendo que mi participación tiene fines de evaluación ambiental y de factores de riesgo psicosocial en el centro de trabajo. Mis respuestas son confidenciales y no constituyen un instrumento punitivo ni condicionante de mi empleo.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODAL 5: TÉRMINOS Y CONDICIONES DEL SERVICIO -->
+      <div id="modal-terminos" class="modal-overlay hidden">
+        <div class="modal-card modal-lg">
+          <button type="button" class="modal-close" id="btn-cerrar-terminos">&times;</button>
+          <h3 class="modal-title">Términos y Condiciones del Servicio</h3>
+          <div class="legal-content-scroll">
+            <h4>1. Encuadre y Duración de Sesión</h4>
+            <p>Las consultas psicoterapéuticas individuales tienen una duración estándar de 50 a 60 minutos, bajo estricto encuadre ético, presencial en Chalco o mediante plataforma remota segura.</p>
+
+            <h4>2. Política de Cancelación y Reprogramación</h4>
+            <p>Por respeto al tiempo de la agenda clínica colegiada, cualquier cancelación o cambio de horario debe notificarse con un mínimo de <strong>24 horas de anticipación</strong> mediante el canal oficial de WhatsApp; de lo contrario, la sesión será considerada devengada y no reembolsable[cite: 7].</p>
+
+            <h4>3. Requisitos para Sesiones en Línea</h4>
+            <p>Para la modalidad remota, el consultante es responsable de contar con un espacio privado, libre de interrupciones y una conexión a internet estable. La clínica no asume responsabilidad por interrupciones atribuibles a las operadoras de telecomunicaciones del paciente.</p>
+
+            <h4>4. Honorarios y Facturación</h4>
+            <p>Los honorarios por servicios de salud psicológica se apegan a la legislación aplicable en territorio mexicano y se encuentran legalmente exentos de IVA conforme al Artículo 15 Fracc. XIV de la Ley del IVA[cite: 7]. La emisión de CFDI se tramita a través de la administración en el mes corriente.</p>
           </div>
         </div>
       </div>
@@ -589,10 +617,24 @@
     <p class="footer-links-legal">
       <a href="javascript:void(0)" class="link-abrir-privacidad">Aviso de Privacidad</a> &bull; 
       <a href="javascript:void(0)" class="link-abrir-consentimiento">Consentimiento Informado</a> &bull; 
+      <a href="javascript:void(0)" class="link-abrir-terminos">Términos y Condiciones</a> &bull; 
       <a href="https://maps.app.goo.gl/oZojsbTwyhfwvNK37" target="_blank" rel="noopener noreferrer">Cómo llegar (Maps)</a>
     </p>
     <p class="footer-sub">Atención de Lunes a Domingo de 08:00 a 22:00 hrs &bull; Confidencialidad y Secreto Profesional</p>
   </footer>
+
+  <!-- BANNER DE COOKIES -->
+  <aside id="cookie-banner" class="cookie-banner hidden">
+    <div class="cookie-content">
+      <p>Utilizamos cookies técnicas y de sesión para garantizar la seguridad de sus evaluaciones conforme a nuestro <a href="javascript:void(0)" class="link-abrir-privacidad">Aviso de Privacidad</a>.</p>
+      <button type="button" id="btn-aceptar-cookies" class="btn-cookie-accept">Aceptar</button>
+    </div>
+  </aside>
+
+  <!-- BOTÓN FLOTANTE PERMANENTE DE WHATSAPP -->
+  <a href="https://wa.me/5215538154148?text=Hola,%20me%20gustaría%20solicitar%20información%20sobre%20sus%20servicios%20clínicos" class="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Chat de atención inmediata por WhatsApp">
+    <svg viewBox="0 0 32 32" width="30" height="30" fill="#ffffff"><path d="M16 2a14 14 0 0 0-12 21.2L2 30l7-1.8A14 14 0 1 0 16 2zm0 25.5a11.5 11.5 0 0 1-5.9-1.6l-.4-.3-4.4 1.2 1.2-4.3-.3-.5A11.5 11.5 0 1 1 16 27.5zm6.3-8.6c-.3-.2-2-.9-2.3-1s-.6-.2-.8.2-.9 1-1.1 1.2-.4.3-.7.1a9 9 0 0 1-2.6-1.6 10 10 0 0 1-1.8-2.3c-.2-.3 0-.5.1-.7s.3-.4.5-.6.2-.4.3-.6 0-.4 0-.6-.8-2-1.1-2.7c-.3-.7-.6-.6-.8-.6h-.7a1.4 1.4 0 0 0-1 .5 4.3 4.3 0 0 0-1.3 3.2 7.5 7.5 0 0 0 1.6 4 17.2 17.2 0 0 0 6.6 5.8 22.3 22.3 0 0 0 2.2.8c.9.3 1.8.3 2.5.2a3.6 3.6 0 0 0 2.4-1.7 3 3 0 0 0 .2-1.7c-.1-.1-.3-.2-.6-.4z"/></svg>
+  </a>
 
   <!-- SCRIPT OFICIAL -->
   <script src="app.js"></script>
