@@ -361,3 +361,62 @@ footer {
   color: #475569;
   margin-bottom: 12px;
 }
+/* DESPLEGABLE DE POLÍTICA NOM-035 */
+.politica-acordeon-box {
+  margin-bottom: 25px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.btn-acordeon-politica {
+  width: 100%;
+  padding: 14px 18px;
+  background-color: #f8fafc;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #0b3c5d;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+.btn-acordeon-politica:hover {
+  background-color: #edf2f7;
+}
+
+.contenido-politica-desplegable {
+  padding: 20px;
+  border-top: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  color: #334155;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+.contenido-politica-desplegable h4 {
+  color: #0b3c5d;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.contenido-politica-desplegable ul {
+  padding-left: 20px;
+  margin: 10px 0;
+}
+
+.contenido-politica-desplegable li {
+  margin-bottom: 6px;
+}
+
+.nota-politica {
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 12px;
+}

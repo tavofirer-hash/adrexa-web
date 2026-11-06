@@ -331,7 +331,18 @@ document.getElementById("formulario-nom035").addEventListener("submit", async fu
 // ==========================================
 // MÓDULO GUÍA I: ACONTECIMIENTOS TRAUMÁTICOS
 // ==========================================
-
+// Toggle para desplegable de política institucional
+function togglePolitica() {
+  const panel = document.getElementById("contenido-politica");
+  const icono = document.getElementById("icono-acordeon");
+  if (panel.style.display === "none" || panel.style.display === "") {
+    panel.style.display = "block";
+    icono.innerText = "▲";
+  } else {
+    panel.style.display = "none";
+    icono.innerText = "▼";
+  }
+}
 // Alternar entre pestañas
 function cambiarModulo(modulo) {
   const modATS = document.getElementById("modulo-ats");
