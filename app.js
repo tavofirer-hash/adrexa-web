@@ -514,3 +514,49 @@ document.getElementById("formulario-buzon").addEventListener("submit", async fun
     boton.disabled = false;
   }
 });
+// ENVÍO DEL FORMULARIO DE BUZÓN DE DENUNCIAS
+document.getElementById("formulario-buzon").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const boton = document.getElementById("btn-enviar-buzon");
+  boton.innerText = "Registrando denuncia confidencial...";
+  boton.disabled = true;
+
+  const modalidad = document.getElementById("buzon-modalidad").value;
+  const payload = {
+    tipoEnvio: "BUZON",
+    empresa: document.getElementById("buzon-empresa").value.trim(),
+    modalidad: modalidad === "Anonima" ? "Anónima" : "Identificada",
+    nombre: modalidad === "Anonima" ? "Anónimo (Protegido)" : (document.getElementById("buzon-nombre").value.trim() || "No especificado"),
+    contacto: modalidad === "Anonima" ? "Anónimo" : (document.getElementById("buzon-contacto").value.trim() || "No especificado"),
+    personaSenalada: document.getElementById("buzon-senalado").value.trim(),
+    conducta: document.getElementById("buzon-conducta").value,
+    hechos: document.getElementById("buzon-hechos").value.trim()
+  };
+
+  try {
+    const respuesta = await fetch(WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload)
+    });
+
+    const data = await respuesta.json();
+    if (data.status === "success") {
+      alert("🛡️ DENUNCIA REGISTRADA CON ÉXITO\n\n" +
+            "Se ha generado su folio confidencial en el sistema.\n" +
+            "El Comité y Clínica Psicológica Adrexa procederán a la revisión técnica bajo garantía estricta de no represalias.");
+      document.getElementById("formulario-buzon").reset();
+      alternarAnonimatoBuzon();
+      window.scrollTo({ top: document.getElementById("nom035").offsetTop, behavior: "smooth" });
+    } else {
+      alert("Error al registrar: " + data.message);
+    }
+  } catch (err) {
+    console.error(err);
+    alert("Error de conexión al enviar el reporte del buzón.");
+  } finally {
+    boton.innerText = "Enviar Denuncia Confidencial";
+    boton.disabled = false;
+  }
+});
