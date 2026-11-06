@@ -47,472 +47,374 @@
     <div class="container">
       <h2 class="section-title">Consultoría Corporativa NOM-035-STPS</h2>
       <p class="section-sub">Plataforma oficial de evaluación psicológica y cumplimiento normativo.</p>
+
       <!-- DOS BOTONES PRINCIPALES NOM-035 -->
-    <div class="nom035-actions-wrapper">
-      <button type="button" class="btn-nom btn-info" id="btn-abrir-info">
-        <span class="btn-icon">📋</span>
-        <span class="btn-text">
-          <strong>Conocer el Servicio</strong>
-          <small>Qué es, obligaciones legales y ventajas</small>
-        </span>
-      </button>
+      <div class="nom035-actions-wrapper">
+        <button type="button" class="btn-nom btn-info" id="btn-abrir-info">
+          <span class="btn-icon">📋</span>
+          <span class="btn-text">
+            <strong>Conocer el Servicio</strong>
+            <small>Qué es, obligaciones legales y ventajas</small>
+          </span>
+        </button>
 
-      <button type="button" class="btn-nom btn-acceso" id="btn-abrir-login">
-        <span class="btn-icon">🔒</span>
-        <span class="btn-text">
-          <strong>Acceso a Cuestionarios</strong>
-          <small>Portal exclusivo para colaboradores evaluados</small>
-        </span>
-      </button>
-    </div>
+        <button type="button" class="btn-nom btn-acceso" id="btn-abrir-login">
+          <span class="btn-icon">🔒</span>
+          <span class="btn-text">
+            <strong>Acceso a Cuestionarios</strong>
+            <small>Portal exclusivo para colaboradores evaluados</small>
+          </span>
+        </button>
+      </div>
 
-    <!-- MODAL 1: INFORMACIÓN CORPORATIVA Y VENTAJAS -->
-    <div id="modal-info-nom" class="modal-overlay hidden">
-      <div class="modal-card modal-lg">
-        <button type="button" class="modal-close" id="btn-cerrar-info">&times;</button>
-        <h3 class="modal-title">Programa de Cumplimiento e Intervención NOM-035-STPS</h3>
-        
-        <div class="info-content-grid">
-          <div class="info-box">
-            <h4>¿Qué es la NOM-035?</h4>
-            <p>Es la norma oficial obligatoria en México diseñada para identificar, analizar y prevenir los factores de riesgo psicosocial, así como para promover un entorno organizacional favorable en los centros de trabajo.</p>
+      <!-- MODAL 1: INFORMACIÓN CORPORATIVA Y VENTAJAS -->
+      <div id="modal-info-nom" class="modal-overlay hidden">
+        <div class="modal-card modal-lg">
+          <button type="button" class="modal-close" id="btn-cerrar-info">&times;</button>
+          <h3 class="modal-title">Programa de Cumplimiento e Intervención NOM-035-STPS</h3>
+          
+          <div class="info-content-grid">
+            <div class="info-box">
+              <h4>¿Qué es la NOM-035?</h4>
+              <p>Es la norma oficial obligatoria en México diseñada para identificar, analizar y prevenir los factores de riesgo psicosocial, así como para promover un entorno organizacional favorable en los centros de trabajo.</p>
+            </div>
+
+            <div class="info-box">
+              <h4>¿Para quiénes aplica?</h4>
+              <p>Aplica para <strong>todos los centros de trabajo en territorio mexicano</strong>. Las obligaciones varían según el número de trabajadores (plantillas de hasta 15, de 16 a 50 y más de 50 colaboradores).</p>
+            </div>
+
+            <div class="info-box">
+              <h4>¿Cuáles son las ventajas para su empresa?</h4>
+              <ul>
+                <li>Prevención efectiva de multas y sanciones de la STPS.</li>
+                <li>Reducción significativa del ausentismo laboral y rotación de personal.</li>
+                <li>Incremento en la productividad y clima organizacional saludable.</li>
+              </ul>
+            </div>
+
+            <div class="info-box destacada">
+              <h4>¿Por qué contratarlo con Clínica Psicológica Adrexa?</h4>
+              <ul>
+                <li><strong>Rigor clínico colegiado:</strong> Evaluaciones respaldadas por profesionales en psicología clínica con cédula profesional.</li>
+                <li><strong>Secreto profesional y confidencialidad:</strong> Cumplimiento estricto de la NOM-004-SSA3-2012 para el resguardo de expedientes clínicos.</li>
+                <li><strong>Canalización terapéutica directa:</strong> Capacidad inmediata de atención psicológica para colaboradores identificados con Acontecimientos Traumáticos Severos (ATS).</li>
+              </ul>
+            </div>
           </div>
 
-          <div class="info-box">
-            <h4>¿Para quiénes aplica?</h4>
-            <p>Aplica para <strong>todos los centros de trabajo en territorio mexicano</strong>. Las obligaciones varían según el número de trabajadores (plantillas de hasta 15, de 16 a 50 y más de 50 colaboradores).</p>
+          <div class="modal-footer text-center">
+            <a href="https://wa.me/5215538154148?text=Hola,%20solicito%20una%20propuesta%20corporativa%20NOM-035" class="btn-cotizar-modal" target="_blank" rel="noopener noreferrer">
+              Solicitar propuesta corporativa
+            </a>
           </div>
-
-          <div class="info-box">
-            <h4>¿Cuáles son las ventajas para su empresa?</h4>
-            <ul>
-              <li>Prevención efectiva de multas y sanciones de la STPS.</li>
-              <li>Reducción significativa del ausentismo laboral y rotación de personal.</li>
-              <li>Incremento en la productividad y clima organizacional saludable.</li>
-            </ul>
-          </div>
-
-          <div class="info-box destacada">
-            <h4>¿Por qué contratarlo con Clínica Psicológica Adrexa?</h4>
-            <ul>
-              <li><strong>Rigor clínico colegiado:</strong> Evaluaciones respaldadas por profesionales en psicología clínica con cédula profesional.</li>
-              <li><strong>Secreto profesional y confidencialidad:</strong> Cumplimiento estricto de la NOM-004-SSA3-2012 para el resguardo de expedientes clínicos.</li>
-              <li><strong>Canalización terapéutica directa:</strong> Capacidad inmediata de atención psicológica para colaboradores identificados con Acontecimientos Traumáticos Severos (ATS).</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="modal-footer text-center">
-          <a href="https://wa.me/52TU_NUMERO_AQUI?text=Hola,%20solicito%20una%20propuesta%20corporativa%20NOM-035" class="btn-cotizar-modal" target="_blank" rel="noopener noreferrer">
-            Solicitar propuesta corporativa
-          </a>
         </div>
       </div>
-    </div>
 
-    <!-- MODAL 2: VENTANA DE ACCESO CON USUARIO Y CONTRASEÑA -->
-    <div id="modal-login-nom" class="modal-overlay hidden">
-      <div class="modal-card modal-sm">
-        <button type="button" class="modal-close" id="btn-cerrar-login">&times;</button>
-        <div class="login-header text-center">
-          <div class="lock-circle">🔐</div>
-          <h3>Portal de Evaluación NOM-035</h3>
-          <p>Ingrese las credenciales asignadas por su departamento de Recursos Humanos o Dirección.</p>
-        </div>
-
-        <form id="form-login-nom">
-          <div class="form-group">
-            <label for="nom-user">Usuario / Clave de Empresa</label>
-            <input type="text" id="nom-user" required placeholder="Ej. DEMO">
-          </div>
-          <div class="form-group">
-            <label for="nom-pass">Contraseña de Acceso</label>
-            <input type="password" id="nom-pass" required placeholder="••••••••">
-          </div>
-          <div id="login-error-msg" class="login-error hidden">
-            Credenciales no válidas. Verifique con su empresa o administrador.
-          </div>
-          <button type="submit" class="btn-submit-login">Ingresar a la Evaluación</button>
-        </form>
-      </div>
-    </div>
-
-    <!-- CONTENEDOR PRIVADO (OCULTA EL FORMULARIO POR DEFECTO) -->
-    <div id="cuestionario-privado-container" class="hidden">
-      <div class="banner-autenticado">
-        <div>
-          <strong>Empresa Activa:</strong> <span id="empresa-autenticada-label">Empresa Registrada</span>
-        </div>
-        <button type="button" id="btn-cerrar-sesion" class="btn-logout">Cerrar Sesión</button>
-      </div>
-<!-- DOS BOTONES PRINCIPALES NOM-035 -->
-    <div class="nom035-actions-wrapper">
-      <button type="button" class="btn-nom btn-info" id="btn-abrir-info">
-        <span class="btn-icon">📋</span>
-        <span class="btn-text">
-          <strong>Conocer el Servicio</strong>
-          <small>Qué es, obligaciones legales y ventajas</small>
-        </span>
-      </button>
-
-      <button type="button" class="btn-nom btn-acceso" id="btn-abrir-login">
-        <span class="btn-icon">🔒</span>
-        <span class="btn-text">
-          <strong>Acceso a Cuestionarios</strong>
-          <small>Portal exclusivo para colaboradores evaluados</small>
-        </span>
-      </button>
-    </div>
-
-    <!-- MODAL 1: INFORMACIÓN CORPORATIVA Y VENTAJAS -->
-    <div id="modal-info-nom" class="modal-overlay hidden">
-      <div class="modal-card modal-lg">
-        <button type="button" class="modal-close" id="btn-cerrar-info">&times;</button>
-        <h3 class="modal-title">Programa de Cumplimiento e Intervención NOM-035-STPS</h3>
-        
-        <div class="info-content-grid">
-          <div class="info-box">
-            <h4>¿Qué es la NOM-035?</h4>
-            <p>Es la norma oficial obligatoria en México diseñada para identificar, analizar y prevenir los factores de riesgo psicosocial, así como para promover un entorno organizacional favorable en los centros de trabajo.</p>
+      <!-- MODAL 2: VENTANA DE ACCESO CON USUARIO Y CONTRASEÑA -->
+      <div id="modal-login-nom" class="modal-overlay hidden">
+        <div class="modal-card modal-sm">
+          <button type="button" class="modal-close" id="btn-cerrar-login">&times;</button>
+          <div class="login-header text-center">
+            <div class="lock-circle">🔐</div>
+            <h3>Portal de Evaluación NOM-035</h3>
+            <p>Ingrese las credenciales asignadas por su departamento de Recursos Humanos o Dirección.</p>
           </div>
 
-          <div class="info-box">
-            <h4>¿Para quiénes aplica?</h4>
-            <p>Aplica para <strong>todos los centros de trabajo en territorio mexicano</strong>. Las obligaciones varían según el número de trabajadores (plantillas de hasta 15, de 16 a 50 y más de 50 colaboradores).</p>
-          </div>
-
-          <div class="info-box">
-            <h4>¿Cuáles son las ventajas para su empresa?</h4>
-            <ul>
-              <li>Prevención efectiva de multas y sanciones de la STPS.</li>
-              <li>Reducción significativa del ausentismo laboral y rotación de personal.</li>
-              <li>Incremento en la productividad y clima organizacional saludable.</li>
-            </ul>
-          </div>
-
-          <div class="info-box destacada">
-            <h4>¿Por qué contratarlo con Clínica Psicológica Adrexa?</h4>
-            <ul>
-              <li><strong>Rigor clínico colegiado:</strong> Evaluaciones respaldadas por profesionales en psicología clínica con cédula profesional.</li>
-              <li><strong>Secreto profesional y confidencialidad:</strong> Cumplimiento estricto de la NOM-004-SSA3-2012 para el resguardo de expedientes.</li>
-              <li><strong>Canalización terapéutica directa:</strong> Capacidad inmediata de intervención clínica para colaboradores identificados con Acontecimientos Traumáticos Severos (ATS).</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="modal-footer text-center">
-          <a href="https://wa.me/525500000000?text=Hola,%20solicito%20una%20cotización%20de%20consultoría%20NOM-035" class="btn-cotizar-modal" target="_blank" rel="noopener noreferrer">
-            Solicitar propuesta corporativa
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- MODAL 2: VENTANA DE ACCESO CON USUARIO Y CONTRASEÑA -->
-    <div id="modal-login-nom" class="modal-overlay hidden">
-      <div class="modal-card modal-sm">
-        <button type="button" class="modal-close" id="btn-cerrar-login">&times;</button>
-        <div class="login-header text-center">
-          <div class="lock-circle">🔐</div>
-          <h3>Portal de Evaluación NOM-035</h3>
-          <p>Ingrese las credenciales asignadas por su departamento de Recursos Humanos o Dirección.</p>
-        </div>
-
-        <form id="form-login-nom">
-          <div class="form-group">
-            <label for="nom-user">Usuario / Clave de Empresa</label>
-            <input type="text" id="nom-user" required placeholder="Ej. EMPRESA-01">
-          </div>
-          <div class="form-group">
-            <label for="nom-pass">Contraseña de Acceso</label>
-            <input type="password" id="nom-pass" required placeholder="••••••••">
-          </div>
-          <div id="login-error-msg" class="login-error hidden">
-            Credenciales no válidas. Verifique con su administrador.
-          </div>
-          <button type="submit" class="btn-submit-login">Ingresar a la Evaluación</button>
-        </form>
-      </div>
-    </div>
-
-    <!-- INICIO DEL CONTENEDOR PRIVADO (OCULTA EL FORMULARIO POR DEFECTO) -->
-    <div id="cuestionario-privado-container" class="hidden">
-      <div class="banner-autenticado">
-        <div>
-          <strong>Sesión Activa:</strong> <span id="empresa-autenticada-label">Empresa Registrada</span>
-        </div>
-        <button type="button" id="btn-cerrar-sesion" class="btn-logout">Cerrar Sesión</button>
-      </div>
-      <div class="form-container">
-        <!-- PESTAÑAS SELECTORAS DEL TIPO DE EVALUACIÓN -->
-        <div class="tabs-evaluacion">
-  <button type="button" id="tab-ats" class="btn-tab active" onclick="cambiarModulo('ATS')">
-    ⚠️ Guía I: Acontecimientos Traumáticos (ATS)
-  </button>
-  <button type="button" id="tab-factores" class="btn-tab" onclick="cambiarModulo('FACTORES')">
-    📊 Guía II / III: Factores de Riesgo Psicosocial
-  </button>
-  <button type="button" id="tab-buzon" class="btn-tab" onclick="cambiarModulo('BUZON')">
-    🛡️ Buzón Confidencial de Denuncias
-  </button>
-</div>
-        <!-- DESPLEGABLE INSTITUCIONAL: POLÍTICA DE PREVENCIÓN NOM-035 -->
-        <div class="politica-acordeon-box">
-          <button type="button" class="btn-acordeon-politica" onclick="togglePolitica()">
-            <span>📜 Ver Política Institucional de Prevención NOM-035-STPS-2018</span>
-            <span id="icono-acordeon">▼</span>
-          </button>
-          <div id="contenido-politica" class="contenido-politica-desplegable" style="display: none;">
-            <h4>Política de Prevención de Riesgos Psicosociales y Promoción del Entorno Organizacional Favorable</h4>
-            <p><strong>Clínica Psicológica Adrexa S.A.S. de C.V.</strong> pone a disposición de las personas trabajadoras los compromisos esenciales que rigen en este centro de trabajo:</p>
-            <ul>
-              <li><strong>Condiciones seguras:</strong> Mantenimiento de instalaciones dignas, limpias y libres de condiciones peligrosas o insalubres.</li>
-              <li><strong>Cargas equitativas:</strong> Distribución balanceada de actividades laborales conforme a las capacidades y jornada contractual.</li>
-              <li><strong>Equilibrio vida-trabajo:</strong> Respeto estricto a los días de descanso, límites de jornada y vida personal o familiar.</li>
-              <li><strong>Cero violencia laboral:</strong> Prohibición absoluta de acoso, hostigamiento, burlas, maltratos o descalificación laboral.</li>
-              <li><strong>Liderazgo y comunicación:</strong> Trato digno por parte de supervisores, retroalimentación constructiva y canales de denuncia confidenciales sin represalias.</li>
-            </ul>
-            <p class="nota-politica"><em>* Esta política se integra formalmente en el expediente anual de Seguridad y Salud en el Trabajo conforme a las disposiciones de la STPS.</em></p>
-          </div>
-        </div>
-
-        <!-- MÓDULO 1: GUÍA I - ATS -->
-        <div id="modulo-ats">
-          <h3>Guía de Referencia I: Tamizaje de Acontecimientos Traumáticos Severos</h3>
-          <p class="instrucciones">
-            Este cuestionario permite identificar a trabajadores expuestos a acontecimientos traumáticos severos durante o con motivo del trabajo, y canalizarlos para su debida atención clínica confidencial.
-          </p>
-
-          <form id="formulario-ats">
-            <div class="form-row">
-              <input type="text" id="empresa-ats" placeholder="Nombre de la Empresa *" required>
-              <input type="text" id="idEmpleado-ats" placeholder="ID / Folio de Colaborador *" required>
+          <form id="form-login-nom">
+            <div class="form-group">
+              <label for="nom-user">Usuario / Clave de Empresa</label>
+              <input type="text" id="nom-user" required placeholder="Ej. DEMO">
             </div>
-            <div class="form-row">
-              <input type="text" id="nombre-ats" placeholder="Nombre completo (Opcional)">
-              <input type="text" id="puesto-ats" placeholder="Puesto o Área de trabajo *" required>
+            <div class="form-group">
+              <label for="nom-pass">Contraseña de Acceso</label>
+              <input type="password" id="nom-pass" required placeholder="••••••••">
             </div>
-
-            <!-- SECCIÓN I: ACONTECIMIENTO -->
-            <div class="categoria-header">
-              <h4>Sección I: Acontecimientos Traumáticos Durante o con Motivo del Trabajo</h4>
+            <div id="login-error-msg" class="login-error hidden">
+              Credenciales no válidas. Verifique con su empresa o administrador.
             </div>
-            <p class="instrucciones-sec">¿Ha presenciado o sufrido alguna vez, durante o con motivo del trabajo, alguno de los siguientes eventos?</p>
-
-            <div class="pregunta-box">
-              <p class="pregunta-texto"><strong>1.</strong> Accidente de trabajo grave que tenga como consecuencia la muerte, la pérdida de un miembro o una lesión grave.</p>
-              <div class="opciones-ats">
-                <label><input type="radio" name="ats_1" value="si" onchange="verificarSeccionI()" required> Sí</label>
-                <label><input type="radio" name="ats_1" value="no" onchange="verificarSeccionI()"> No</label>
-              </div>
-            </div>
-
-            <div class="pregunta-box">
-              <p class="pregunta-texto"><strong>2.</strong> Asalto con violencia, secuestro o amenaza grave a su integridad física o a la de sus compañeros.</p>
-              <div class="opciones-ats">
-                <label><input type="radio" name="ats_2" value="si" onchange="verificarSeccionI()" required> Sí</label>
-                <label><input type="radio" name="ats_2" value="no" onchange="verificarSeccionI()"> No</label>
-              </div>
-            </div>
-
-            <div class="pregunta-box">
-              <p class="pregunta-texto"><strong>3.</strong> Actos violentos que causaron lesiones graves o pusieron en peligro la vida de usted o de terceros.</p>
-              <div class="opciones-ats">
-                <label><input type="radio" name="ats_3" value="si" onchange="verificarSeccionI()" required> Sí</label>
-                <label><input type="radio" name="ats_3" value="no" onchange="verificarSeccionI()"> No</label>
-              </div>
-            </div>
-
-            <div class="pregunta-box">
-              <p class="pregunta-texto"><strong>4.</strong> Explosiones, derrumbes, incendios u otros siniestros de consecuencias graves.</p>
-              <div class="opciones-ats">
-                <label><input type="radio" name="ats_4" value="si" onchange="verificarSeccionI()" required> Sí</label>
-                <label><input type="radio" name="ats_4" value="no" onchange="verificarSeccionI()"> No</label>
-              </div>
-            </div>
-
-            <!-- CONTENEDOR DE SÍNTOMAS (Se activa si respondió "Sí" a alguna de las anteriores) -->
-            <div id="bloque-sintomas-ats" style="display: none;">
-              <div class="alerta-normativa">
-                <p>Ha seleccionado al menos un evento traumático severo. Por disposición oficial, responda las siguientes preguntas sobre los síntomas experimentados durante el último mes.</p>
-              </div>
-
-              <div class="categoria-header">
-                <h4>Sección II: Recuerdos Persistentes sobre el Acontecimiento</h4>
-              </div>
-              <div class="pregunta-box">
-                <p class="pregunta-texto"><strong>5.</strong> ¿Ha tenido recuerdos recurrentes e involuntarios que le provocan malestar sobre el evento?</p>
-                <div class="opciones-ats">
-                  <label><input type="radio" name="ats_5" value="si"> Sí</label>
-                  <label><input type="radio" name="ats_5" value="no"> No</label>
-                </div>
-              </div>
-              <div class="pregunta-box">
-                <p class="pregunta-texto"><strong>6.</strong> ¿Ha tenido sueños de carácter recurrente sobre el acontecimiento que le producen angustia?</p>
-                <div class="opciones-ats">
-                  <label><input type="radio" name="ats_6" value="si"> Sí</label>
-                  <label><input type="radio" name="ats_6" value="no"> No</label>
-                </div>
-              </div>
-
-              <div class="categoria-header">
-                <h4>Sección III: Esfuerzo por Evitar Circunstancias Parecidas</h4>
-              </div>
-              <div class="pregunta-box">
-                <p class="pregunta-texto"><strong>7.</strong> ¿Se esfuerza por evitar pensamientos, sentimientos o conversaciones sobre el acontecimiento?</p>
-                <div class="opciones-ats">
-                  <label><input type="radio" name="ats_7" value="si"> Sí</label>
-                  <label><input type="radio" name="ats_7" value="no"> No</label>
-                </div>
-              </div>
-              <div class="pregunta-box">
-                <p class="pregunta-texto"><strong>8.</strong> ¿Se esfuerza por evitar actividades, lugares o personas que le recuerdan el evento?</p>
-                <div class="opciones-ats">
-                  <label><input type="radio" name="ats_8" value="si"> Sí</label>
-                  <label><input type="radio" name="ats_8" value="no"> No</label>
-                </div>
-              </div>
-              <div class="pregunta-box">
-                <p class="pregunta-texto"><strong>9.</strong> ¿Ha tenido dificultad para recordar algún aspecto importante del acontecimiento?</p>
-                <div class="opciones-ats">
-                  <label><input type="radio" name="ats_9" value="si"> Sí</label>
-                  <label><input type="radio" name="ats_9" value="no"> No</label>
-                </div>
-              </div>
-              <div class="pregunta-box">
-                <p class="pregunta-texto"><strong>10.</strong> ¿Ha disminuido notablemente su interés en actividades que antes disfrutaba?</p>
-                <div class="opciones-ats">
-                  <label><input type="radio" name="ats_10" value="si"> Sí</label>
-                  <label><input type="radio" name="ats_10" value="no"> No</label>
-                </div>
-              </div>
-              <div class="pregunta-box">
-                <p class="pregunta-texto"><strong>11.</strong> ¿Se ha sentido distanciado o distante de los demás?</p>
-                <div class="opciones-ats">
-                  <label><input type="radio" name="ats_11" value="si"> Sí</label>
-                  <label><input type="radio" name="ats_11" value="no"> No</label>
-                </div>
-              </div>
-
-              <div class="categoria-header">
-                <h4>Sección IV: Afectación y Sobresalto</h4>
-              </div>
-              <div class="pregunta-box">
-                <p class="pregunta-texto"><strong>12.</strong> ¿Ha tenido dificultades para conciliar o mantener el sueño?</p>
-                <div class="opciones-ats">
-                  <label><input type="radio" name="ats_12" value="si"> Sí</label>
-                  <label><input type="radio" name="ats_12" value="no"> No</label>
-                </div>
-              </div>
-              <div class="pregunta-box">
-                <p class="pregunta-texto"><strong>13.</strong> ¿Ha estado particularmente irritable o con ataques de enojo?</p>
-                <div class="opciones-ats">
-                  <label><input type="radio" name="ats_13" value="si"> Sí</label>
-                  <label><input type="radio" name="ats_13" value="no"> No</label>
-                </div>
-              </div>
-              <div class="pregunta-box">
-                <p class="pregunta-texto"><strong>14.</strong> ¿Ha tenido dificultad para concentrarse?</p>
-                <div class="opciones-ats">
-                  <label><input type="radio" name="ats_14" value="si"> Sí</label>
-                  <label><input type="radio" name="ats_14" value="no"> No</label>
-                </div>
-              </div>
-              <div class="pregunta-box">
-                <p class="pregunta-texto"><strong>15.</strong> ¿Ha estado a la defensiva o hiperalerta sin motivo justificado?</p>
-                <div class="opciones-ats">
-                  <label><input type="radio" name="ats_15" value="si"> Sí</label>
-                  <label><input type="radio" name="ats_15" value="no"> No</label>
-                </div>
-              </div>
-              <div class="pregunta-box">
-                <p class="pregunta-texto"><strong>16.</strong> ¿Se sobresalta o asusta con facilidad?</p>
-                <div class="opciones-ats">
-                  <label><input type="radio" name="ats_16" value="si"> Sí</label>
-                  <label><input type="radio" name="ats_16" value="no"> No</label>
-                </div>
-              </div>
-            </div>
-
-            <button type="submit" id="btn-enviar-ats" class="btn-submit">Registrar Tamizaje ATS</button>
+            <button type="submit" class="btn-submit-login">Ingresar a la Evaluación</button>
           </form>
         </div>
+      </div>
 
-        <!-- MÓDULO 2: GUÍA II Y GUÍA III (Oculto inicialmente si se abre Guía I) -->
-    <!-- MÓDULO 2: GUÍA II Y GUÍA III (Oculto inicialmente si se abre Guía I) -->
-        <div id="modulo-factores" style="display: none;">
-          <h3>Evaluación de Factores de Riesgo Psicosocial</h3>
-          <button type="submit" id="btn-enviar" class="btn-submit">Enviar Evaluación y Registrar Diagnóstico</button>
-  </form>
-</div>
-
-          <div class="selector-guia-box">
-            <label for="selectorGuia"><strong>Tamaño del Centro de Trabajo / Instrumento:</strong></label>
-            <select id="selectorGuia" class="form-select">
-              <option value="II">Guía de Referencia II (16 a 50 colaboradores — 46 reactivos)</option>
-              <option value="III">Guía de Referencia III (Más de 50 colaboradores — 72 reactivos)</option>
-            </select>
+      <!-- CONTENEDOR PRIVADO (OCULTA EL FORMULARIO POR DEFECTO) -->
+      <div id="cuestionario-privado-container" class="hidden">
+        <div class="banner-autenticado">
+          <div>
+            <strong>Empresa Activa:</strong> <span id="empresa-autenticada-label">Empresa Registrada</span>
           </div>
-
-          <form id="formulario-nom035">
-            <div class="form-row">
-              <input type="text" id="empresa" placeholder="Nombre de la Empresa *" required>
-              <input type="text" id="idEmpleado" placeholder="ID / Folio de Colaborador *" required>
-            </div>
-            <div class="form-row">
-              <input type="text" id="nombre" placeholder="Nombre completo (Opcional)">
-              <input type="text" id="puesto" placeholder="Puesto o Área de trabajo *" required>
-            </div>
-
-            <div id="contenedor-preguntas"></div>
-
-            <button type="submit" id="btn-enviar" class="btn-submit">Enviar Evaluación y Registrar Diagnóstico</button>
-          </form>
+          <button type="button" id="btn-cerrar-sesion" class="btn-logout">Cerrar Sesión</button>
         </div>
 
-        <!-- MÓDULO 3: BUZÓN CONFIDENCIAL DE QUEJAS Y DENUNCIAS (Afuera e independiente) -->
-        <div id="modulo-buzon" style="display: none;">
-          <h3>Buzón Seguro y Confidencial de Denuncias NOM-035</h3>
-          <p class="instrucciones">
-            Mecanismo protegido para señalar actos de violencia laboral, hostigamiento, acoso o condiciones contrarias al entorno organizacional favorable. Garantía de no represalias y atención confidencial por Clínica Psicológica Adrexa.
-          </p>
+        <div class="form-container">
+          <!-- PESTAÑAS SELECTORAS DEL TIPO DE EVALUACIÓN -->
+          <div class="tabs-evaluacion">
+            <button type="button" id="tab-ats" class="btn-tab active" onclick="cambiarModulo('ATS')">
+              ⚠️ Guía I: Acontecimientos Traumáticos (ATS)
+            </button>
+            <button type="button" id="tab-factores" class="btn-tab" onclick="cambiarModulo('FACTORES')">
+              📊 Guía II / III: Factores de Riesgo Psicosocial
+            </button>
+            <button type="button" id="tab-buzon" class="btn-tab" onclick="cambiarModulo('BUZON')">
+              🛡️ Buzón Confidencial de Denuncias
+            </button>
+          </div>
 
-          <form id="formulario-buzon">
-            <div class="form-row">
-              <input type="text" id="buzon-empresa" placeholder="Nombre de la Empresa *" required>
-              <select id="buzon-modalidad" class="form-select" onchange="alternarAnonimatoBuzon()" required>
-                <option value="Identificada">Presentar Denuncia Identificada</option>
-                <option value="Anonima">Presentar Denuncia Anónima</option>
+          <!-- DESPLEGABLE INSTITUCIONAL: POLÍTICA DE PREVENCIÓN NOM-035 -->
+          <div class="politica-acordeon-box">
+            <button type="button" class="btn-acordeon-politica" onclick="togglePolitica()">
+              <span>📜 Ver Política Institucional de Prevención NOM-035-STPS-2018</span>
+              <span id="icono-acordeon">▼</span>
+            </button>
+            <div id="contenido-politica" class="contenido-politica-desplegable" style="display: none;">
+              <h4>Política de Prevención de Riesgos Psicosociales y Promoción del Entorno Organizacional Favorable</h4>
+              <p><strong>Clínica Psicológica Adrexa S.A.S. de C.V.</strong> pone a disposición de las personas trabajadoras los compromisos esenciales que rigen en este centro de trabajo:</p>
+              <ul>
+                <li><strong>Condiciones seguras:</strong> Mantenimiento de instalaciones dignas, limpias y libres de condiciones peligrosas o insalubres.</li>
+                <li><strong>Cargas equitativas:</strong> Distribución balanceada de actividades laborales conforme a las capacidades y jornada contractual.</li>
+                <li><strong>Equilibrio vida-trabajo:</strong> Respeto estricto a los días de descanso, límites de jornada y vida personal o familiar.</li>
+                <li><strong>Cero violencia laboral:</strong> Prohibición absoluta de acoso, hostigamiento, burlas, maltratos o descalificación laboral.</li>
+                <li><strong>Liderazgo y comunicación:</strong> Trato digno por parte de supervisores, retroalimentación constructiva y canales de denuncia confidenciales sin represalias.</li>
+              </ul>
+              <p class="nota-politica"><em>* Esta política se integra formalmente en el expediente anual de Seguridad y Salud en el Trabajo conforme a las disposiciones de la STPS.</em></p>
+            </div>
+          </div>
+
+          <!-- MÓDULO 1: GUÍA I - ATS -->
+          <div id="modulo-ats">
+            <h3>Guía de Referencia I: Tamizaje de Acontecimientos Traumáticos Severos</h3>
+            <p class="instrucciones">
+              Este cuestionario permite identificar a trabajadores expuestos a acontecimientos traumáticos severos durante o con motivo del trabajo, y canalizarlos para su debida atención clínica confidencial.
+            </p>
+
+            <form id="formulario-ats">
+              <div class="form-row">
+                <input type="text" id="empresa-ats" placeholder="Nombre de la Empresa *" required>
+                <input type="text" id="idEmpleado-ats" placeholder="ID / Folio de Colaborador *" required>
+              </div>
+              <div class="form-row">
+                <input type="text" id="nombre-ats" placeholder="Nombre completo (Opcional)">
+                <input type="text" id="puesto-ats" placeholder="Puesto o Área de trabajo *" required>
+              </div>
+
+              <!-- SECCIÓN I: ACONTECIMIENTO -->
+              <div class="categoria-header">
+                <h4>Sección I: Acontecimientos Traumáticos Durante o con Motivo del Trabajo</h4>
+              </div>
+              <p class="instrucciones-sec">¿Ha presenciado o sufrido alguna vez, durante o con motivo del trabajo, alguno de los siguientes eventos?</p>
+
+              <div class="pregunta-box">
+                <p class="pregunta-texto"><strong>1.</strong> Accidente de trabajo grave que tenga como consecuencia la muerte, la pérdida de un miembro o una lesión grave.</p>
+                <div class="opciones-ats">
+                  <label><input type="radio" name="ats_1" value="si" onchange="verificarSeccionI()" required> Sí</label>
+                  <label><input type="radio" name="ats_1" value="no" onchange="verificarSeccionI()"> No</label>
+                </div>
+              </div>
+
+              <div class="pregunta-box">
+                <p class="pregunta-texto"><strong>2.</strong> Asalto con violencia, secuestro o amenaza grave a su integridad física o a la de sus compañeros.</p>
+                <div class="opciones-ats">
+                  <label><input type="radio" name="ats_2" value="si" onchange="verificarSeccionI()" required> Sí</label>
+                  <label><input type="radio" name="ats_2" value="no" onchange="verificarSeccionI()"> No</label>
+                </div>
+              </div>
+
+              <div class="pregunta-box">
+                <p class="pregunta-texto"><strong>3.</strong> Actos violentos que causaron lesiones graves o pusieron en peligro la vida de usted o de terceros.</p>
+                <div class="opciones-ats">
+                  <label><input type="radio" name="ats_3" value="si" onchange="verificarSeccionI()" required> Sí</label>
+                  <label><input type="radio" name="ats_3" value="no" onchange="verificarSeccionI()"> No</label>
+                </div>
+              </div>
+
+              <div class="pregunta-box">
+                <p class="pregunta-texto"><strong>4.</strong> Explosiones, derrumbes, incendios u otros siniestros de consecuencias graves.</p>
+                <div class="opciones-ats">
+                  <label><input type="radio" name="ats_4" value="si" onchange="verificarSeccionI()" required> Sí</label>
+                  <label><input type="radio" name="ats_4" value="no" onchange="verificarSeccionI()"> No</label>
+                </div>
+              </div>
+
+              <!-- CONTENEDOR DE SÍNTOMAS -->
+              <div id="bloque-sintomas-ats" style="display: none;">
+                <div class="alerta-normativa">
+                  <p>Ha seleccionado al menos un evento traumático severo. Por disposición oficial, responda las siguientes preguntas sobre los síntomas experimentados durante el último mes.</p>
+                </div>
+
+                <div class="categoria-header">
+                  <h4>Sección II: Recuerdos Persistentes sobre el Acontecimiento</h4>
+                </div>
+                <div class="pregunta-box">
+                  <p class="pregunta-texto"><strong>5.</strong> ¿Ha tenido recuerdos recurrentes e involuntarios que le provocan malestar sobre el evento?</p>
+                  <div class="opciones-ats">
+                    <label><input type="radio" name="ats_5" value="si"> Sí</label>
+                    <label><input type="radio" name="ats_5" value="no"> No</label>
+                  </div>
+                </div>
+                <div class="pregunta-box">
+                  <p class="pregunta-texto"><strong>6.</strong> ¿Ha tenido sueños de carácter recurrente sobre el acontecimiento que le producen angustia?</p>
+                  <div class="opciones-ats">
+                    <label><input type="radio" name="ats_6" value="si"> Sí</label>
+                    <label><input type="radio" name="ats_6" value="no"> No</label>
+                  </div>
+                </div>
+
+                <div class="categoria-header">
+                  <h4>Sección III: Esfuerzo por Evitar Circunstancias Parecidas</h4>
+                </div>
+                <div class="pregunta-box">
+                  <p class="pregunta-texto"><strong>7.</strong> ¿Se esfuerza por evitar pensamientos, sentimientos o conversaciones sobre el acontecimiento?</p>
+                  <div class="opciones-ats">
+                    <label><input type="radio" name="ats_7" value="si"> Sí</label>
+                    <label><input type="radio" name="ats_7" value="no"> No</label>
+                  </div>
+                </div>
+                <div class="pregunta-box">
+                  <p class="pregunta-texto"><strong>8.</strong> ¿Se esfuerza por evitar actividades, lugares o personas que le recuerdan el evento?</p>
+                  <div class="opciones-ats">
+                    <label><input type="radio" name="ats_8" value="si"> Sí</label>
+                    <label><input type="radio" name="ats_8" value="no"> No</label>
+                  </div>
+                </div>
+                <div class="pregunta-box">
+                  <p class="pregunta-texto"><strong>9.</strong> ¿Ha tenido dificultad para recordar algún aspecto importante del acontecimiento?</p>
+                  <div class="opciones-ats">
+                    <label><input type="radio" name="ats_9" value="si"> Sí</label>
+                    <label><input type="radio" name="ats_9" value="no"> No</label>
+                  </div>
+                </div>
+                <div class="pregunta-box">
+                  <p class="pregunta-texto"><strong>10.</strong> ¿Ha disminuido notablemente su interés en actividades que antes disfrutaba?</p>
+                  <div class="opciones-ats">
+                    <label><input type="radio" name="ats_10" value="si"> Sí</label>
+                    <label><input type="radio" name="ats_10" value="no"> No</label>
+                  </div>
+                </div>
+                <div class="pregunta-box">
+                  <p class="pregunta-texto"><strong>11.</strong> ¿Se ha sentido distanciado o distante de los demás?</p>
+                  <div class="opciones-ats">
+                    <label><input type="radio" name="ats_11" value="si"> Sí</label>
+                    <label><input type="radio" name="ats_11" value="no"> No</label>
+                  </div>
+                </div>
+
+                <div class="categoria-header">
+                  <h4>Sección IV: Afectación y Sobresalto</h4>
+                </div>
+                <div class="pregunta-box">
+                  <p class="pregunta-texto"><strong>12.</strong> ¿Ha tenido dificultades para conciliar o mantener el sueño?</p>
+                  <div class="opciones-ats">
+                    <label><input type="radio" name="ats_12" value="si"> Sí</label>
+                    <label><input type="radio" name="ats_12" value="no"> No</label>
+                  </div>
+                </div>
+                <div class="pregunta-box">
+                  <p class="pregunta-texto"><strong>13.</strong> ¿Ha estado particularmente irritable o con ataques de enojo?</p>
+                  <div class="opciones-ats">
+                    <label><input type="radio" name="ats_13" value="si"> Sí</label>
+                    <label><input type="radio" name="ats_13" value="no"> No</label>
+                  </div>
+                </div>
+                <div class="pregunta-box">
+                  <p class="pregunta-texto"><strong>14.</strong> ¿Ha tenido dificultad para concentrarse?</p>
+                  <div class="opciones-ats">
+                    <label><input type="radio" name="ats_14" value="si"> Sí</label>
+                    <label><input type="radio" name="ats_14" value="no"> No</label>
+                  </div>
+                </div>
+                <div class="pregunta-box">
+                  <p class="pregunta-texto"><strong>15.</strong> ¿Ha estado a la defensiva o hiperalerta sin motivo justificado?</p>
+                  <div class="opciones-ats">
+                    <label><input type="radio" name="ats_15" value="si"> Sí</label>
+                    <label><input type="radio" name="ats_15" value="no"> No</label>
+                  </div>
+                </div>
+                <div class="pregunta-box">
+                  <p class="pregunta-texto"><strong>16.</strong> ¿Se sobresalta o asusta con facilidad?</p>
+                  <div class="opciones-ats">
+                    <label><input type="radio" name="ats_16" value="si"> Sí</label>
+                    <label><input type="radio" name="ats_16" value="no"> No</label>
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" id="btn-enviar-ats" class="btn-submit">Registrar Tamizaje ATS</button>
+            </form>
+          </div>
+
+          <!-- MÓDULO 2: GUÍA II Y GUÍA III -->
+          <div id="modulo-factores" style="display: none;">
+            <h3>Evaluación de Factores de Riesgo Psicosocial</h3>
+            
+            <div class="selector-guia-box">
+              <label for="selectorGuia"><strong>Tamaño del Centro de Trabajo / Instrumento:</strong></label>
+              <select id="selectorGuia" class="form-select">
+                <option value="II">Guía de Referencia II (16 a 50 colaboradores — 46 reactivos)</option>
+                <option value="III">Guía de Referencia III (Más de 50 colaboradores — 72 reactivos)</option>
               </select>
             </div>
 
-            <div id="bloque-datos-promovente" class="form-row">
-              <input type="text" id="buzon-nombre" placeholder="Nombre completo de quien promueve">
-              <input type="text" id="buzon-contacto" placeholder="Puesto y Teléfono/Correo de contacto">
-            </div>
+            <form id="formulario-nom035">
+              <div class="form-row">
+                <input type="text" id="empresa" placeholder="Nombre de la Empresa *" required>
+                <input type="text" id="idEmpleado" placeholder="ID / Folio de Colaborador *" required>
+              </div>
+              <div class="form-row">
+                <input type="text" id="nombre" placeholder="Nombre completo (Opcional)">
+                <input type="text" id="puesto" placeholder="Puesto o Área de trabajo *" required>
+              </div>
 
-            <div class="form-row">
-              <input type="text" id="buzon-senalado" placeholder="Nombre(s) y puesto de la persona señalada *" required>
-              <select id="buzon-conducta" class="form-select" required>
-                <option value="" disabled selected>Tipo de conducta o situación *</option>
-                <option value="Acoso psicológico o marginación laboral">Acoso psicológico o marginación laboral</option>
-                <option value="Descalificación y trato denigrante">Descalificación y trato denigrante (burlas, gritos)</option>
-                <option value="Sobrecarga desproporcionada hostil">Sobrecarga de trabajo u órdenes hostiles</option>
-                <option value="Amenazas o intimidación">Amenazas o intimidación de despido/sanción</option>
-                <option value="Agresión física o violencia directa">Agresión física o violencia directa</option>
-                <option value="Otra práctica contraria a la NOM-035">Otra práctica contraria a la NOM-035</option>
-              </select>
-            </div>
+              <div id="contenedor-preguntas"></div>
 
-            <div class="pregunta-box">
-              <p class="pregunta-texto"><strong>Narración de los hechos:</strong> Describa fechas, lugar, sucesos concretos y testigos si los hubiera.</p>
-              <textarea id="buzon-hechos" rows="5" class="form-textarea" placeholder="Escriba aquí los detalles de la situación..." required></textarea>
-            </div>
+              <button type="submit" id="btn-enviar" class="btn-submit">Enviar Evaluación y Registrar Diagnóstico</button>
+            </form>
+          </div>
 
-            <button type="submit" id="btn-enviar-buzon" class="btn-submit">Enviar Denuncia Confidencial</button>
-          </form>
+          <!-- MÓDULO 3: BUZÓN CONFIDENCIAL DE QUEJAS Y DENUNCIAS -->
+          <div id="modulo-buzon" style="display: none;">
+            <h3>Buzón Seguro y Confidencial de Denuncias NOM-035</h3>
+            <p class="instrucciones">
+              Mecanismo protegido para señalar actos de violencia laboral, hostigamiento, acoso o condiciones contrarias al entorno organizacional favorable. Garantía de no represalias y atención confidencial por Clínica Psicológica Adrexa.
+            </p>
+
+            <form id="formulario-buzon">
+              <div class="form-row">
+                <input type="text" id="buzon-empresa" placeholder="Nombre de la Empresa *" required>
+                <select id="buzon-modalidad" class="form-select" onchange="alternarAnonimatoBuzon()" required>
+                  <option value="Identificada">Presentar Denuncia Identificada</option>
+                  <option value="Anonima">Presentar Denuncia Anónima</option>
+                </select>
+              </div>
+
+              <div id="bloque-datos-promovente" class="form-row">
+                <input type="text" id="buzon-nombre" placeholder="Nombre completo de quien promueve">
+                <input type="text" id="buzon-contacto" placeholder="Puesto y Teléfono/Correo de contacto">
+              </div>
+
+              <div class="form-row">
+                <input type="text" id="buzon-senalado" placeholder="Nombre(s) y puesto de la persona señalada *" required>
+                <select id="buzon-conducta" class="form-select" required>
+                  <option value="" disabled selected>Tipo de conducta o situación *</option>
+                  <option value="Acoso psicológico o marginación laboral">Acoso psicológico o marginación laboral</option>
+                  <option value="Descalificación y trato denigrante">Descalificación y trato denigrante (burlas, gritos)</option>
+                  <option value="Sobrecarga desproporcionada hostil">Sobrecarga de trabajo u órdenes hostiles</option>
+                  <option value="Amenazas o intimidación">Amenazas o intimidación de despido/sanción</option>
+                  <option value="Agresión física o violencia directa">Agresión física o violencia directa</option>
+                  <option value="Otra práctica contraria a la NOM-035">Otra práctica contraria a la NOM-035</option>
+                </select>
+              </div>
+
+              <div class="pregunta-box">
+                <p class="pregunta-texto"><strong>Narración de los hechos:</strong> Describa fechas, lugar, sucesos concretos y testigos si los hubiera.</p>
+                <textarea id="buzon-hechos" rows="5" class="form-textarea" placeholder="Escriba aquí los detalles de la situación..." required></textarea>
+              </div>
+
+              <button type="submit" id="btn-enviar-buzon" class="btn-submit">Enviar Denuncia Confidencial</button>
+            </form>
+          </div>
         </div>
-        </div>
+      </div> <!-- Cierre de #cuestionario-privado-container -->
     </div>
   </section>
 
@@ -525,3 +427,4 @@
   <script src="app.js"></script>
 </body>
 </html>
+
