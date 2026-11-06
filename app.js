@@ -231,8 +231,10 @@ function alternarAnonimatoBuzon() {
   if (!bloque) return;
   if (modo === "Anonima") {
     bloque.style.display = "none";
-    document.getElementById("buzon-nombre").value = "";
-    document.getElementById("buzon-contacto").value = "";
+    const bNom = document.getElementById("buzon-nombre");
+    const bCont = document.getElementById("buzon-contacto");
+    if (bNom) bNom.value = "";
+    if (bCont) bCont.value = "";
   } else {
     bloque.style.display = "flex";
   }
@@ -254,43 +256,47 @@ function verificarSeccionI() {
 // INICIALIZACIÓN Y EVENTOS DOM
 // ==========================================
 document.addEventListener("DOMContentLoaded", () => {
-    // MODALES LEGALES (AVISO DE PRIVACIDAD Y CONSENTIMIENTO INFORMADO)
+
+  // MODALES LEGALES
   const modalPrivacidad = document.getElementById('modal-privacidad');
   const modalConsentimiento = document.getElementById('modal-consentimiento');
   const btnCerrarPrivacidad = document.getElementById('btn-cerrar-privacidad');
   const btnCerrarConsentimiento = document.getElementById('btn-cerrar-consentimiento');
 
-  // Enlaces que abren Privacidad (clase común)
   document.querySelectorAll('.link-abrir-privacidad').forEach(enlace => {
     enlace.addEventListener('click', (e) => {
       e.preventDefault();
-      if (modalPrivacidad) modalPrivacidad.classList.remove('hidden');
+      if (modalPrivacidad) {
+        modalPrivacidad.classList.remove('hidden');
+        modalPrivacidad.style.display = 'flex';
+      }
     });
   });
 
-  // Enlaces que abren Consentimiento (clase común)
   document.querySelectorAll('.link-abrir-consentimiento').forEach(enlace => {
     enlace.addEventListener('click', (e) => {
       e.preventDefault();
-      if (modalConsentimiento) modalConsentimiento.classList.remove('hidden');
+      if (modalConsentimiento) {
+        modalConsentimiento.classList.remove('hidden');
+        modalConsentimiento.style.display = 'flex';
+      }
     });
   });
 
-  // Botones de cierre (la X)
   if (btnCerrarPrivacidad && modalPrivacidad) {
-    btnCerrarPrivacidad.addEventListener('click', () => modalPrivacidad.classList.add('hidden'));
+    btnCerrarPrivacidad.addEventListener('click', () => {
+      modalPrivacidad.classList.add('hidden');
+      modalPrivacidad.style.display = 'none';
+    });
   }
   if (btnCerrarConsentimiento && modalConsentimiento) {
-    btnCerrarConsentimiento.addEventListener('click', () => modalConsentimiento.classList.add('hidden'));
+    btnCerrarConsentimiento.addEventListener('click', () => {
+      modalConsentimiento.classList.add('hidden');
+      modalConsentimiento.style.display = 'none';
+    });
   }
 
-  // Cerrar al dar clic afuera
-  window.addEventListener('click', (e) => {
-    if (e.target === modalPrivacidad) modalPrivacidad.classList.add('hidden');
-    if (e.target === modalConsentimiento) modalConsentimiento.classList.add('hidden');
-  });
-
-  // GESTIÓN DE ACCESO NOM-035
+  // MODALES Y ACCESO NOM-035
   const USUARIOS_AUTORIZADOS = {
     "DEMO": "Adrexa123",
     "EMPRESA-01": "Clinica2026*",
@@ -312,30 +318,58 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnCerrarSesion = document.getElementById('btn-cerrar-sesion');
   const actionsWrapper = document.querySelector('.nom035-actions-wrapper');
 
-  // Modales
   if (btnAbrirInfo && modalInfo) {
-    btnAbrirInfo.addEventListener('click', () => modalInfo.classList.remove('hidden'));
+    btnAbrirInfo.addEventListener('click', (e) => {
+      e.preventDefault();
+      modalInfo.classList.remove('hidden');
+      modalInfo.style.display = 'flex';
+    });
   }
   if (btnCerrarInfo && modalInfo) {
-    btnCerrarInfo.addEventListener('click', () => modalInfo.classList.add('hidden'));
+    btnCerrarInfo.addEventListener('click', (e) => {
+      e.preventDefault();
+      modalInfo.classList.add('hidden');
+      modalInfo.style.display = 'none';
+    });
   }
 
   if (btnAbrirLogin && modalLogin) {
-    btnAbrirLogin.addEventListener('click', () => modalLogin.classList.remove('hidden'));
+    btnAbrirLogin.addEventListener('click', (e) => {
+      e.preventDefault();
+      modalLogin.classList.remove('hidden');
+      modalLogin.style.display = 'flex';
+    });
   }
   if (btnCerrarLogin && modalLogin) {
-    btnCerrarLogin.addEventListener('click', () => {
+    btnCerrarLogin.addEventListener('click', (e) => {
+      e.preventDefault();
       modalLogin.classList.add('hidden');
+      modalLogin.style.display = 'none';
       if (loginErrorMsg) loginErrorMsg.classList.add('hidden');
     });
   }
 
+  // Cerrar al cliquear afuera
   window.addEventListener('click', (e) => {
-    if (e.target === modalInfo) modalInfo.classList.add('hidden');
-    if (e.target === modalLogin) modalLogin.classList.add('hidden');
+    if (e.target === modalInfo) {
+      modalInfo.classList.add('hidden');
+      modalInfo.style.display = 'none';
+    }
+    if (e.target === modalLogin) {
+      modalLogin.classList.add('hidden');
+      modalLogin.style.display = 'none';
+    }
+    if (e.target === modalPrivacidad) {
+      modalPrivacidad.classList.add('hidden');
+      modalPrivacidad.style.display = 'none';
+    }
+    if (e.target === modalConsentimiento) {
+      modalConsentimiento.classList.add('hidden');
+      modalConsentimiento.style.display = 'none';
+    }
   });
 
-  // Login
+  // Login NOM-035
   if (formLogin) {
     formLogin.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -344,35 +378,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (USUARIOS_AUTORIZADOS[user] && USUARIOS_AUTORIZADOS[user] === pass) {
         modalLogin.classList.add('hidden');
+        modalLogin.style.display = 'none';
         if (loginErrorMsg) loginErrorMsg.classList.add('hidden');
 
         cuestionarioContainer.classList.remove('hidden');
-        labelEmpresa.textContent = user;
-        if (actionsWrapper) actionsWrapper.classList.add('hidden');
+        cuestionarioContainer.style.display = 'block';
 
-        // Pre-llenar campos de empresa
+        if (labelEmpresa) labelEmpresa.textContent = user;
+        if (actionsWrapper) {
+          actionsWrapper.classList.add('hidden');
+          actionsWrapper.style.display = 'none';
+        }
+
         const inputsEmpresa = [document.getElementById('empresa'), document.getElementById('empresa-ats'), document.getElementById('buzon-empresa')];
         inputsEmpresa.forEach(input => { if (input) input.value = user; });
 
         cuestionarioContainer.scrollIntoView({ behavior: 'smooth' });
       } else {
-        if (loginErrorMsg) loginErrorMsg.classList.remove('hidden');
+        if (loginErrorMsg) {
+          loginErrorMsg.classList.remove('hidden');
+          loginErrorMsg.style.display = 'block';
+        }
       }
     });
   }
 
   // Logout
   if (btnCerrarSesion) {
-    btnCerrarSesion.addEventListener('click', () => {
+    btnCerrarSesion.addEventListener('click', (e) => {
+      e.preventDefault();
       cuestionarioContainer.classList.add('hidden');
-      if (actionsWrapper) actionsWrapper.classList.remove('hidden');
+      cuestionarioContainer.style.display = 'none';
+
+      if (actionsWrapper) {
+        actionsWrapper.classList.remove('hidden');
+        actionsWrapper.style.display = 'flex';
+      }
       formLogin.reset();
     });
   }
 
   // Selector Guía II / III
   const selGuia = document.getElementById("selectorGuia");
-  if (selGuia) selGuia.addEventListener("change", renderizarPreguntas);
+  if (selGuia) {
+    selGuia.addEventListener("change", renderizarPreguntas);
+  }
 
   // ENVÍO GUÍA II / III
   const formNom = document.getElementById("formulario-nom035");

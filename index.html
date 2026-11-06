@@ -160,7 +160,7 @@
           <div class="info-content-grid">
             <div class="info-box">
               <h4>¿Qué es la NOM-035?</h4>
-              <p>Norma obligatoria en México para identificar, analizar y prevenir factores de riesgo psicosocial, fortaleciendo un entorno organizacional favorable.</p>
+              <p>Norma oficial obligatoria en México para identificar, analizar y prevenir factores de riesgo psicosocial, fortaleciendo un entorno organizacional favorable.</p>
             </div>
 
             <div class="info-box">
@@ -200,7 +200,25 @@
             <h3>Portal de Evaluación NOM-035</h3>
             <p>Ingrese las credenciales asignadas por su departamento de Recursos Humanos o Dirección.</p>
           </div>
-          <!-- MODAL 3: AVISO DE PRIVACIDAD INTEGRAL -->
+
+          <form id="form-login-nom">
+            <div class="form-group">
+              <label for="nom-user">Usuario / Clave de Empresa</label>
+              <input type="text" id="nom-user" required placeholder="Ej. DEMO">
+            </div>
+            <div class="form-group">
+              <label for="nom-pass">Contraseña de Acceso</label>
+              <input type="password" id="nom-pass" required placeholder="••••••••">
+            </div>
+            <div id="login-error-msg" class="login-error hidden">
+              Credenciales no válidas. Verifique con su empresa o administrador.
+            </div>
+            <button type="submit" class="btn-submit-login">Ingresar a la Evaluación</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- MODAL 3: AVISO DE PRIVACIDAD INTEGRAL -->
       <div id="modal-privacidad" class="modal-overlay hidden">
         <div class="modal-card modal-lg">
           <button type="button" class="modal-close" id="btn-cerrar-privacidad">&times;</button>
@@ -246,23 +264,6 @@
             <h4>3. Participación en Evaluaciones Laborales NOM-035</h4>
             <p>Entiendo que mi participación tiene fines de evaluación ambiental y de factores de riesgo psicosocial en el centro de trabajo. Mis respuestas son confidenciales y no constituyen un instrumento punitivo ni condicionante de mi empleo.</p>
           </div>
-        </div>
-      </div>
-
-          <form id="form-login-nom">
-            <div class="form-group">
-              <label for="nom-user">Usuario / Clave de Empresa</label>
-              <input type="text" id="nom-user" required placeholder="Ej. DEMO">
-            </div>
-            <div class="form-group">
-              <label for="nom-pass">Contraseña de Acceso</label>
-              <input type="password" id="nom-pass" required placeholder="••••••••">
-            </div>
-            <div id="login-error-msg" class="login-error hidden">
-              Credenciales no válidas. Verifique con su empresa o administrador.
-            </div>
-            <button type="submit" class="btn-submit-login">Ingresar a la Evaluación</button>
-          </form>
         </div>
       </div>
 
@@ -466,7 +467,8 @@
                   </div>
                 </div>
               </div>
-<div class="consentimiento-check-box">
+
+              <div class="consentimiento-check-box">
                 <label class="check-legal">
                   <input type="checkbox" id="check-privacidad-ats" required>
                   <span>
@@ -475,6 +477,7 @@
                   </span>
                 </label>
               </div>
+
               <button type="submit" id="btn-enviar-ats" class="btn-submit">Registrar Tamizaje ATS</button>
             </form>
           </div>
@@ -502,7 +505,8 @@
               </div>
 
               <div id="contenedor-preguntas"></div>
-<div class="consentimiento-check-box">
+
+              <div class="consentimiento-check-box">
                 <label class="check-legal">
                   <input type="checkbox" id="check-privacidad-factores" required>
                   <span>
@@ -511,6 +515,7 @@
                   </span>
                 </label>
               </div>
+
               <button type="submit" id="btn-enviar" class="btn-submit">Enviar Evaluación y Registrar Diagnóstico</button>
             </form>
           </div>
@@ -562,7 +567,7 @@
     </div>
   </section>
 
- <!-- PIE DE PÁGINA -->
+  <!-- PIE DE PÁGINA -->
   <footer>
     <p><strong>Clínica Psicológica Adrexa S.A.S. de C.V.</strong> &bull; Chalco, Estado de México</p>
     <p>Práctica Basada en Evidencia | NOM-004-SSA3-2012 | NOM-035-STPS-2018</p>
@@ -572,4 +577,8 @@
     </p>
     <p class="footer-sub">Atención de Lunes a Domingo de 08:00 a 22:00 hrs &bull; Confidencialidad y Secreto Profesional</p>
   </footer>
-  
+
+  <!-- SCRIPT OFICIAL -->
+  <script src="app.js"></script>
+</body>
+</html>
