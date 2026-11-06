@@ -560,3 +560,311 @@ document.getElementById("formulario-buzon").addEventListener("submit", async fun
     boton.disabled = false;
   }
 });
+// CONTROL DE MODALES Y ACCESO NOM-035
+const btnAbrirInfo = document.getElementById('btn-abrir-info');
+const btnCerrarInfo = document.getElementById('btn-cerrar-info');
+const modalInfo = document.getElementById('modal-info-nom');
+
+const btnAbrirLogin = document.getElementById('btn-abrir-login');
+const btnCerrarLogin = document.getElementById('btn-cerrar-login');
+const modalLogin = document.getElementById('modal-login-nom');
+
+const formLogin = document.getElementById('form-login-nom');
+const loginErrorMsg = document.getElementById('login-error-msg');
+const cuestionarioContainer = document.getElementById('cuestionario-privado-container');
+const labelEmpresa = document.getElementById('empresa-autenticada-label');
+const btnCerrarSesion = document.getElementById('btn-cerrar-sesion');
+
+// Abrir y cerrar información corporativa
+btnAbrirInfo.addEventListener('click', () => modalInfo.classList.remove('hidden'));
+btnCerrarInfo.addEventListener('click', () => modalInfo.classList.add('hidden'));
+
+// Abrir y cerrar login
+btnAbrirLogin.addEventListener('click', () => modalLogin.classList.remove('hidden'));
+btnCerrarLogin.addEventListener('click', () => {
+  modalLogin.classList.add('hidden');
+  loginErrorMsg.classList.add('hidden');
+});
+
+// Cerrar modales si se hace clic afuera de la tarjeta
+window.addEventListener('click', (e) => {
+  if (e.target === modalInfo) modalInfo.classList.add('hidden');
+  if (e.target === modalLogin) modalLogin.classList.add('hidden');
+});
+
+// CREDENCIALES EMPRESARIALES (Puedes vincularlo con Google Sheets o validarlo aquí)
+const USUARIOS_AUTORIZADOS = {
+  "EMPRESA-DEMO": "Adrexa2026*",
+  "ADREXA-CORP": "SaludMental01"
+};
+
+// Autenticación
+if (formLogin) {
+  formLogin.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const user = document.getElementById('nom-user').value.trim();
+    const pass = document.getElementById('nom-pass').value.trim();
+
+    if (USUARIOS_AUTORIZADOS[user] && USUARIOS_AUTORIZADOS[user] === pass) {
+      modalLogin.classList.add('hidden');
+      loginErrorMsg.classList.add('hidden');
+      
+      // Mostrar cuestionario y ocultar botones de inicio
+      cuestionarioContainer.classList.remove('hidden');
+      labelEmpresa.textContent = user;
+      document.querySelector('.nom035-actions-wrapper').classList.add('hidden');
+      
+      // Scroll automático hacia el cuestionario
+      cuestionarioContainer.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      loginErrorMsg.classList.remove('hidden');
+    }
+  });
+}
+
+// Cerrar sesión
+if (btnCerrarSesion) {
+  btnCerrarSesion.addEventListener('click', () => {
+    cuestionarioContainer.classList.add('hidden');
+    document.querySelector('.nom035-actions-wrapper').classList.remove('hidden');
+    formLogin.reset();
+  });
+}
+/* CLASE UTILITARIA PARA OCULTAR ELEMENTOS */
+.hidden {
+  display: none !important;
+}
+
+/* ACCIONES NOM-035 */
+.nom035-actions-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 35px auto 40px auto;
+  max-width: 820px;
+  flex-wrap: wrap;
+}
+
+.btn-nom {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 24px;
+  border-radius: 12px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: left;
+}
+
+.btn-nom .btn-icon {
+  font-size: 30px;
+}
+
+.btn-nom .btn-text strong {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 3px;
+}
+
+.btn-nom .btn-text small {
+  display: block;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.btn-nom.btn-info {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+  color: var(--color-helenico, #1b3b6f);
+}
+
+.btn-nom.btn-info:hover {
+  background-color: #ffffff;
+  border-color: var(--color-helenico, #1b3b6f);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(27, 59, 111, 0.1);
+}
+
+.btn-nom.btn-acceso {
+  background-color: var(--color-oliva, #556b2f);
+  color: #ffffff;
+}
+
+.btn-nom.btn-acceso:hover {
+  background-color: var(--color-oliva-hover, #435424);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(85, 107, 47, 0.25);
+}
+
+/* MODALES */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.modal-card {
+  background: #ffffff;
+  border-radius: 14px;
+  position: relative;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-lg { max-width: 820px; }
+.modal-sm { max-width: 420px; }
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  background: transparent;
+  border: none;
+  font-size: 26px;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.modal-title {
+  color: var(--color-helenico, #1b3b6f);
+  font-size: 21px;
+  margin-bottom: 22px;
+}
+
+.info-content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 18px;
+}
+
+.info-box {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 18px;
+  border-radius: 10px;
+}
+
+.info-box h4 {
+  color: var(--color-helenico, #1b3b6f);
+  margin-bottom: 8px;
+  font-size: 15.5px;
+}
+
+.info-box.destacada {
+  border-left: 4px solid var(--color-oliva, #556b2f);
+  background-color: #fcfdfc;
+}
+
+.btn-cotizar-modal {
+  display: inline-block;
+  background-color: var(--color-verde-claro, #22c55e);
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 13px 26px;
+  border-radius: 8px;
+  margin-top: 22px;
+  transition: background-color 0.2s;
+}
+
+.btn-cotizar-modal:hover {
+  background-color: #16a34a;
+}
+
+/* LOGIN */
+.lock-circle {
+  font-size: 38px;
+  margin-bottom: 10px;
+}
+
+.login-header h3 {
+  color: var(--color-helenico, #1b3b6f);
+  margin-bottom: 6px;
+}
+
+.login-header p {
+  color: #64748b;
+  font-size: 13.5px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14.5px;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  border-color: var(--color-oliva, #556b2f);
+  outline: none;
+}
+
+.btn-submit-login {
+  width: 100%;
+  background-color: var(--color-oliva, #556b2f);
+  color: #ffffff;
+  border: none;
+  padding: 13px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.login-error {
+  color: #dc2626;
+  font-size: 13px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* BANNER DE AUTENTICADO */
+.banner-autenticado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0fdf4;
+  border: 1px solid var(--color-verde-claro, #22c55e);
+  padding: 14px 22px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.btn-logout {
+  background: transparent;
+  border: 1px solid #dc2626;
+  color: #dc2626;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}

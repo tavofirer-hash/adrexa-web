@@ -47,7 +47,202 @@
     <div class="container">
       <h2 class="section-title">Consultoría Corporativa NOM-035-STPS</h2>
       <p class="section-sub">Plataforma oficial de evaluación psicológica y cumplimiento normativo.</p>
+      <!-- DOS BOTONES PRINCIPALES NOM-035 -->
+    <div class="nom035-actions-wrapper">
+      <button type="button" class="btn-nom btn-info" id="btn-abrir-info">
+        <span class="btn-icon">📋</span>
+        <span class="btn-text">
+          <strong>Conocer el Servicio</strong>
+          <small>Qué es, obligaciones legales y ventajas</small>
+        </span>
+      </button>
 
+      <button type="button" class="btn-nom btn-acceso" id="btn-abrir-login">
+        <span class="btn-icon">🔒</span>
+        <span class="btn-text">
+          <strong>Acceso a Cuestionarios</strong>
+          <small>Portal exclusivo para colaboradores evaluados</small>
+        </span>
+      </button>
+    </div>
+
+    <!-- MODAL 1: INFORMACIÓN CORPORATIVA Y VENTAJAS -->
+    <div id="modal-info-nom" class="modal-overlay hidden">
+      <div class="modal-card modal-lg">
+        <button type="button" class="modal-close" id="btn-cerrar-info">&times;</button>
+        <h3 class="modal-title">Programa de Cumplimiento e Intervención NOM-035-STPS</h3>
+        
+        <div class="info-content-grid">
+          <div class="info-box">
+            <h4>¿Qué es la NOM-035?</h4>
+            <p>Es la norma oficial obligatoria en México diseñada para identificar, analizar y prevenir los factores de riesgo psicosocial, así como para promover un entorno organizacional favorable en los centros de trabajo.</p>
+          </div>
+
+          <div class="info-box">
+            <h4>¿Para quiénes aplica?</h4>
+            <p>Aplica para <strong>todos los centros de trabajo en territorio mexicano</strong>. Las obligaciones varían según el número de trabajadores (plantillas de hasta 15, de 16 a 50 y más de 50 colaboradores).</p>
+          </div>
+
+          <div class="info-box">
+            <h4>¿Cuáles son las ventajas para su empresa?</h4>
+            <ul>
+              <li>Prevención efectiva de multas y sanciones de la STPS.</li>
+              <li>Reducción significativa del ausentismo laboral y rotación de personal.</li>
+              <li>Incremento en la productividad y clima organizacional saludable.</li>
+            </ul>
+          </div>
+
+          <div class="info-box destacada">
+            <h4>¿Por qué contratarlo con Clínica Psicológica Adrexa?</h4>
+            <ul>
+              <li><strong>Rigor clínico colegiado:</strong> Evaluaciones respaldadas por profesionales en psicología clínica con cédula profesional.</li>
+              <li><strong>Secreto profesional y confidencialidad:</strong> Cumplimiento estricto de la NOM-004-SSA3-2012 para el resguardo de expedientes clínicos.</li>
+              <li><strong>Canalización terapéutica directa:</strong> Capacidad inmediata de atención psicológica para colaboradores identificados con Acontecimientos Traumáticos Severos (ATS).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="modal-footer text-center">
+          <a href="https://wa.me/52TU_NUMERO_AQUI?text=Hola,%20solicito%20una%20propuesta%20corporativa%20NOM-035" class="btn-cotizar-modal" target="_blank" rel="noopener noreferrer">
+            Solicitar propuesta corporativa
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL 2: VENTANA DE ACCESO CON USUARIO Y CONTRASEÑA -->
+    <div id="modal-login-nom" class="modal-overlay hidden">
+      <div class="modal-card modal-sm">
+        <button type="button" class="modal-close" id="btn-cerrar-login">&times;</button>
+        <div class="login-header text-center">
+          <div class="lock-circle">🔐</div>
+          <h3>Portal de Evaluación NOM-035</h3>
+          <p>Ingrese las credenciales asignadas por su departamento de Recursos Humanos o Dirección.</p>
+        </div>
+
+        <form id="form-login-nom">
+          <div class="form-group">
+            <label for="nom-user">Usuario / Clave de Empresa</label>
+            <input type="text" id="nom-user" required placeholder="Ej. DEMO">
+          </div>
+          <div class="form-group">
+            <label for="nom-pass">Contraseña de Acceso</label>
+            <input type="password" id="nom-pass" required placeholder="••••••••">
+          </div>
+          <div id="login-error-msg" class="login-error hidden">
+            Credenciales no válidas. Verifique con su empresa o administrador.
+          </div>
+          <button type="submit" class="btn-submit-login">Ingresar a la Evaluación</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- CONTENEDOR PRIVADO (OCULTA EL FORMULARIO POR DEFECTO) -->
+    <div id="cuestionario-privado-container" class="hidden">
+      <div class="banner-autenticado">
+        <div>
+          <strong>Empresa Activa:</strong> <span id="empresa-autenticada-label">Empresa Registrada</span>
+        </div>
+        <button type="button" id="btn-cerrar-sesion" class="btn-logout">Cerrar Sesión</button>
+      </div>
+<!-- DOS BOTONES PRINCIPALES NOM-035 -->
+    <div class="nom035-actions-wrapper">
+      <button type="button" class="btn-nom btn-info" id="btn-abrir-info">
+        <span class="btn-icon">📋</span>
+        <span class="btn-text">
+          <strong>Conocer el Servicio</strong>
+          <small>Qué es, obligaciones legales y ventajas</small>
+        </span>
+      </button>
+
+      <button type="button" class="btn-nom btn-acceso" id="btn-abrir-login">
+        <span class="btn-icon">🔒</span>
+        <span class="btn-text">
+          <strong>Acceso a Cuestionarios</strong>
+          <small>Portal exclusivo para colaboradores evaluados</small>
+        </span>
+      </button>
+    </div>
+
+    <!-- MODAL 1: INFORMACIÓN CORPORATIVA Y VENTAJAS -->
+    <div id="modal-info-nom" class="modal-overlay hidden">
+      <div class="modal-card modal-lg">
+        <button type="button" class="modal-close" id="btn-cerrar-info">&times;</button>
+        <h3 class="modal-title">Programa de Cumplimiento e Intervención NOM-035-STPS</h3>
+        
+        <div class="info-content-grid">
+          <div class="info-box">
+            <h4>¿Qué es la NOM-035?</h4>
+            <p>Es la norma oficial obligatoria en México diseñada para identificar, analizar y prevenir los factores de riesgo psicosocial, así como para promover un entorno organizacional favorable en los centros de trabajo.</p>
+          </div>
+
+          <div class="info-box">
+            <h4>¿Para quiénes aplica?</h4>
+            <p>Aplica para <strong>todos los centros de trabajo en territorio mexicano</strong>. Las obligaciones varían según el número de trabajadores (plantillas de hasta 15, de 16 a 50 y más de 50 colaboradores).</p>
+          </div>
+
+          <div class="info-box">
+            <h4>¿Cuáles son las ventajas para su empresa?</h4>
+            <ul>
+              <li>Prevención efectiva de multas y sanciones de la STPS.</li>
+              <li>Reducción significativa del ausentismo laboral y rotación de personal.</li>
+              <li>Incremento en la productividad y clima organizacional saludable.</li>
+            </ul>
+          </div>
+
+          <div class="info-box destacada">
+            <h4>¿Por qué contratarlo con Clínica Psicológica Adrexa?</h4>
+            <ul>
+              <li><strong>Rigor clínico colegiado:</strong> Evaluaciones respaldadas por profesionales en psicología clínica con cédula profesional.</li>
+              <li><strong>Secreto profesional y confidencialidad:</strong> Cumplimiento estricto de la NOM-004-SSA3-2012 para el resguardo de expedientes.</li>
+              <li><strong>Canalización terapéutica directa:</strong> Capacidad inmediata de intervención clínica para colaboradores identificados con Acontecimientos Traumáticos Severos (ATS).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="modal-footer text-center">
+          <a href="https://wa.me/525500000000?text=Hola,%20solicito%20una%20cotización%20de%20consultoría%20NOM-035" class="btn-cotizar-modal" target="_blank" rel="noopener noreferrer">
+            Solicitar propuesta corporativa
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL 2: VENTANA DE ACCESO CON USUARIO Y CONTRASEÑA -->
+    <div id="modal-login-nom" class="modal-overlay hidden">
+      <div class="modal-card modal-sm">
+        <button type="button" class="modal-close" id="btn-cerrar-login">&times;</button>
+        <div class="login-header text-center">
+          <div class="lock-circle">🔐</div>
+          <h3>Portal de Evaluación NOM-035</h3>
+          <p>Ingrese las credenciales asignadas por su departamento de Recursos Humanos o Dirección.</p>
+        </div>
+
+        <form id="form-login-nom">
+          <div class="form-group">
+            <label for="nom-user">Usuario / Clave de Empresa</label>
+            <input type="text" id="nom-user" required placeholder="Ej. EMPRESA-01">
+          </div>
+          <div class="form-group">
+            <label for="nom-pass">Contraseña de Acceso</label>
+            <input type="password" id="nom-pass" required placeholder="••••••••">
+          </div>
+          <div id="login-error-msg" class="login-error hidden">
+            Credenciales no válidas. Verifique con su administrador.
+          </div>
+          <button type="submit" class="btn-submit-login">Ingresar a la Evaluación</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- INICIO DEL CONTENEDOR PRIVADO (OCULTA EL FORMULARIO POR DEFECTO) -->
+    <div id="cuestionario-privado-container" class="hidden">
+      <div class="banner-autenticado">
+        <div>
+          <strong>Sesión Activa:</strong> <span id="empresa-autenticada-label">Empresa Registrada</span>
+        </div>
+        <button type="button" id="btn-cerrar-sesion" class="btn-logout">Cerrar Sesión</button>
+      </div>
       <div class="form-container">
         <!-- PESTAÑAS SELECTORAS DEL TIPO DE EVALUACIÓN -->
         <div class="tabs-evaluacion">
