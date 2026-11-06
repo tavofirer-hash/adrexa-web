@@ -254,6 +254,41 @@ function verificarSeccionI() {
 // INICIALIZACIÓN Y EVENTOS DOM
 // ==========================================
 document.addEventListener("DOMContentLoaded", () => {
+    // MODALES LEGALES (AVISO DE PRIVACIDAD Y CONSENTIMIENTO INFORMADO)
+  const modalPrivacidad = document.getElementById('modal-privacidad');
+  const modalConsentimiento = document.getElementById('modal-consentimiento');
+  const btnCerrarPrivacidad = document.getElementById('btn-cerrar-privacidad');
+  const btnCerrarConsentimiento = document.getElementById('btn-cerrar-consentimiento');
+
+  // Enlaces que abren Privacidad (clase común)
+  document.querySelectorAll('.link-abrir-privacidad').forEach(enlace => {
+    enlace.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (modalPrivacidad) modalPrivacidad.classList.remove('hidden');
+    });
+  });
+
+  // Enlaces que abren Consentimiento (clase común)
+  document.querySelectorAll('.link-abrir-consentimiento').forEach(enlace => {
+    enlace.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (modalConsentimiento) modalConsentimiento.classList.remove('hidden');
+    });
+  });
+
+  // Botones de cierre (la X)
+  if (btnCerrarPrivacidad && modalPrivacidad) {
+    btnCerrarPrivacidad.addEventListener('click', () => modalPrivacidad.classList.add('hidden'));
+  }
+  if (btnCerrarConsentimiento && modalConsentimiento) {
+    btnCerrarConsentimiento.addEventListener('click', () => modalConsentimiento.classList.add('hidden'));
+  }
+
+  // Cerrar al dar clic afuera
+  window.addEventListener('click', (e) => {
+    if (e.target === modalPrivacidad) modalPrivacidad.classList.add('hidden');
+    if (e.target === modalConsentimiento) modalConsentimiento.classList.add('hidden');
+  });
 
   // GESTIÓN DE ACCESO NOM-035
   const USUARIOS_AUTORIZADOS = {

@@ -200,6 +200,54 @@
             <h3>Portal de Evaluación NOM-035</h3>
             <p>Ingrese las credenciales asignadas por su departamento de Recursos Humanos o Dirección.</p>
           </div>
+          <!-- MODAL 3: AVISO DE PRIVACIDAD INTEGRAL -->
+      <div id="modal-privacidad" class="modal-overlay hidden">
+        <div class="modal-card modal-lg">
+          <button type="button" class="modal-close" id="btn-cerrar-privacidad">&times;</button>
+          <h3 class="modal-title">Aviso de Privacidad Integral</h3>
+          <div class="legal-content-scroll">
+            <p><strong>Clínica Psicológica Adrexa S.A.S. de C.V.</strong>, con domicilio en Chalco, Estado de México, y portal web <code>clinic-adrexa.com</code>, en estricto cumplimiento con la <strong>Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)</strong> y la <strong>NOM-004-SSA3-2012 (Del expediente clínico)</strong>, informa:</p>
+            
+            <h4>1. Datos Personales Sensibles Recabados</h4>
+            <p>Recabamos datos de identificación y datos personales sensibles relativos al estado de salud mental, síntomas emocionales, historial clínico y respuestas a cuestionarios estandarizados de la <strong>NOM-035-STPS-2018</strong> y tamizajes de Acontecimientos Traumáticos Severos (ATS).</p>
+
+            <h4>2. Finalidades del Tratamiento</h4>
+            <ul>
+              <li>Integración y custodia del Expediente Clínico conforme a la NOM-004-SSA3-2012 y el secreto profesional.</li>
+              <li>Diagnóstico, calificación técnica y análisis de factores de riesgo psicosocial en el trabajo.</li>
+              <li>Emisión de Constancias de Competencias Laborales (Formato DC-3 ante la STPS) y carpetas técnicas de auditoría.</li>
+              <li>Canalización clínica inmediata y primeros auxilios psicológicos para trabajadores con afectación postraumática.</li>
+            </ul>
+
+            <h4>3. Confidencialidad Estricta y No Represalias</h4>
+            <p>Bajo ninguna circunstancia se entregarán respuestas individuales ni expedientes clínicos de los trabajadores a las empresas empleadoras. A las organizaciones solo se les entregan reportes estadísticos globales disociados para el cumplimiento de la norma.</p>
+
+            <h4>4. Ejercicio de Derechos ARCO</h4>
+            <p>Usted puede ejercer sus derechos de Acceso, Rectificación, Cancelación y Oposición (ARCO) comunicándose a través de nuestros canales oficiales. La cancelación de datos clínicos se apega a los plazos legales mínimos de conservación de 5 años previstos por la norma sanitaria.</p>
+
+            <h4>5. Emergencias</h4>
+            <p>Este portal no sustituye servicios de urgencias médicas ni psiquiátricas. En caso de crisis aguda llame al 911 o a la Línea de la Vida (800 911 2000).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODAL 4: CONSENTIMIENTO INFORMADO -->
+      <div id="modal-consentimiento" class="modal-overlay hidden">
+        <div class="modal-card modal-lg">
+          <button type="button" class="modal-close" id="btn-cerrar-consentimiento">&times;</button>
+          <h3 class="modal-title">Consentimiento Informado para Evaluación y Atención Clínica</h3>
+          <div class="legal-content-scroll">
+            <h4>1. Enfoque Basado en Evidencia</h4>
+            <p>Declaro entender que las evaluaciones e intervenciones de Clínica Psicológica Adrexa se basan en la <strong>Práctica Basada en Evidencia (PBE)</strong> mediante modelos de Terapia Cognitivo-Conductual (TCC), Terapia de Aceptación y Compromiso (ACT) y terapias contextuales, a cargo de profesionales con cédula profesional federal.</p>
+
+            <h4>2. Secreto Profesional y Excepciones</h4>
+            <p>Toda la información proporcionada está bajo el secreto profesional bioético y legal. Solo se revelará ante orden judicial o cuando exista un riesgo inminente y grave para la vida o integridad de la persona o de terceros.</p>
+
+            <h4>3. Participación en Evaluaciones Laborales NOM-035</h4>
+            <p>Entiendo que mi participación tiene fines de evaluación ambiental y de factores de riesgo psicosocial en el centro de trabajo. Mis respuestas son confidenciales y no constituyen un instrumento punitivo ni condicionante de mi empleo.</p>
+          </div>
+        </div>
+      </div>
 
           <form id="form-login-nom">
             <div class="form-group">
@@ -418,7 +466,15 @@
                   </div>
                 </div>
               </div>
-
+<div class="consentimiento-check-box">
+                <label class="check-legal">
+                  <input type="checkbox" id="check-privacidad-ats" required>
+                  <span>
+                    He leído y acepto el <a href="javascript:void(0)" class="link-abrir-privacidad">Aviso de Privacidad</a> y el 
+                    <a href="javascript:void(0)" class="link-abrir-consentimiento">Consentimiento Informado</a>. Otorgo mi autorización para el tratamiento confidencial de mis datos bajo la <strong>NOM-004-SSA3-2012</strong> y <strong>NOM-035-STPS-2018</strong>.
+                  </span>
+                </label>
+              </div>
               <button type="submit" id="btn-enviar-ats" class="btn-submit">Registrar Tamizaje ATS</button>
             </form>
           </div>
@@ -446,7 +502,15 @@
               </div>
 
               <div id="contenedor-preguntas"></div>
-
+<div class="consentimiento-check-box">
+                <label class="check-legal">
+                  <input type="checkbox" id="check-privacidad-factores" required>
+                  <span>
+                    He leído y acepto el <a href="javascript:void(0)" class="link-abrir-privacidad">Aviso de Privacidad</a> y el 
+                    <a href="javascript:void(0)" class="link-abrir-consentimiento">Consentimiento Informado</a>. Otorgo mi consentimiento para evaluar mis respuestas bajo el resguardo de la <strong>NOM-035-STPS-2018</strong>.
+                  </span>
+                </label>
+              </div>
               <button type="submit" id="btn-enviar" class="btn-submit">Enviar Evaluación y Registrar Diagnóstico</button>
             </form>
           </div>
@@ -498,14 +562,14 @@
     </div>
   </section>
 
-  <!-- PIE DE PÁGINA -->
+ <!-- PIE DE PÁGINA -->
   <footer>
     <p><strong>Clínica Psicológica Adrexa S.A.S. de C.V.</strong> &bull; Chalco, Estado de México</p>
     <p>Práctica Basada en Evidencia | NOM-004-SSA3-2012 | NOM-035-STPS-2018</p>
+    <p class="footer-links-legal">
+      <a href="javascript:void(0)" class="link-abrir-privacidad">Aviso de Privacidad</a> &bull; 
+      <a href="javascript:void(0)" class="link-abrir-consentimiento">Consentimiento Informado</a>
+    </p>
     <p class="footer-sub">Atención de Lunes a Domingo de 08:00 a 22:00 hrs &bull; Confidencialidad y Secreto Profesional</p>
   </footer>
-
-  <script src="app.js"></script>
-</body>
-</html>
-
+  

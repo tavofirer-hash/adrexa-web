@@ -814,3 +814,82 @@ footer {
     gap: 10px;
   }
 }
+/* ESTILOS DE LEGALIDAD, CONSENTIMIENTO Y MODALES SCROLL */
+.consentimiento-check-box {
+  margin: 20px 0 15px 0;
+  padding: 14px 16px;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.check-legal {
+  display: flex !important;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.check-legal input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: #0b3c5d;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.check-legal span {
+  font-size: 13px;
+  color: #334155;
+  line-height: 1.5;
+}
+
+.check-legal a {
+  color: #0b3c5d;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.legal-content-scroll {
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 12px;
+  text-align: left;
+  font-size: 14px;
+  color: #334155;
+  line-height: 1.6;
+}
+
+.legal-content-scroll h4 {
+  color: #0b3c5d;
+  margin-top: 16px;
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+
+.legal-content-scroll ul {
+  padding-left: 20px;
+  margin-bottom: 12px;
+}
+
+.legal-content-scroll li {
+  margin-bottom: 6px;
+}
+
+.footer-links-legal {
+  margin: 10px 0 6px 0;
+}
+
+.footer-links-legal a {
+  color: #93c5fd;
+  text-decoration: underline;
+  font-size: 13px;
+  margin: 0 4px;
+  cursor: pointer;
+}
+
+.footer-links-legal a:hover {
+  color: #ffffff;
+}
