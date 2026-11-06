@@ -244,9 +244,13 @@
         </div>
 
         <!-- MÓDULO 2: GUÍA II Y GUÍA III (Oculto inicialmente si se abre Guía I) -->
+    <!-- MÓDULO 2: GUÍA II Y GUÍA III (Oculto inicialmente si se abre Guía I) -->
         <div id="modulo-factores" style="display: none;">
           <h3>Evaluación de Factores de Riesgo Psicosocial</h3>
-          
+          <button type="submit" id="btn-enviar" class="btn-submit">Enviar Evaluación y Registrar Diagnóstico</button>
+  </form>
+</div>
+
           <div class="selector-guia-box">
             <label for="selectorGuia"><strong>Tamaño del Centro de Trabajo / Instrumento:</strong></label>
             <select id="selectorGuia" class="form-select">
@@ -254,7 +258,24 @@
               <option value="III">Guía de Referencia III (Más de 50 colaboradores — 72 reactivos)</option>
             </select>
           </div>
-<!-- MÓDULO 3: BUZÓN CONFIDENCIAL DE QUEJAS Y DENUNCIAS -->
+
+          <form id="formulario-nom035">
+            <div class="form-row">
+              <input type="text" id="empresa" placeholder="Nombre de la Empresa *" required>
+              <input type="text" id="idEmpleado" placeholder="ID / Folio de Colaborador *" required>
+            </div>
+            <div class="form-row">
+              <input type="text" id="nombre" placeholder="Nombre completo (Opcional)">
+              <input type="text" id="puesto" placeholder="Puesto o Área de trabajo *" required>
+            </div>
+
+            <div id="contenedor-preguntas"></div>
+
+            <button type="submit" id="btn-enviar" class="btn-submit">Enviar Evaluación y Registrar Diagnóstico</button>
+          </form>
+        </div>
+
+        <!-- MÓDULO 3: BUZÓN CONFIDENCIAL DE QUEJAS Y DENUNCIAS (Afuera e independiente) -->
         <div id="modulo-buzon" style="display: none;">
           <h3>Buzón Seguro y Confidencial de Denuncias NOM-035</h3>
           <p class="instrucciones">
@@ -296,23 +317,7 @@
             <button type="submit" id="btn-enviar-buzon" class="btn-submit">Enviar Denuncia Confidencial</button>
           </form>
         </div>
-          <form id="formulario-nom035">
-            <div class="form-row">
-              <input type="text" id="empresa" placeholder="Nombre de la Empresa *" required>
-              <input type="text" id="idEmpleado" placeholder="ID / Folio de Colaborador *" required>
-            </div>
-            <div class="form-row">
-              <input type="text" id="nombre" placeholder="Nombre completo (Opcional)">
-              <input type="text" id="puesto" placeholder="Puesto o Área de trabajo *" required>
-            </div>
-
-            <div id="contenedor-preguntas"></div>
-
-            <button type="submit" id="btn-enviar" class="btn-submit">Enviar Evaluación y Registrar Diagnóstico</button>
-          </form>
         </div>
-
-      </div>
     </div>
   </section>
 
