@@ -25,8 +25,12 @@
       <div class="logistica-item">
         <span class="logistica-icon">📍</span>
         <div>
-          <strong>Ubicación Céntrica</strong>
-          <p>Chalco, Estado de México</p>
+          <strong>Presencial & Online</strong>
+          <p>
+            <a href="https://maps.app.goo.gl/oZojsbTwyhfwvNK37" target="_blank" rel="noopener noreferrer" class="link-ubicacion" title="Ver ubicación en Google Maps">
+              Calle Oyamel, Fracc. Los Álamos · Chalco, Edo. Méx.
+            </a>
+          </p>
         </div>
       </div>
       <div class="logistica-item">
@@ -107,18 +111,21 @@
   <section id="servicios" class="section bg-light">
     <div class="container">
       <h2 class="section-title">Servicios Clínicos Especializados</h2>
-      <p class="section-sub">Consultoría y psicoterapia individual, infantil y de pareja en Chalco.</p>
+      <p class="section-sub">Consultoría y psicoterapia en modalidades Presencial (Chalco) y Online a nivel nacional.</p>
       
       <div class="grid-services">
         <div class="card">
+          <div class="modalidad-badge">Presencial & Online</div>
           <h3>Infantil & Adolescentes</h3>
           <p>Manejo de emociones, regulación conductual, fortalecimiento de autoestima y acompañamiento en crisis del desarrollo.</p>
         </div>
         <div class="card">
+          <div class="modalidad-badge">Presencial & Online</div>
           <h3>Adultos & Pareja</h3>
           <p>Intervención clínica individual y vincular para depresión, procesos de duelo, estrés y resolución asertiva de conflictos.</p>
         </div>
         <div class="card">
+          <div class="modalidad-badge">Presencial & Online</div>
           <h3>Trastornos del Ánimo y Ansiedad</h3>
           <p>Abordaje protocolizado para distimia, trastorno de ansiedad generalizada, crisis de pánico y secuelas de estrés agudo.</p>
         </div>
@@ -130,7 +137,7 @@
   <section id="nom035" class="section">
     <div class="container">
       <h2 class="section-title">Consultoría Corporativa NOM-035-STPS</h2>
-      <p class="section-sub">Capacitación, diagnóstico de factores de riesgo psicosocial y blindaje técnico laboral.</p>
+      <p class="section-sub">Capacitación, diagnóstico digital de factores de riesgo psicosocial y blindaje técnico laboral.</p>
 
       <!-- DOS BOTONES PRINCIPALES NOM-035 -->
       <div class="nom035-actions-wrapper">
@@ -161,6 +168,11 @@
             <div class="info-box">
               <h4>¿Qué es la NOM-035?</h4>
               <p>Norma oficial obligatoria en México para identificar, analizar y prevenir factores de riesgo psicosocial, fortaleciendo un entorno organizacional favorable.</p>
+            </div>
+
+            <div class="info-box">
+              <h4>Aplicación 100% Digital y Presencial</h4>
+              <p>Plataforma web con acceso seguro para aplicar los instrumentos tanto en centros de trabajo como a colaboradores en esquema de teletrabajo (Home Office) en todo México.</p>
             </div>
 
             <div class="info-box">
@@ -224,7 +236,7 @@
           <button type="button" class="modal-close" id="btn-cerrar-privacidad">&times;</button>
           <h3 class="modal-title">Aviso de Privacidad Integral</h3>
           <div class="legal-content-scroll">
-            <p><strong>Clínica Psicológica Adrexa S.A.S. de C.V.</strong>, con domicilio en Chalco, Estado de México, y portal web <code>clinic-adrexa.com</code>, en estricto cumplimiento con la <strong>Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)</strong> y la <strong>NOM-004-SSA3-2012 (Del expediente clínico)</strong>, informa:</p>
+            <p><strong>Clínica Psicológica Adrexa S.A.S. de C.V.</strong>, con domicilio en Calle Oyamel, Fracc. Los Álamos, Chalco, Estado de México, y portal web <code>clinic-adrexa.com</code>, en estricto cumplimiento con la <strong>Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)</strong> y la <strong>NOM-004-SSA3-2012 (Del expediente clínico)</strong>, informa:</p>
             
             <h4>1. Datos Personales Sensibles Recabados</h4>
             <p>Recabamos datos de identificación y datos personales sensibles relativos al estado de salud mental, síntomas emocionales, historial clínico y respuestas a cuestionarios estandarizados de la <strong>NOM-035-STPS-2018</strong> y tamizajes de Acontecimientos Traumáticos Severos (ATS).</p>
@@ -232,7 +244,7 @@
             <h4>2. Finalidades del Tratamiento</h4>
             <ul>
               <li>Integración y custodia del Expediente Clínico conforme a la NOM-004-SSA3-2012 y el secreto profesional.</li>
-              <li>Diagnóstico, calificación técnica y análisis de factores de riesgo psicosocial en el trabajo.</li>
+              <li>Diagnóstico, calificación técnica y análisis de factores de riesgo psicosocial en el trabajo en modalidades presencial y remota.</li>
               <li>Emisión de Constancias de Competencias Laborales (Formato DC-3 ante la STPS) y carpetas técnicas de auditoría.</li>
               <li>Canalización clínica inmediata y primeros auxilios psicológicos para trabajadores con afectación postraumática.</li>
             </ul>
@@ -468,6 +480,7 @@
                 </div>
               </div>
 
+              <!-- CHECKBOX LEGAL OBLIGATORIO -->
               <div class="consentimiento-check-box">
                 <label class="check-legal">
                   <input type="checkbox" id="check-privacidad-ats" required>
@@ -506,6 +519,7 @@
 
               <div id="contenedor-preguntas"></div>
 
+              <!-- CHECKBOX LEGAL OBLIGATORIO -->
               <div class="consentimiento-check-box">
                 <label class="check-legal">
                   <input type="checkbox" id="check-privacidad-factores" required>
@@ -569,11 +583,13 @@
 
   <!-- PIE DE PÁGINA -->
   <footer>
-    <p><strong>Clínica Psicológica Adrexa S.A.S. de C.V.</strong> &bull; Chalco, Estado de México</p>
+    <p><strong>Clínica Psicológica Adrexa S.A.S. de C.V.</strong> &bull; Calle Oyamel, Fracc. Los Álamos, Chalco, Edo. Méx.</p>
+    <p>Modalidad Presencial y Sesiones Online a nivel nacional</p>
     <p>Práctica Basada en Evidencia | NOM-004-SSA3-2012 | NOM-035-STPS-2018</p>
     <p class="footer-links-legal">
       <a href="javascript:void(0)" class="link-abrir-privacidad">Aviso de Privacidad</a> &bull; 
-      <a href="javascript:void(0)" class="link-abrir-consentimiento">Consentimiento Informado</a>
+      <a href="javascript:void(0)" class="link-abrir-consentimiento">Consentimiento Informado</a> &bull; 
+      <a href="https://maps.app.goo.gl/oZojsbTwyhfwvNK37" target="_blank" rel="noopener noreferrer">Cómo llegar (Maps)</a>
     </p>
     <p class="footer-sub">Atención de Lunes a Domingo de 08:00 a 22:00 hrs &bull; Confidencialidad y Secreto Profesional</p>
   </footer>
