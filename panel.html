@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Clínico - Clínica Psicológica Adrexa</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+
+  <!-- ENCABEZADO SUPERIOR -->
+  <header class="panel-header">
+    <div class="panel-header-content">
+      <div class="panel-brand">
+        <h2>Clínica Psicológica Adrexa</h2>
+        <span>Módulo Clínico NOM-024 / NOM-004</span>
+      </div>
+      <div id="usuario-badge" class="usuario-badge hidden">
+        <span id="nombre-terapeuta-label">Dr. Octavio Cabrera</span>
+        <button type="button" id="btn-cerrar-sesion-terapeuta" class="btn-logout-panel">Salir</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="panel-main">
+
+    <!-- SECCIÓN 1: PANTALLA DE INICIO DE SESIÓN -->
+    <section id="seccion-login-terapeuta" class="login-card-container">
+      <div class="login-box-clinico">
+        <div class="login-icon">🔒</div>
+        <h3>Acceso Exclusivo Terapeutas</h3>
+        <p>Inicie sesión para acceder a la agenda y expedientes clínicos protegidos.</p>
+
+        <form id="form-login-terapeuta">
+          <div class="form-group">
+            <label for="login-email">Correo Clínico:</label>
+            <input type="email" id="login-email" required placeholder="tavofirer@gmail.com">
+          </div>
+          <div class="form-group">
+            <label for="login-password">Contraseña:</label>
+            <input type="password" id="login-password" required placeholder="••••••••">
+          </div>
+          <div id="error-login-terapeuta" class="alerta-error hidden"></div>
+          <button type="submit" id="btn-ingresar-terapeuta" class="btn-submit-panel">Iniciar Sesión</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: ESCRITORIO DEL TERAPEUTA (SE MUESTRA TRAS EL LOGIN) -->
+    <section id="seccion-escritorio-terapeuta" class="escritorio-container hidden">
+      
+      <!-- PESTAÑAS DE NAVEGACIÓN -->
+      <div class="panel-tabs">
+        <button type="button" id="tab-agenda" class="tab-btn active" onclick="cambiarPestanaPanel('agenda')">
+          📅 Agenda y Solicitudes de Citas
+        </button>
+        <button type="button" id="tab-expediente" class="tab-btn" onclick="cambiarPestanaPanel('expediente')">
+          📝 Expediente y Notas NOM-024
+        </button>
+      </div>
+
+      <!-- VISTA A: AGENDA -->
+      <div id="vista-agenda" class="panel-view">
+        <div class="view-header">
+          <h3>Gestión de Citas Solicitadas</h3>
+          <button type="button" id="btn-refrescar-citas" class="btn-secondary">🔄 Actualizar Lista</button>
+        </div>
+        <div class="tabla-responsive">
+          <table class="tabla-clinica">
+            <thead>
+              <tr>
+                <th>Paciente</th>
+                <th>Contacto</th>
+                <th>Fecha y Hora</th>
+                <th>Modalidad</th>
+                <th>Estado</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody id="cuerpo-tabla-citas">
+              <tr>
+                <td colspan="6" class="text-center">Cargando citas...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- VISTA B: EXPEDIENTE CLÍNICO -->
+      <div id="vista-expediente" class="panel-view hidden">
+        <div class="view-header">
+          <h3>Expediente Clínico Electrónico Inmutable</h3>
+        </div>
+
+        <div class="expediente-grid">
+          <!-- Columna Izquierda: Redactar Nota -->
+          <div class="card-formulario-nota">
+            <h4>Redactar Nota de Evolución</h4>
+            <form id="form-crear-nota">
+              <div class="form-group">
+                <label for="nota-paciente-id">ID o Número de Paciente:</label>
+                <input type="number" id="nota-paciente-id" required placeholder="Ej. 1" min="1">
+              </div>
+              <div class="form-group">
+                <label for="nota-fecha">Fecha y Hora de la Sesión:</label>
+                <input type="datetime-local" id="nota-fecha" required>
+              </div>
+              <div class="form-group">
+                <label for="nota-contenido">Nota Clínica (Evolución, Intervención y Tareas):</label>
+                <textarea id="nota-contenido" rows="6" class="form-textarea" required placeholder="Describa el estado del paciente, técnicas conductuales aplicadas y acuerdos acordes a la PBE..."></textarea>
+              </div>
+              <button type="submit" id="btn-sellar-nota" class="btn-sellar-nota">
+                🔏 Firmar y Sellar con SHA-256
+              </button>
+            </form>
+          </div>
+
+          <!-- Columna Derecha: Consultar Historial del Paciente -->
+          <div class="card-historial-expediente">
+            <h4>Consultar Expediente</h4>
+            <div class="busqueda-paciente-box">
+              <input type="number" id="buscar-paciente-id" placeholder="ID de Paciente (Ej. 1)">
+              <button type="button" id="btn-buscar-expediente" class="btn-secondary">Buscar</button>
+            </div>
+            <div id="contenedor-historial-notas" class="notas-scroll-box">
+              <p class="text-muted">Ingrese un ID de paciente para revisar su historial sellado.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="panel.js" charset="UTF-8"></script>
+</body>
+</html>
