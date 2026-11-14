@@ -252,191 +252,10 @@ function verificarSeccionI() {
   }
 }
 
-// ========================================================
-// API BACKEND: DISPONIBILIDAD Y AGENDAMIENTO DE CITAS
-// ========================================================
-const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-  ? 'http://localhost:3000/api'
-  : 'https://adrexa-backend.onrender.com/api';
-
-// Catálogo de franjas de consulta estándar de 1 hora
-const FRANJAS_HORARIAS = [
-  { inicio: '09:00:00', fin: '10:00:00', label: '09:00 AM' },
-  { inicio: '10:00:00', fin: '11:00:00', label: '10:00 AM' },
-  { inicio: '11:00:00', fin: '12:00:00', label: '11:00 AM' },
-  { inicio: '12:00:00', fin: '13:00:00', label: '12:00 PM' },
-  { inicio: '13:00:00', fin: '14:00:00', label: '01:00 PM' },
-  { inicio: '16:00:00', fin: '17:00:00', label: '04:00 PM' },
-  { inicio: '17:00:00', fin: '18:00:00', label: '05:00 PM' },
-  { inicio: '18:00:00', fin: '19:00:00', label: '06:00 PM' },
-  { inicio: '19:00:00', fin: '20:00:00', label: '07:00 PM' },
-  { inicio: '20:00:00', fin: '21:00:00', label: '08:00 PM' }
-];
-
-async function consultarDisponibilidad(fechaSeleccionada) {
-  try {
-    const respuesta = await fetch(
-      `${API_BASE_URL}/citas/disponibilidad?fecha=${fechaSeleccionada}&terapeuta_id=1`
-    );
-    if (!respuesta.ok) throw new Error('Error al consultar horarios ocupados.');
-    const data = await respuesta.json();
-    return data.citas_ocupadas || data || [];
-  } catch (error) {
-    console.error('Error al verificar disponibilidad:', error);
-    return [];
-  }
-}
-
-async function cargarSlotsHorarios(fecha) {
-  const contenedor = document.getElementById('contenedor-slots-horarios');
-  const inputHoraInicio = document.getElementById('cita-hora-inicio');
-  const inputHoraFin = document.getElementById('cita-hora-fin');
-
-  if (!contenedor) return;
-  contenedor.innerHTML = '<p class="slot-info-muted">Consultando disponibilidad...</p>';
-  inputHoraInicio.value = '';
-  inputHoraFin.value = '';
-
-  const ocupados = await consultarDisponibilidad(fecha);
-  const horasOcupadas = ocupados.map(o => {
-    if (typeof o.inicio === 'string') {
-      const d = new Date(o.inicio);
-      return d.toTimeString().substring(0, 5);
-    }
-    return o.hora_inicio ? o.hora_inicio.substring(0, 5) : '';
-  });
-
-  contenedor.innerHTML = '';
-
-  FRANJAS_HORARIAS.forEach(franja => {
-    const horaCorta = franja.inicio.substring(0, 5);
-    const estaOcupado = horasOcupadas.includes(horaCorta);
-
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = `slot-btn ${estaOcupado ? 'ocupado' : ''}`;
-    btn.textContent = franja.label;
-
-    if (estaOcupado) {
-      btn.disabled = true;
-      btn.title = 'Horario reservado';
-    } else {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.slot-btn').forEach(b => b.classList.remove('selected'));
-        btn.classList.add('selected');
-        inputHoraInicio.value = franja.inicio;
-        inputHoraFin.value = franja.fin;
-      });
-    }
-
-    contenedor.appendChild(btn);
-  });
-}
-
 // ==========================================
 // INICIALIZACIÓN Y EVENTOS DOM
 // ==========================================
 document.addEventListener("DOMContentLoaded", () => {
-
-  // MODAL DE CITAS (PORTAL PÚBLICO)
-  const modalCita = document.getElementById('modal-agendar-cita');
-  const btnAbrirCita = document.getElementById('btn-abrir-agendar');
-  const btnCerrarCita = document.getElementById('btn-cerrar-agendar');
-  const inputFecha = document.getElementById('cita-fecha');
-  const formCita = document.getElementById('form-reservar-cita');
-
-  if (inputFecha) {
-    const hoy = new Date().toISOString().split('T')[0];
-    inputFecha.min = hoy;
-
-    inputFecha.addEventListener('change', (e) => {
-      const fecha = e.target.value;
-      if (fecha) cargarSlotsHorarios(fecha);
-    });
-  }
-
-  if (btnAbrirCita && modalCita) {
-    btnAbrirCita.addEventListener('click', (e) => {
-      e.preventDefault();
-      modalCita.classList.remove('hidden');
-      modalCita.style.display = 'flex';
-    });
-  }
-
-  if (btnCerrarCita && modalCita) {
-    btnCerrarCita.addEventListener('click', (e) => {
-      e.preventDefault();
-      modalCita.classList.add('hidden');
-      modalCita.style.display = 'none';
-    });
-  }
-
-  // ENVÍO DE FORMULARIO DE CITAS AL BACKEND
-  if (formCita) {
-    formCita.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const horaInicio = document.getElementById('cita-hora-inicio').value;
-      const horaFin = document.getElementById('cita-hora-fin').value;
-
-      if (!horaInicio || !horaFin) {
-        alert('Por favor selecciona un horario disponible de la lista.');
-        return;
-      }
-
-      const btnConfirmar = document.getElementById('btn-confirmar-cita');
-      btnConfirmar.disabled = true;
-      btnConfirmar.textContent = 'Procesando reservación...';
-
-      const rawTel = document.getElementById('cita-telefono').value.trim().replace(/\D/g, '');
-      const telefonoE164 = rawTel.startsWith('52') ? `+${rawTel}` : `+52${rawTel}`;
-      const fechaSeleccionada = document.getElementById('cita-fecha').value;
-
-      const payloadCita = {
-        terapeuta_id: 1,
-        nombre_paciente: document.getElementById('cita-nombre').value.trim(),
-        nombre_completo: document.getElementById('cita-nombre').value.trim(),
-        telefono: telefonoE164,
-        email: document.getElementById('cita-email').value.trim() || null,
-        modalidad: document.getElementById('cita-modalidad').value,
-        fecha: fechaSeleccionada,
-        hora_inicio: horaInicio,
-        hora_fin: horaFin,
-        consentimiento: true,
-        whatsapp_opt_in: true
-      };
-
-      try {
-        const res = await fetch(`${API_BASE_URL}/citas/agendar`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payloadCita)
-        });
-
-        const data = await res.json();
-
-        if (!res.ok) {
-          alert(`⚠️ No se pudo reservar: ${data.error || 'Horario no disponible'}`);
-          cargarSlotsHorarios(payloadCita.fecha);
-          return;
-        }
-
-        alert('✅ ¡Tu cita ha sido solicitada con éxito!\nNos pondremos en contacto contigo vía WhatsApp para confirmar tu sesión.');
-        formCita.reset();
-        modalCita.classList.add('hidden');
-        modalCita.style.display = 'none';
-
-        const textoWA = encodeURIComponent(`Hola, acabo de solicitar mi cita psicológica en línea para el día ${payloadCita.fecha} a las ${horaInicio.substring(0, 5)} hrs.`);
-        window.open(`https://wa.me/5215538154148?text=${textoWA}`, '_blank');
-
-      } catch (err) {
-        console.error('Error al agendar:', err);
-        alert('Error al conectar con el servidor. Verifica que el backend esté activo.');
-      } finally {
-        btnConfirmar.disabled = false;
-        btnConfirmar.textContent = 'Confirmar y Reservar Cita';
-      }
-    });
-  }
 
   // CONTROL BANNER DE COOKIES
   const cookieBanner = document.getElementById('cookie-banner');
@@ -578,10 +397,6 @@ document.addEventListener("DOMContentLoaded", () => {
       modalLogin.classList.add('hidden');
       modalLogin.style.display = 'none';
     }
-    if (e.target === modalCita) {
-      modalCita.classList.add('hidden');
-      modalCita.style.display = 'none';
-    }
     if (e.target === modalPrivacidad) {
       modalPrivacidad.classList.add('hidden');
       modalPrivacidad.style.display = 'none';
@@ -630,7 +445,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Logout NOM-035
+  // Logout
   if (btnCerrarSesion) {
     btnCerrarSesion.addEventListener('click', (e) => {
       e.preventDefault();
