@@ -2,7 +2,23 @@
 // SISTEMA DE EVALUACIÓN NOM-035: GUÍA II Y GUÍA III ADREXA
 // ========================================================
 
-const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwi55xu70rORMBEjvFt2gS7-LP_E0QlBo_udA1SrjVfJqTqQSG5Jn5QWxWDUKlfZFEoIw/exec"; 
+// 🔒 Las claves de las empresas y la hoja de registro ya NO están en esta página: viven en el servidor.
+const NOM035_API = 'https://adrexa-backend.onrender.com/api/nom035';
+const leerPase = () => { try { return sessionStorage.getItem('nom035_pase') || ''; } catch (e) { return ''; } };
+// Envía un cuestionario al servidor (que verifica el pase y lo registra en la hoja)
+async function enviarNom035(payload) {
+  const r = await fetch(`${NOM035_API}/enviar`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${leerPase()}` },
+    body: JSON.stringify(payload)
+  });
+  const data = await r.json().catch(() => ({ status: 'error', message: 'Respuesta inválida del servidor.' }));
+  if (r.status === 401) {
+    try { sessionStorage.removeItem('nom035_pase'); } catch (e) { /* nada */ }
+    return { status: 'error', message: data.message || 'Tu sesión terminó. Vuelve a entrar con la clave de tu empresa.' };
+  }
+  return data;
+}
 
 // 46 REACTIVOS GUÍA DE REFERENCIA II (16 - 50 TRABAJADORES)
 const reactivosGuiaII = [
@@ -335,11 +351,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // MODALES Y ACCESO NOM-035
-  const USUARIOS_AUTORIZADOS = {
-    "DEMO": "Adrexa123",
-    "EMPRESA-01": "Clinica2026*",
-    "CHALCO-CORP": "Nom035Eval"
-  };
+  // (Las claves de empresa se validan en el servidor)
 
   const btnAbrirInfo = document.getElementById('btn-abrir-info');
   const btnCerrarInfo = document.getElementById('btn-cerrar-info');
@@ -413,12 +425,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Login NOM-035
   if (formLogin) {
-    formLogin.addEventListener('submit', (e) => {
+    formLogin.addEventListener('submit', async (e) => {
       e.preventDefault();
       const user = document.getElementById('nom-user').value.trim();
-      const pass = document.getElementById('nom-pass').value.trim();
+      const pass = document.getElementById('nom-pass').value;
+      const btnEntrar = formLogin.querySelector('button[type="submit"]');
+      if (btnEntrar) { btnEntrar.disabled = true; btnEntrar.dataset.texto = btnEntrar.textContent; btnEntrar.textContent = 'Verificando…'; }
+      let acceso = null;
+      try {
+        const r = await fetch(`${NOM035_API}/login`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ clave: user, password: pass }) });
+        const d = await r.json().catch(() => ({}));
+        if (r.ok && d.token) acceso = d;
+        else if (loginErrorMsg && d.message) loginErrorMsg.textContent = d.message;
+      } catch (err) {
+        if (loginErrorMsg) loginErrorMsg.textContent = 'Sin conexión con el servidor. Intenta de nuevo.';
+      } finally {
+        if (btnEntrar) { btnEntrar.disabled = false; btnEntrar.textContent = btnEntrar.dataset.texto || 'Ingresar a la evaluación'; }
+      }
 
-      if (USUARIOS_AUTORIZADOS[user] && USUARIOS_AUTORIZADOS[user] === pass) {
+      if (acceso) {
+        try { sessionStorage.setItem('nom035_pase', acceso.token); } catch (err) { /* nada */ }
+        const empresa = acceso.empresa;
+        if (loginErrorMsg) loginErrorMsg.textContent = 'Credenciales no válidas.';
+        document.getElementById('nom-pass').value = '';
         modalLogin.classList.add('hidden');
         modalLogin.style.display = 'none';
         if (loginErrorMsg) loginErrorMsg.classList.add('hidden');
@@ -426,14 +455,14 @@ document.addEventListener("DOMContentLoaded", () => {
         cuestionarioContainer.classList.remove('hidden');
         cuestionarioContainer.style.display = 'block';
 
-        if (labelEmpresa) labelEmpresa.textContent = user;
+        if (labelEmpresa) labelEmpresa.textContent = empresa;
         if (actionsWrapper) {
           actionsWrapper.classList.add('hidden');
           actionsWrapper.style.display = 'none';
         }
 
         const inputsEmpresa = [document.getElementById('empresa'), document.getElementById('empresa-ats'), document.getElementById('buzon-empresa')];
-        inputsEmpresa.forEach(input => { if (input) input.value = user; });
+        inputsEmpresa.forEach(input => { if (input) { input.value = empresa; input.readOnly = true; } });
 
         cuestionarioContainer.scrollIntoView({ behavior: 'smooth' });
       } else {
@@ -451,6 +480,7 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       cuestionarioContainer.classList.add('hidden');
       cuestionarioContainer.style.display = 'none';
+      try { sessionStorage.removeItem('nom035_pase'); } catch (err) { /* nada */ }
 
       if (actionsWrapper) {
         actionsWrapper.classList.remove('hidden');
@@ -521,12 +551,7 @@ document.addEventListener("DOMContentLoaded", () => {
       };
 
       try {
-        const respuesta = await fetch(WEBHOOK_URL, {
-          method: "POST",
-          headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify(payload)
-        });
-        const data = await respuesta.json();
+        const data = await enviarNom035(payload);
         if (data.status === "success") {
           alert(`✅ ¡Cuestionario registrado con éxito!\n\nEmpresa: ${payload.empresa}\nInstrumento: ${nombreGuia}\nPuntaje Total: ${sumaPuntaje} pts\nNivel de Riesgo Global: ${nivelRiesgo}`);
           formNom.reset();
@@ -584,12 +609,7 @@ document.addEventListener("DOMContentLoaded", () => {
       };
 
       try {
-        const respuesta = await fetch(WEBHOOK_URL, {
-          method: "POST",
-          headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify(payload)
-        });
-        const data = await respuesta.json();
+        const data = await enviarNom035(payload);
         if (data.status === "success") {
           alert(`✅ Cuestionario registrado exitosamente.\n\nColaborador: ${payload.idEmpleado}\nDictamen: ${dictamenATS}`);
           formATS.reset();
@@ -629,12 +649,7 @@ document.addEventListener("DOMContentLoaded", () => {
       };
 
       try {
-        const respuesta = await fetch(WEBHOOK_URL, {
-          method: "POST",
-          headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify(payload)
-        });
-        const data = await respuesta.json();
+        const data = await enviarNom035(payload);
         if (data.status === "success") {
           alert("🛡️ DENUNCIA REGISTRADA CON ÉXITO\n\nSe ha generado su folio confidencial en el sistema.");
           formBuzon.reset();
