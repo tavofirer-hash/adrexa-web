@@ -1,0 +1,398 @@
+/* Módulo NOM-035 (cuestionarios, buzón, avisos legales y cookies), con la paleta «Editorial serena» */
+.modal-title {
+  color: #12455B;
+  font-size: 21px;
+  margin-bottom: 24px;
+}
+.info-box.destacada {
+  border-left: 4px solid #A88B5C;
+  background-color: #fdfdfd;
+}
+.btn-cotizar-modal {
+  display: inline-block;
+  background-color: #7FA38A;
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 14px 28px;
+  border-radius: 8px;
+  margin-top: 24px;
+}
+.lock-circle {
+  font-size: 38px;
+  margin-bottom: 10px;
+}
+.login-header h3 {
+  color: #12455B;
+  margin-bottom: 6px;
+}
+.login-header p {
+  color: #66717A;
+  font-size: 13.5px;
+  margin-bottom: 20px;
+}
+.btn-submit-login {
+  width: 100%;
+  background-color: #A88B5C;
+  color: #ffffff;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.banner-autenticado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #EEF3EF;
+  border: 1px solid #7FA38A;
+  padding: 14px 20px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+.btn-logout {
+  background: transparent;
+  border: 1px solid #dc2626;
+  color: #dc2626;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+.form-container {
+  background: white;
+  padding: 35px;
+  border-radius: 12px;
+  max-width: 850px;
+  margin: 0 auto;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+.form-container h3 {
+  color: #12455B;
+  margin-bottom: 8px;
+}
+.form-row input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #D6CBBA;
+  border-radius: 6px;
+  font-size: 15px;
+}
+.pregunta-box {
+  background: #F6F3EE;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+.pregunta-box p {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.pregunta-box label {
+  display: inline-block;
+  margin-right: 15px;
+  font-size: 14px;
+}
+.btn-submit {
+  width: 100%;
+  background-color: #7FA38A;
+  color: white;
+  border: none;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 25px;
+  transition: background-color 0.2s;
+}
+.btn-submit:hover {
+  background-color: #6a8671;
+}
+.categoria-header {
+  background-color: #12455B;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 8px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+.categoria-header h4 {
+  color: white;
+  margin: 0;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+.pregunta-texto {
+  font-size: 15px;
+  color: #1A2630;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+.opciones-nom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.opciones-nom label {
+  background: white;
+  border: 1px solid #D6CBBA;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+.opciones-nom label:hover {
+  border-color: #7FA38A;
+  background-color: #EFEAE2;
+}
+.opciones-nom input[type="radio"] {
+  accent-color: #12455B;
+}
+.selector-guia-box {
+  background-color: #EFEAE2;
+  border-left: 5px solid #12455B;
+  padding: 18px 20px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.selector-guia-box label {
+  color: #12455B;
+  font-size: 15px;
+}
+.form-select {
+  padding: 12px;
+  border: 1.5px solid #D6CBBA;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1A2630;
+  background-color: #ffffff;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-select:focus {
+  border-color: #12455B;
+}
+.tabs-evaluacion {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+.btn-tab {
+  flex: 1;
+  min-width: 260px;
+  padding: 14px 20px;
+  background-color: #E2DCD0;
+  color: #1A2630;
+  border: none;
+  border-radius: 8px;
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.btn-tab.active {
+  background-color: #12455B;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(18, 69, 91, 0.2);
+}
+.btn-tab:hover:not(.active) {
+  background-color: #D6CBBA;
+}
+.opciones-ats {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+}
+.opciones-ats label {
+  background: white;
+  border: 1px solid #D6CBBA;
+  padding: 8px 24px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+.opciones-ats label:hover {
+  border-color: #12455B;
+  background-color: #F6F3EE;
+}
+.alerta-normativa {
+  background-color: #fef3c7;
+  border-left: 4px solid #f59e0b;
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin: 20px 0;
+  font-size: 14px;
+  color: #92400e;
+  line-height: 1.4;
+}
+.instrucciones-sec {
+  font-size: 14px;
+  color: #66717A;
+  margin-bottom: 12px;
+}
+.politica-acordeon-box {
+  margin-bottom: 25px;
+  border: 1px solid #D6CBBA;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+.btn-acordeon-politica {
+  width: 100%;
+  padding: 14px 18px;
+  background-color: #F6F3EE;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #12455B;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+.btn-acordeon-politica:hover {
+  background-color: #edf2f7;
+}
+.contenido-politica-desplegable {
+  padding: 20px;
+  border-top: 1px solid #E2DCD0;
+  background-color: #ffffff;
+  color: #1A2630;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+.contenido-politica-desplegable h4 {
+  color: #12455B;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+.contenido-politica-desplegable ul {
+  padding-left: 20px;
+  margin: 10px 0;
+}
+.contenido-politica-desplegable li {
+  margin-bottom: 6px;
+}
+.nota-politica {
+  font-size: 12px;
+  color: #66717A;
+  margin-top: 12px;
+}
+.form-textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #D6CBBA;
+  border-radius: 6px;
+  
+  font-size: 14px;
+  color: #1A2630;
+  resize: vertical;
+  outline: none;
+  box-sizing: border-box;
+}
+.form-textarea:focus {
+  border-color: #12455B;
+  box-shadow: 0 0 0 2px rgba(18, 69, 91, 0.15);
+}
+.consentimiento-check-box {
+  margin: 20px 0 15px 0;
+  padding: 14px 16px;
+  background-color: #F6F3EE;
+  border: 1px solid #D6CBBA;
+  border-radius: 8px;
+  text-align: left;
+}
+.legal-content-scroll {
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 12px;
+  text-align: left;
+  font-size: 14px;
+  color: #1A2630;
+  line-height: 1.6;
+}
+.legal-content-scroll h4 {
+  color: #12455B;
+  margin-top: 16px;
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+.legal-content-scroll ul {
+  padding-left: 20px;
+  margin-bottom: 12px;
+}
+.legal-content-scroll li {
+  margin-bottom: 6px;
+}
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #0f172a;
+  color: #F6F3EE;
+  padding: 16px 20px;
+  z-index: 999;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+}
+.cookie-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.cookie-content p {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #D6CBBA;
+  margin: 0;
+  flex: 1;
+  min-width: 280px;
+}
+.cookie-content a {
+  color: #D8C39E;
+  text-decoration: underline;
+}
+.btn-cookie-accept {
+  background-color: #7FA38A;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 13.5px;
+  transition: background-color 0.2s;
+}
+.btn-cookie-accept:hover {
+  background-color: #16a34a;
+}
+.modal-title { font-family: 'Fraunces', Georgia, serif; font-weight: 300; color: #12455B; }
+.categoria-header h4, .contenido-politica-desplegable h4, .legal-content-scroll h4, .form-container h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 400; }
+.btn-submit, .btn-submit-login, .btn-cookie-accept { border-radius: 0 !important; letter-spacing: 0.12em; text-transform: uppercase; font-size: 13px !important; }
+#cuestionario-privado-container { margin-top: 40px; }

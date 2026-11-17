@@ -1,183 +1,153 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clínica Psicológica Adrexa</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Adrexa · Clínica Psicológica en Chalco y en línea</title>
+  <meta name="description" content="Psicoterapia profesional, humana y confidencial basada en evidencia (TCC, ACT, DBT y TFE). Consultorio en Chalco, Edo. Méx., y sesiones en línea en todo México.">
+  <meta name="theme-color" content="#0B2E3D">
+  <link rel="icon" href="https://adrexa-backend.onrender.com/iconos/favicon-32.png">
+  <link rel="preload" href="/fuentes/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fuentes/inter.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css?v=5">
+  <link rel="stylesheet" href="nom035.css?v=1">
 </head>
 <body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-f" viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-fd" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 18.5V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H7.5z"/></symbol>
+    <symbol id="i-esc" viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.3-3 7.9-7 9.5-4-1.6-7-5.2-7-9.5V6z"/></symbol>
+    <symbol id="i-ok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.2l2.4 2.3 4.6-4.8"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  </svg>
 
-  <!-- PORTADA HERO -->
-  <header class="hero-wrapper">
-    <div class="hero-image-container">
-      <img src="hero.jpg" alt="Clínica Psicológica Adrexa - Consultorio y Bienestar Emocional" class="hero-img">
-      <a href="https://wa.me/5215538154148?text=Hola,%20me%20gustaría%20agendar%20una%20cita%20en%20Clínica%20Psicológica%20Adrexa" target="_blank" class="hotspot btn-cita" title="Agendar una cita por WhatsApp"></a>
-      <a href="#nosotros" class="hotspot btn-conocenos" title="Conoce nuestra clínica"></a>
-      <a href="#servicios" class="hotspot nav-servicios" title="Servicios Clínicos"></a>
-      <a href="#nom035" class="hotspot nav-contacto" title="Consultoría NOM-035"></a>
+  <!-- FRANJA SUPERIOR -->
+  <div class="franja mini">
+    <div class="cont">
+      <span class="franja-izq"><a href="https://maps.app.goo.gl/oZojsbTwyhfwvNK37" target="_blank" rel="noopener noreferrer">Chalco, Edo. Méx.</a><span>En línea en todo México</span></span>
+      <span>Lunes a domingo · 08:00 – 22:00</span>
     </div>
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <header class="nav">
+    <div class="cont">
+      <nav class="nav-izq" aria-label="Secciones"><a href="#enfoque">Enfoque</a><a href="#servicios">Servicios</a><a href="#proceso">Proceso</a></nav>
+      <a class="logo" href="/" aria-label="Adrexa, inicio"><strong>ADREXA</strong><small>Clínica Psicológica</small></a>
+      <nav class="nav-der" aria-label="Accesos"><a href="#nom035">Empresas</a><a href="https://adrexa-backend.onrender.com/pacientes">Mi espacio</a><a class="enlace-l" href="#" data-agendar>Agendar cita</a></nav>
+      <button type="button" class="menu" id="btn-menu" aria-label="Abrir menú" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
+    <nav class="menu-movil" id="menu-movil" aria-label="Menú">
+      <a href="#enfoque">Enfoque</a><a href="#servicios">Servicios</a><a href="#proceso">Proceso</a><a href="#nom035">Empresas</a>
+      <a href="https://adrexa-backend.onrender.com/pacientes">Mi espacio · pacientes</a><a href="https://adrexa-backend.onrender.com/panel">Portal de terapeutas</a>
+      <a href="#" class="btn" data-agendar>Agendar una cita</a>
+    </nav>
   </header>
 
-  <!-- BARRA LOGÍSTICA Y CONTACTO RÁPIDO -->
-  <section class="logistica-bar">
-    <div class="container logistica-grid">
-      <div class="logistica-item">
-        <span class="logistica-icon">📍</span>
+  <main>
+    <!-- PORTADA -->
+    <section class="portada">
+      <img src="portada.jpg" alt="Consultorio de Adrexa: sillón, mesa auxiliar, libros y plantas" width="1600" height="1295" fetchpriority="high">
+      <div class="cont">
+        <span class="mini laton">Psicoterapia basada en evidencia</span>
+        <h1>Un espacio sereno para <i>volver</i> a ti.</h1>
+        <p>Psicoterapia profesional, humana y confidencial. En consultorio en Chalco o por videollamada, a tu ritmo.</p>
+        <div class="acc">
+          <a class="btn" href="#" id="btn-abrir-agendar" data-agendar>Agendar una cita <svg class="ico"><use href="#i-f"/></svg></a>
+          <a class="enlace-l" href="https://wa.me/5215538154148?text=Hola,%20solicito%20informaci%C3%B3n%20para%20una%20consulta" target="_blank" rel="noopener noreferrer">Escríbenos por WhatsApp</a>
+        </div>
+      </div>
+      <div class="pie-portada">
+        <div><b>Cédula profesional</b><br>en todo el equipo</div>
+        <div><b>Expediente confidencial</b><br>conforme a la NOM-004</div>
+        <div><b>Presencial y en línea</b><br>los 7 días de la semana</div>
+      </div>
+    </section>
+
+    <!-- PRINCIPIOS -->
+    <section class="principios" aria-label="Nuestros principios">
+      <div class="cont">
+        <div class="p"><span class="n">I.</span><div><h3>Evidencia</h3><p>Terapias con respaldo científico y avances que se miden.</p></div></div>
+        <div class="p"><span class="n">II.</span><div><h3>Confidencialidad</h3><p>Secreto profesional y expediente cifrado y protegido.</p></div></div>
+        <div class="p"><span class="n">III.</span><div><h3>Calidez</h3><p>Un trato humano, sin juicios, en un espacio pensado para ti.</p></div></div>
+      </div>
+    </section>
+
+    <!-- FRASE -->
+    <section class="manifiesto">
+      <div class="cont">
+        <div class="adorno"></div>
+        <blockquote>«La terapia no es el lugar al que llegas cuando todo está roto; es el espacio donde aprendes a <i>entenderte</i>.»</blockquote>
+        <span class="firma">Clínica Psicológica Adrexa</span>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="sec" id="servicios">
+      <div class="cont">
+        <div class="cab"><div><span class="mini laton">Servicios</span><h2>Acompañamiento para cada etapa.</h2></div><p>Atención individual, de pareja e infantil, presencial en Chalco y en línea a nivel nacional.</p></div>
+        <div class="lista">
+          <a class="fila" href="#" data-agendar><span class="n">01</span><h3>Niñas, niños y adolescentes</h3><p>Manejo de emociones, regulación de la conducta, autoestima y acompañamiento en etapas difíciles del desarrollo.</p><span class="mod">Presencial · En línea</span><span class="ir" aria-hidden="true"><svg class="ico"><use href="#i-fd"/></svg></span></a>
+          <a class="fila" href="#" data-agendar><span class="n">02</span><h3>Adultos y pareja</h3><p>Terapia individual y de pareja para depresión, duelo, estrés y resolución de conflictos.</p><span class="mod">Presencial · En línea</span><span class="ir" aria-hidden="true"><svg class="ico"><use href="#i-fd"/></svg></span></a>
+          <a class="fila" href="#" data-agendar><span class="n">03</span><h3>Ansiedad y estado de ánimo</h3><p>Tratamiento estructurado para ansiedad generalizada, ataques de pánico, distimia y estrés agudo.</p><span class="mod">Presencial · En línea</span><span class="ir" aria-hidden="true"><svg class="ico"><use href="#i-fd"/></svg></span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENFOQUE -->
+    <section class="sec enfoque" id="enfoque">
+      <div class="cont">
+        <div class="marco">
+          <img src="sillon.jpg" alt="Sillón del consultorio con cojín y mesa auxiliar" width="900" height="810" loading="lazy">
+          <div class="sello"><span><b>4</b>modelos con<br>evidencia</span></div>
+        </div>
         <div>
-          <strong>Presencial & Online</strong>
-          <p>
-            <a href="https://maps.app.goo.gl/oZojsbTwyhfwvNK37" target="_blank" rel="noopener noreferrer" class="link-ubicacion" title="Ver ubicación en Google Maps">
-              Calle Oyamel, Fracc. Los Álamos · Chalco, Edo. Méx.
-            </a>
-          </p>
+          <span class="mini laton">Nuestro enfoque</span>
+          <h2>Ciencia y calidez, en la misma sesión.</h2>
+          <p class="intro">Trabajamos con psicoterapias respaldadas por investigación y medimos tu avance con pruebas al inicio y al cierre del proceso.</p>
+          <div class="modelos">
+            <div><b>TCC</b><small>Cognitivo-Conductual</small></div>
+            <div><b>ACT</b><small>Aceptación y Compromiso</small></div>
+            <div><b>DBT</b><small>Dialéctico-Conductual</small></div>
+            <div><b>TFE</b><small>Focalizada en las Emociones</small></div>
+          </div>
+          <div class="garantias">
+            <span><svg class="ico"><use href="#i-ok"/></svg> Expediente clínico conforme a la NOM-004-SSA3-2012</span>
+            <span><svg class="ico"><use href="#i-ok"/></svg> Profesionales titulados con cédula profesional federal</span>
+            <span><svg class="ico"><use href="#i-ok"/></svg> Notas en cada sesión y objetivos terapéuticos claros</span>
+          </div>
         </div>
       </div>
-      <div class="logistica-item">
-        <span class="logistica-icon">🕒</span>
-        <div>
-          <strong>Amplia Disponibilidad</strong>
-          <p>Lunes a Domingo · 08:00 a 22:00 hrs</p>
+    </section>
+
+    <!-- PROCESO -->
+    <section class="sec" id="proceso">
+      <div class="cont">
+        <div class="cab"><div><span class="mini laton">Proceso</span><h2>Tu primera cita, sin complicaciones.</h2></div><p>Tres pasos sencillos. Después tendrás tu app «Mi espacio» con tus citas, documentos y ejercicios.</p></div>
+        <div class="proceso">
+          <div class="paso"><div class="c">1</div><h3>Elige día y hora</h3><p>Agenda en línea con horarios disponibles en tiempo real o <a class="enlace-s" href="https://wa.me/5215538154148" target="_blank" rel="noopener noreferrer">escríbenos por WhatsApp</a>.</p></div>
+          <div class="paso"><div class="c">2</div><h3>Completa tu ficha</h3><p>Un <a class="enlace-s" href="https://adrexa-backend.onrender.com/ingreso">cuestionario breve y confidencial</a> para conocerte antes de la primera sesión.</p></div>
+          <div class="paso"><div class="c">3</div><h3>Comienza</h3><p>En consultorio o por videollamada, con el mismo cuidado.</p></div>
         </div>
+        <div class="accesos">
+          <a class="acceso" href="https://adrexa-backend.onrender.com/pacientes"><div><h4>Mi espacio</h4><p>Para pacientes: citas, documentos y ejercicios</p></div><span class="ir" aria-hidden="true"><svg class="ico"><use href="#i-f"/></svg></span></a>
+          <a class="acceso" href="https://adrexa-backend.onrender.com/panel"><div><h4>Portal de terapeutas</h4><p>Acceso exclusivo del equipo clínico</p></div><span class="ir" aria-hidden="true"><svg class="ico"><use href="#i-f"/></svg></span></a>
+        </div>
+        <p class="crisis"><svg class="ico"><use href="#i-esc"/></svg><span><b>¿Estás en crisis?</b> Esta página no atiende emergencias. Si hay riesgo inmediato llama al <b>911</b> o a la Línea de la Vida <a href="tel:8009112000"><b>800 911 2000</b></a> (24 h, gratuita).</span></p>
       </div>
-      <div class="logistica-item">
-        <span class="logistica-icon">💬</span>
-        <div>
-          <strong>Atención Inmediata</strong>
-          <p><a href="https://wa.me/5215538154148?text=Hola,%20solicito%20información%20para%20una%20consulta" target="_blank" class="link-wa">Agendamiento ágil vía WhatsApp</a></p>
+    </section>
+
+    <!-- EMPRESAS (NOM-035) -->
+    <section id="nom035">
+      <div class="cont">
+        <div class="empresas nom035-actions-wrapper">
+          <div><span class="mini laton">Para empresas</span><h2>Consultoría NOM-035-STPS</h2><p>Diagnóstico digital de factores de riesgo psicosocial, capacitación y respaldo técnico para inspecciones.</p></div>
+          <div class="ops">
+            <button type="button" id="btn-abrir-info"><span>Conocer el servicio<small>Obligaciones, validez STPS y ventajas</small></span><svg class="ico"><use href="#i-f"/></svg></button>
+            <button type="button" id="btn-abrir-login"><span>Acceso a cuestionarios<small>Para colaboradores evaluados</small></span><svg class="ico"><use href="#i-f"/></svg></button>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ACCESO A LOS PORTALES (PACIENTES Y TERAPEUTAS) -->
-  <section class="portales-bar" aria-label="Acceso a los portales">
-    <div class="container portales-flex">
-      <a href="https://adrexa-backend.onrender.com/pacientes" class="btn-portal btn-portal-paciente">
-        <span class="btn-portal-icono">🌱</span>
-        <span><strong>Portal de Pacientes</strong><small>Mi espacio: citas, documentos y ejercicios</small></span>
-      </a>
-      <a href="https://adrexa-backend.onrender.com/panel" class="btn-portal btn-portal-terapeuta">
-        <span class="btn-portal-icono">🔒</span>
-        <span><strong>Portal de Terapeutas</strong><small>Acceso exclusivo para el equipo clínico</small></span>
-      </a>
-    </div>
-  </section>
-
-  <!-- AVISO PREVENTIVO DE EMERGENCIAS (COFEPRIS / BIOÉTICA) -->
-  <aside class="alerta-emergencias-bar">
-    <div class="container alerta-emergencias-flex">
-      <span>🛡️ <strong>Atención en Crisis:</strong> Este portal no atiende emergencias agudas. Si te encuentras ante un riesgo inminente, llama al <strong>911</strong> o a la Línea de la Vida al <strong>800 911 2000</strong>.</span>
-    </div>
-  </aside>
-
-  <!-- SECCIÓN NOSOTROS Y ENFOQUE BASADO EN EVIDENCIA -->
-  <section id="nosotros" class="section">
-    <div class="container">
-      <h2 class="section-title">Enfoque Clínico Riguroso Basado en Evidencia (PBE)</h2>
-      <p class="section-sub">Atención psicoterapéutica científica, medible y comprometida con el bienestar y la dignidad humana.</p>
-
-      <div class="nosotros-grid">
-        <div class="nosotros-card">
-          <div class="card-icon">🔬</div>
-          <h3>Modelos de Intervención Empíricos</h3>
-          <p>Nos distanciamos de enfoques no regulados. Aplicamos psicoterapias de vanguardia con respaldo empírico:</p>
-          <ul class="lista-modelos">
-            <li><strong>TCC:</strong> Terapia Cognitivo-Conductual.</li>
-            <li><strong>ACT:</strong> Terapia de Aceptación y Compromiso.</li>
-            <li><strong>DBT:</strong> Terapia Dialéctico-Conductual.</li>
-            <li><strong>TFE:</strong> Terapia Focalizada en las Emociones.</li>
-          </ul>
-        </div>
-
-        <div class="nosotros-card">
-          <div class="card-icon">📊</div>
-          <h3>Medición y Seguimiento Estructurado</h3>
-          <p>El progreso terapéutico no es subjetivo; se evalúa y comprueba de forma estructurada:</p>
-          <ul class="lista-modelos">
-            <li><strong>Baterías psicométricas pre y post-intervención</strong> para cuantificar avances de manera objetiva.</li>
-            <li><strong>Notas clínicas y registro estructurado</strong> en cada sesión de tratamiento.</li>
-            <li>Seguimiento clínico colegiado y objetivos terapéuticos claros.</li>
-          </ul>
-        </div>
-
-        <div class="nosotros-card">
-          <div class="card-icon">⚖️</div>
-          <h3>Respaldo Legal, Ético y Confidencial</h3>
-          <p>Garantizamos el más alto estándar bioético y apego a la normativa sanitaria oficial:</p>
-          <ul class="lista-modelos">
-            <li><strong>Cumplimiento NOM-004-SSA3-2012:</strong> Integración, uso y resguardo estricto del expediente clínico.</li>
-            <li>Secreto profesional y confidencialidad absoluta en todo el proceso.</li>
-            <li>Profesionales titulados con cédula profesional federal.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- FILOSOFÍA INSTITUCIONAL -->
-      <div class="filosofia-box">
-        <div class="filosofia-item">
-          <h4>Nuestra Misión</h4>
-          <p>Brindar atención psicoterapéutica y capacitación laboral basadas en evidencia científica de manera ética, accesible y medible, favoreciendo el bienestar integral individual y organizacional.</p>
-        </div>
-        <div class="filosofia-divider"></div>
-        <div class="filosofia-item">
-          <h4>Nuestra Visión</h4>
-          <p>Consolidarnos como la entidad clínica y capacitadora de referencia en la región oriente del Estado de México y la Ciudad de México, reconocida por su rigor metodológico y efectividad.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICIOS CLÍNICOS -->
-  <section id="servicios" class="section bg-light">
-    <div class="container">
-      <h2 class="section-title">Servicios Clínicos Especializados</h2>
-      <p class="section-sub">Consultoría y psicoterapia en modalidades Presencial (Chalco) y Online a nivel nacional.</p>
-      
-      <div class="grid-services">
-        <div class="card">
-          <div class="modalidad-badge">Presencial & Online</div>
-          <h3>Infantil & Adolescentes</h3>
-          <p>Manejo de emociones, regulación conductual, fortalecimiento de autoestima y acompañamiento en crisis del desarrollo.</p>
-        </div>
-        <div class="card">
-          <div class="modalidad-badge">Presencial & Online</div>
-          <h3>Adultos & Pareja</h3>
-          <p>Intervención clínica individual y vincular para depresión, procesos de duelo, estrés y resolución asertiva de conflictos.</p>
-        </div>
-        <div class="card">
-          <div class="modalidad-badge">Presencial & Online</div>
-          <h3>Trastornos del Ánimo y Ansiedad</h3>
-          <p>Abordaje protocolizado para distimia, trastorno de ansiedad generalizada, crisis de pánico y secuelas de estrés agudo.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MÓDULO NOM-035 INTEGRAL -->
-  <section id="nom035" class="section">
-    <div class="container">
-      <h2 class="section-title">Consultoría Corporativa NOM-035-STPS</h2>
-      <p class="section-sub">Capacitación, diagnóstico digital de factores de riesgo psicosocial y blindaje técnico laboral.</p>
-
-      <!-- DOS BOTONES PRINCIPALES NOM-035 -->
-      <div class="nom035-actions-wrapper">
-        <button type="button" class="btn-nom btn-info" id="btn-abrir-info">
-          <span class="btn-icon">📋</span>
-          <span class="btn-text">
-            <strong>Conocer el Servicio</strong>
-            <small>Obligaciones legales, validez STPS y ventajas</small>
-          </span>
-        </button>
-
-        <button type="button" class="btn-nom btn-acceso" id="btn-abrir-login">
-          <span class="btn-icon">🔒</span>
-          <span class="btn-text">
-            <strong>Acceso a Cuestionarios</strong>
-            <small>Portal exclusivo para colaboradores evaluados</small>
-          </span>
-        </button>
-      </div>
 
       <!-- MODAL 1: INFORMACIÓN CORPORATIVA Y VENTAJAS -->
       <div id="modal-info-nom" class="modal-overlay hidden">
@@ -620,27 +590,88 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
+      </div>
+    </section>
+  </main>
 
-  <!-- PIE DE PÁGINA -->
+  <!-- PIE -->
   <footer>
-    <p><strong>Clínica Psicológica Adrexa S.A.S. de C.V.</strong> &bull; Calle Oyamel, Fracc. Los Álamos, Chalco, Edo. Méx.</p>
-    <p>Modalidad Presencial y Sesiones Online a nivel nacional</p>
-    <p>Práctica Basada en Evidencia | NOM-004-SSA3-2012 | NOM-035-STPS-2018</p>
-    <p class="footer-links-legal">
-      <a href="javascript:void(0)" class="link-abrir-privacidad">Aviso de Privacidad</a> &bull; 
-      <a href="javascript:void(0)" class="link-abrir-consentimiento">Consentimiento Informado</a> &bull; 
-      <a href="javascript:void(0)" class="link-abrir-terminos">Términos y Condiciones</a> &bull; 
-      <a href="https://maps.app.goo.gl/oZojsbTwyhfwvNK37" target="_blank" rel="noopener noreferrer">Cómo llegar (Maps)</a>
-    </p>
-    <p class="footer-sub">Atención de Lunes a Domingo de 08:00 a 22:00 hrs &bull; Confidencialidad y Secreto Profesional</p>
-    <p class="footer-links-legal">
-      <a href="https://adrexa-backend.onrender.com/pacientes" style="color: #4ade80; font-weight: 600; text-decoration: none;">🌱 Portal de Pacientes</a> &bull;
-      <a href="https://adrexa-backend.onrender.com/panel" style="color: #4ade80; font-weight: 600; text-decoration: none;">🔒 Portal de Terapeutas</a>
-    </p>
-    <p class="footer-derechos">© 2026 Clínica Psicológica Adrexa S.A.S. de C.V. Todos los derechos reservados.</p>
+    <div class="cont">
+      <p class="grande">Cuando estés listo, <i>aquí</i> estaremos.</p>
+      <a class="btn btn-claro" href="#" data-agendar>Agendar una cita <svg class="ico"><use href="#i-f"/></svg></a>
+      <div class="cols">
+        <div class="logo-pie"><strong>ADREXA</strong><p>Clínica Psicológica Adrexa S.A.S. de C.V.</p></div>
+        <div><h5>Visítanos</h5><ul><li>Calle Oyamel, Fracc. Los Álamos</li><li>Chalco, Edo. Méx.</li><li><a href="https://maps.app.goo.gl/oZojsbTwyhfwvNK37" target="_blank" rel="noopener noreferrer">Cómo llegar ↗</a></li></ul></div>
+        <div><h5>Contacto</h5><ul><li><a href="https://wa.me/5215538154148" target="_blank" rel="noopener noreferrer">WhatsApp 55 3815 4148</a></li><li>Lunes a domingo</li><li>08:00 – 22:00</li></ul></div>
+        <div><h5>Pacientes</h5><ul><li><a href="https://adrexa-backend.onrender.com/ingreso">Ficha de ingreso</a></li><li><a href="https://adrexa-backend.onrender.com/pacientes">Mi espacio</a></li><li><a href="#" data-aviso>Aviso de privacidad</a></li><li><a href="javascript:void(0)" class="link-abrir-consentimiento">Consentimiento informado</a></li><li><a href="javascript:void(0)" class="link-abrir-terminos">Términos y condiciones</a></li></ul></div>
+      </div>
+      <div class="der"><span>© 2026 Clínica Psicológica Adrexa S.A.S. de C.V.</span><span>Confidencialidad y secreto profesional</span></div>
+    </div>
   </footer>
+
+  <a class="wa" href="https://wa.me/5215538154148?text=Hola,%20solicito%20informaci%C3%B3n%20para%20una%20consulta" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp"><svg class="ico" viewBox="0 0 24 24"><path d="M4 18.5V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H7.5z"/></svg><span>WhatsApp</span></a>
+
+  <!-- VENTANA: AGENDAR CITA -->
+  <div id="modal-agendar-cita" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="titulo-agendar">
+    <div class="modal-card modal-md">
+      <button type="button" class="modal-close" id="btn-cerrar-agendar" aria-label="Cerrar"><svg class="ico"><use href="#i-x"/></svg></button>
+      <span class="mini laton">Agendar</span>
+      <h3 id="titulo-agendar">Reserva tu consulta</h3>
+      <p class="modal-sub">Elige fecha y horario. La disponibilidad es en tiempo real.</p>
+      <form id="form-reservar-cita">
+        <div class="form-group">
+          <label for="cita-nombre">Nombre completo *</label>
+          <input type="text" id="cita-nombre" required placeholder="Ej. Mariana López Pérez" autocomplete="name">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cita-telefono">WhatsApp (10 dígitos) *</label>
+            <input type="tel" id="cita-telefono" required pattern="[0-9]{10}" placeholder="Ej. 5512345678" autocomplete="tel-national">
+          </div>
+          <div class="form-group">
+            <label for="cita-email">Correo (opcional)</label>
+            <input type="email" id="cita-email" placeholder="correo@ejemplo.com" autocomplete="email">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cita-modalidad">Modalidad *</label>
+            <select id="cita-modalidad" required>
+              <option value="presencial">Presencial (Chalco, Edo. Méx.)</option>
+              <option value="en_linea">En línea (videollamada segura)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="cita-fecha">Fecha *</label>
+            <input type="date" id="cita-fecha" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Horarios disponibles</label>
+          <div id="contenedor-slots-horarios" class="slots-grid">
+            <p class="slot-info-muted">Elige una fecha para ver los horarios.</p>
+          </div>
+          <input type="hidden" id="cita-hora-inicio" required>
+          <input type="hidden" id="cita-hora-fin" required>
+        </div>
+        <label class="check-legal">
+          <input type="checkbox" id="check-privacidad-cita" required>
+          <span>Acepto el <a href="#" data-aviso>Aviso de Privacidad</a>. Mis datos se tratan con confidencialidad conforme a la NOM-004-SSA3-2012.</span>
+        </label>
+        <button type="submit" id="btn-confirmar-cita" class="btn btn-ancho">Confirmar y Reservar Cita</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- VENTANA: AVISO DE PRIVACIDAD -->
+  <div id="modal-aviso" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="titulo-aviso">
+    <div class="modal-card modal-lg">
+      <button type="button" class="modal-close" data-cerrar aria-label="Cerrar"><svg class="ico"><use href="#i-x"/></svg></button>
+      <span class="mini laton">Datos personales</span>
+      <h3 id="titulo-aviso">Aviso de privacidad</h3>
+      <div id="aviso-texto" class="aviso-texto">Cargando…</div>
+    </div>
+  </div>
 
   <!-- BANNER DE COOKIES -->
   <aside id="cookie-banner" class="cookie-banner hidden">
@@ -650,12 +681,7 @@
     </div>
   </aside>
 
-  <!-- BOTÓN FLOTANTE PERMANENTE DE WHATSAPP -->
-  <a href="https://wa.me/5215538154148?text=Hola,%20me%20gustaría%20solicitar%20información%20sobre%20sus%20servicios%20clínicos" class="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Chat de atención inmediata por WhatsApp">
-    <svg viewBox="0 0 32 32" width="30" height="30" fill="#ffffff"><path d="M16 2a14 14 0 0 0-12 21.2L2 30l7-1.8A14 14 0 1 0 16 2zm0 25.5a11.5 11.5 0 0 1-5.9-1.6l-.4-.3-4.4 1.2 1.2-4.3-.3-.5A11.5 11.5 0 1 1 16 27.5zm6.3-8.6c-.3-.2-2-.9-2.3-1s-.6-.2-.8.2-.9 1-1.1 1.2-.4.3-.7.1a9 9 0 0 1-2.6-1.6 10 10 0 0 1-1.8-2.3c-.2-.3 0-.5.1-.7s.3-.4.5-.6.2-.4.3-.6 0-.4 0-.6-.8-2-1.1-2.7c-.3-.7-.6-.6-.8-.6h-.7a1.4 1.4 0 0 0-1 .5 4.3 4.3 0 0 0-1.3 3.2 7.5 7.5 0 0 0 1.6 4 17.2 17.2 0 0 0 6.6 5.8 22.3 22.3 0 0 0 2.2.8c.9.3 1.8.3 2.5.2a3.6 3.6 0 0 0 2.4-1.7 3 3 0 0 0 .2-1.7c-.1-.1-.3-.2-.6-.4z"/></svg>
-  </a>
-
-  <!-- SCRIPT OFICIAL -->
   <script src="app.js"></script>
+  <script src="agenda-web.js"></script>
 </body>
 </html>
